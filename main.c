@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "gameInfo.h"
 #include "gameEvents.h"
+#include "eventSwitcher.h"
 #include "hud.h"
 
 //Computes for the number of hearts based on the current interestPoints
@@ -14,25 +15,8 @@ struct gameInfo computeHearts(struct gameInfo _mainInfo){
   return _mainInfo;
 }
 
-//Switches between different events and quests depending on the given number
-struct gameInfo eventSwitcher(struct gameInfo _eventInfo){
-  switch (_eventInfo.nextEvent)
-  {
-    case 1:
-      _eventInfo = b1e1(_eventInfo);
-      break;
-    case 2:
-      _eventInfo = b1e2(_eventInfo);
-      break;
-    default:
-      _eventInfo.errorCode = 1;
-      break;
-  }
-  return _eventInfo;
-}
-
+//takes care of the data between the main function and the events
 struct gameInfo eventEngine(struct gameInfo _mainInfo){
-
   //Initialize event variables
   struct gameInfo eventInfo;
   eventInfo = _mainInfo;
@@ -88,7 +72,7 @@ int main(){
   mainInfo = computeHearts(mainInfo);
 
   //Present Splash Screen
-  // splashScreen();
+  splashScreen();
 
   //Main Game Logic
   while(mainInfo.end == 0 && mainInfo.errorCode == 0){
