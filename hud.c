@@ -20,6 +20,11 @@ void printCentered(int x, char * content){
     printf("%s\n", content);
 }
 
+void printPadding(int y, int lines){
+  for(int i = 0; i < floor(((y-lines)/2)) - 1; i++){
+    printf("\n");
+  }
+}
 void printLine(){
   struct winsize windowSize = getSize();
   for(int i = 0; i < windowSize.ws_col; i++)
@@ -39,7 +44,7 @@ void printHearts(int hearts){
 void printHUD(struct gameInfo _mainInfo){
   system("clear");
   printLine();
-  printf("| Name: Oscar | Hearts: A: ");
+  printf("| Hearts: A: ");
   printHearts(_mainInfo.heartsA);
   printf("B: ");
   printHearts(_mainInfo.heartsB);
@@ -60,18 +65,15 @@ void printMenu(char options[][50], int numberOptions){
 
 void splashScreen(){
   struct winsize windowSize = getSize();
-  int lines = 3;
   int y = windowSize.ws_row;
   int x = windowSize.ws_col;
+  int lines = 3;
   char line1[]="Welcome";
   char line2[]="to the";
   char line3[]="King of the Iron Fist Tournament";
 
   system("clear");
-  for(int i = 0; i < floor((y/2)) - 1; i++)
-  {HAHA 
-    printf("\n");
-  }
+  printPadding(y, lines);
   printCentered(x,line1);
   printCentered(x,line2);
   printCentered(x,line3);
