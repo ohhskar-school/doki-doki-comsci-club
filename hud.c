@@ -13,7 +13,7 @@ struct winsize getSize(){
 }
 
 void printCentered(int x, char * content){
-  for(int i = 0; i < floor((x - strlen(content))/2) ; i++)
+  for(int i = 0; i < (floor((x - strlen(content))/2) - 1) ; i++)
     {
       printf(" ");
     }
@@ -67,15 +67,24 @@ void splashScreen(){
   struct winsize windowSize = getSize();
   int y = windowSize.ws_row;
   int x = windowSize.ws_col;
-  int lines = 3;
-  char line1[]="Welcome";
-  char line2[]="to the";
-  char line3[]="King of the Iron Fist Tournament";
+  int lines = 8;
+  char line1[]="  ___   ___  _  _____   ___   ___  _  _____ ";
+  char line2[]=" |   \\ / _ \\| |/ /_ _| |   \\ / _ \\| |/ /_ _|";
+  char line3[]=" | |) | (_) | ' < | |  | |) | (_) | ' < | | ";
+  char line4[]=" |___/ \\___/|_|\\_\\___| |___/_\\___/|_|\\_\\___|";
+  char line5[]="  / __|  \\/  / __|/ __|  / __| | | | | | _ )";
+  char line6[]=" | (__| |\\/| \\__ \\ (__  | (__| |_| |_| | _ \\";
+  char line7[]="  \\___|_|  |_|___/\\___|  \\___|____\\___/|___/";
 
   system("clear");
   printPadding(y, lines);
   printCentered(x,line1);
   printCentered(x,line2);
   printCentered(x,line3);
-  sleep(3);
+  printCentered(x,line4);
+  printCentered(x,line5);
+  printCentered(x,line6);
+  printCentered(x,line7);
+  printPadding(y, lines);
+  sleep(10);
 }
