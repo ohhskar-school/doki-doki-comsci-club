@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 void printLine(){
   for(int i = 0; i < 80; i++)
@@ -31,9 +32,9 @@ void printHUD(int * hearts){
   printLine();
 }
 
-int printMenu(char options[][50]){
+int printMenu(char options[][50], int numberOptions){
   printf("\nYou have the following options:\n");
-  for(int i = 0; i < sizeof(options); i++)
+  for(int i = 0; i < numberOptions; i++)
   {
     printf("[%d] %s\n", i+1, options[i]);
   }

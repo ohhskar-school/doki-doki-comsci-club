@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-
-//Custom Includes
 #include "gameEvents.c"
 #include "hud.h"
 
@@ -49,9 +47,9 @@ struct gameInfo eventEngine(struct gameInfo _mainInfo){
 
   //Main Event loop
   while (eventInfo.end == 0 && eventInfo.errorCode == 0){
-    eventInfo = eventSwitcher(eventInfo);
     computeHearts();
     printHUD(hearts);
+    eventInfo = eventSwitcher(eventInfo);
   }
 
   //End the game if next room = 999
