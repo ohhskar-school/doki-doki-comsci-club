@@ -1,15 +1,19 @@
 #include <stdio.h>
 #include <math.h>
-#include <string.h>
+#include <stdlib.h>
 
-//Global Function
+//Custom Includes
+#include "gameEvents.c"
+#include "hud.h"
+
+//Global Variables
 int interestPoints[3] = {100,100,100};
 int hearts[3];
 
 //Creates a struct to store a game info after each event
 struct gameInfo {
   int end;
-  int nextRoom;
+  int nextEvent;
   int errorCode;
 };
 
@@ -20,18 +24,13 @@ void computeHearts(){
   }
 }
 
-struct gameInfo eventSwitcher(int nextRoom, struct gameInfo _eventInfo){
-  
-  switch (nextRoom)
+//Switches between different events and quests depending on the given number
+struct gameInfo eventSwitcher(struct gameInfo _eventInfo){
+  switch (_eventInfo.nextEvent)
   {
     case 1:
-      printf("Case %i", nextRoom);
-      break;
-    case 2:
-      printf("Case %i", nextRoom);
-      break;
-    case 3:
-      printf("Case %i", nextRoom);
+      _eventInfo.nextEvent = b1e1();
+      _eventInfo.end = 1;
       break;
     default:
       _eventInfo.errorCode = 1;
@@ -45,25 +44,25 @@ struct gameInfo eventEngine(struct gameInfo _mainInfo){
   //Initialize event variables
   struct gameInfo eventInfo;
   eventInfo.end = 0;
-  eventInfo.nextRoom = 0;
   eventInfo.errorCode = 0;
+  eventInfo.nextEvent = _mainInfo.nextEvent;
 
-  //Main Event loop - Ends if flag to end is set or error code is present
+  //Main Event loop
   while (eventInfo.end == 0 && eventInfo.errorCode == 0){
-    eventInfo = eventSwitcher(_mainInfo.nextRoom, eventInfo);
+    eventInfo = eventSwitcher(eventInfo);
     computeHearts();
-    printf("%i, %i, %i\n", hearts[0], hearts[1], hearts[2]);
+    printHUD(hearts);
   }
 
-  //Set Game End if next room = 999
-  if(eventInfo.nextRoom = 999){
+  //End the game if next room = 999
+  if(eventInfo.nextEvent = 999){
     _mainInfo.end = 1;
   } else {
     _mainInfo.end = 0;
   }
 
-  //Sets the mainInfo nextroom to eventinfo next room;
-  _mainInfo.nextRoom = eventInfo.nextRoom;
+  // After finishing the event, sets the mainInfo nextEvent to eventinfo next room;
+  _mainInfo.nextEvent = eventInfo.nextEvent;
 
   //Error Codes
   if (eventInfo.errorCode){
@@ -71,6 +70,7 @@ struct gameInfo eventEngine(struct gameInfo _mainInfo){
   } else {
     _mainInfo.errorCode = 0;
   }
+
   return _mainInfo;
 }
 
@@ -78,7 +78,10 @@ int main(){
   //Initialize Variables
   struct gameInfo mainInfo;
   mainInfo.end = 0;
-  mainInfo.nextRoom = 0;
+  mainInfo.nextEvent = 1;
+
+  //Present Splash Screen
+  // splashScreen();
 
   //Main Game Logic
   while(mainInfo.end == 0 && mainInfo.errorCode == 0){
@@ -92,11 +95,3 @@ int main(){
 
   return 0;
 }
-
-/* Things to do
-* Quest System
-* Love System
-* Interest Gauge
-* Player Creation System
-* 
-*/
