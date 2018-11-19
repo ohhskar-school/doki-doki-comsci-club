@@ -20,7 +20,9 @@ struct gameInfo eventSwitcher(struct gameInfo _eventInfo){
   {
     case 1:
       _eventInfo = b1e1(_eventInfo);
-      _eventInfo.end = 1;
+      break;
+    case 2:
+      _eventInfo = b1e2(_eventInfo);
       break;
     default:
       _eventInfo.errorCode = 1;
@@ -40,11 +42,15 @@ struct gameInfo eventEngine(struct gameInfo _mainInfo){
 
   //Main Event loop
   while (eventInfo.end == 0 && eventInfo.errorCode == 0){
-    eventInfo = _mainInfo;
-    computeHearts(_mainInfo);
+
+    //recomputes the hearts for the HUD
+    _mainInfo = computeHearts(_mainInfo);
     printHUD(_mainInfo);
+
+    //switches to events based on the next room
     eventInfo = eventSwitcher(eventInfo);
 
+    //finalizes changes in iPs from events
     _mainInfo.iPA = eventInfo.iPA;
     _mainInfo.iPB = eventInfo.iPB;
     _mainInfo.iPC = eventInfo.iPC;
@@ -57,7 +63,7 @@ struct gameInfo eventEngine(struct gameInfo _mainInfo){
     _mainInfo.end = 0;
   }
 
-  // After finishing the event, sets the mainInfo nextEvent to eventinfo next room;
+  // After finishing the event, sets the mainInfo nextEvent from eventInfo;
   _mainInfo.nextEvent = eventInfo.nextEvent;
 
   //Error Codes
@@ -74,7 +80,12 @@ int main(){
   //Initialize Variables
   struct gameInfo mainInfo;
   mainInfo.end = 0;
+  mainInfo.errorCode = 0;
   mainInfo.nextEvent = 1;
+  mainInfo.iPA = 100;
+  mainInfo.iPB = 100;
+  mainInfo.iPC = 100;
+  mainInfo = computeHearts(mainInfo);
 
   //Present Splash Screen
   // splashScreen();
