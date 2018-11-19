@@ -1,0 +1,1 @@
+struct gameInfo eventSwitcher(struct gameInfo _eventInfo);
