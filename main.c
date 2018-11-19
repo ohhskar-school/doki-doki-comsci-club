@@ -1,25 +1,17 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-#include "gameEvents.c"
+#include "gameInfo.h"
+#include "gameEvents.h"
 #include "hud.h"
 
-//Global Variables
-int interestPoints[3] = {100,100,100};
-int hearts[3];
-
-//Creates a struct to store a game info after each event
-struct gameInfo {
-  int end;
-  int nextEvent;
-  int errorCode;
-};
-
 //Computes for the number of hearts based on the current interestPoints
-void computeHearts(){
-  for(int i = 0; i < 3; i++){
-    hearts[i] = floor(interestPoints[i] / 100);
-  }
+struct gameInfo computeHearts(struct gameInfo _mainInfo){
+  _mainInfo.heartsA = floor(_mainInfo.iPA/100);
+  _mainInfo.heartsB = floor(_mainInfo.iPB/100);
+  _mainInfo.heartsC = floor(_mainInfo.iPC/100);
+
+  return _mainInfo;
 }
 
 //Switches between different events and quests depending on the given number
@@ -27,7 +19,7 @@ struct gameInfo eventSwitcher(struct gameInfo _eventInfo){
   switch (_eventInfo.nextEvent)
   {
     case 1:
-      _eventInfo.nextEvent = b1e1();
+      _eventInfo = b1e1(_eventInfo);
       _eventInfo.end = 1;
       break;
     default:
@@ -41,18 +33,24 @@ struct gameInfo eventEngine(struct gameInfo _mainInfo){
 
   //Initialize event variables
   struct gameInfo eventInfo;
+  eventInfo = _mainInfo;
   eventInfo.end = 0;
   eventInfo.errorCode = 0;
   eventInfo.nextEvent = _mainInfo.nextEvent;
 
   //Main Event loop
   while (eventInfo.end == 0 && eventInfo.errorCode == 0){
-    computeHearts();
-    printHUD(hearts);
+    eventInfo = _mainInfo;
+    computeHearts(_mainInfo);
+    printHUD(_mainInfo);
     eventInfo = eventSwitcher(eventInfo);
+
+    _mainInfo.iPA = eventInfo.iPA;
+    _mainInfo.iPB = eventInfo.iPB;
+    _mainInfo.iPC = eventInfo.iPC;
   }
 
-  //End the game if next room = 999
+  //End the game if next event = 999
   if(eventInfo.nextEvent = 999){
     _mainInfo.end = 1;
   } else {

@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "gameInfo.h"
+
 
 void printLine(){
   for(int i = 0; i < 80; i++)
@@ -7,36 +9,31 @@ void printLine(){
     printf("=");
   }
   printf("\n");
-} 
+}
 
-void printHUD(int * hearts){
+void printHearts(int hearts){
+  for(int i = 0; i < hearts; i++){
+    printf("*");
+  }
+  printf(" ");
+}
+
+void printHUD(struct gameInfo _mainInfo){
   system("clear");
   printLine();
   printf("| Name: Oscar | Hearts: ");
-  for(int i = 0; i < 3; i++)
-  {
-    if (i == 0){
-      printf("A: ");
-    } else if (i == 1){
-      printf("B: ");
-    } else if (i == 2){
-      printf("C: ");
-    }
-    for(int j = 0; j < hearts[i]; j++)
-    {
-      printf("*");
-    }
-    printf(" ");
-  }
+  printHearts(_mainInfo.heartsA);
+  printHearts(_mainInfo.heartsB);
+  printHearts(_mainInfo.heartsC);
   printf("|\n");
   printLine();
 }
 
-int printMenu(char options[][50], int numberOptions){
+void printMenu(char options[][50], int numberOptions){
   printf("\nYou have the following options:\n");
   for(int i = 0; i < numberOptions; i++)
   {
     printf("[%d] %s\n", i+1, options[i]);
   }
-  printLine();
+  printf("\n");
 }

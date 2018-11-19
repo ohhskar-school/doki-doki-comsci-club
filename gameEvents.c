@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include "gameInfo.h"
 #include "hud.h"
 
-int b1e1(){
+struct gameInfo b1e1(struct gameInfo _eventInfo){
   printf("You are in branch 1 event 1\n");
 
   //Setting Options
@@ -14,9 +15,17 @@ int b1e1(){
   //Prints the options
   printMenu(options, numberOptions);
 
+  //Scans for the choice
   int option;
   scanf("Please enter your choice: %i", &option);
+  printLine();
 
-  int nextRoom = 999;
-  return nextRoom;
+  if (option == 1){
+    _eventInfo.iPA += 100;
+    _eventInfo.nextEvent = 999;
+  } else {
+    _eventInfo.nextEvent = 1;
+  }
+
+  return _eventInfo;
 }

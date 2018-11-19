@@ -1,0 +1,1 @@
+struct gameInfo b1e1(struct gameInfo _eventInfo);
