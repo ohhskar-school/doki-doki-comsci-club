@@ -58,4 +58,4 @@ struct gameInfo b1e2(struct gameInfo _eventInfo){
   }
 
   return _eventInfo;
-}
+}_mainInfo

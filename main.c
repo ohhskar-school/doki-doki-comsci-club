@@ -69,6 +69,7 @@ int main(){
   mainInfo.iPA = 100;
   mainInfo.iPB = 100;
   mainInfo.iPC = 100;
+  mainInfo = computeHearts(mainInfo);
 
   //Present Splash Screen
   splashScreen();
