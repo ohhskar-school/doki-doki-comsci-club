@@ -86,5 +86,5 @@ void splashScreen(){
   printCentered(x,line6);
   printCentered(x,line7);
   printPadding(y, lines);
-  sleep(10);
+  sleep(2);
 }
