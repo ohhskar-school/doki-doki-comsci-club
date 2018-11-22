@@ -6,7 +6,7 @@ struct gameInfo eventSwitcher(struct gameInfo _eventInfo){
   switch (_eventInfo.nextEvent)
   {
     case 1:
-      _eventInfo = b1e1(_eventInfo);
+      _eventInfo = mainMenu(_eventInfo);
       break;
     case 2:
       _eventInfo = b1e2(_eventInfo);
