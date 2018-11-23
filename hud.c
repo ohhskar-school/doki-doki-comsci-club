@@ -63,6 +63,18 @@ void printMenu(char options[][50], int numberOptions){
   printf("\n");
 }
 
+void printError(){
+  struct winsize windowSize = getSize();
+  int y = windowSize.ws_row;
+  int x = windowSize.ws_col;
+  int lines = 1;
+  char line1[] = "You have entered an invalid option";
+  system("clear");
+  printPadding(y, lines);
+  printCentered(x, line1);
+  sleep(2);
+}
+
 void splashScreen(){
   struct winsize windowSize = getSize();
   int y = windowSize.ws_row;

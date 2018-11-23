@@ -40,8 +40,8 @@ struct gameInfo eventEngine(struct gameInfo _mainInfo){
     _mainInfo.iPC = eventInfo.iPC;
   }
 
-  //End the game if next event = 999
-  if(eventInfo.nextEvent = 999){
+  //End the game if next event == 999
+  if(eventInfo.nextEvent == 100000){
     _mainInfo.end = 1;
   } else {
     _mainInfo.end = 0;
@@ -49,7 +49,6 @@ struct gameInfo eventEngine(struct gameInfo _mainInfo){
 
   // After finishing the event, sets the mainInfo nextEvent from eventInfo;
   _mainInfo.nextEvent = eventInfo.nextEvent;
-
   //Error Codes
   if (eventInfo.errorCode){
     _mainInfo.errorCode = eventInfo.errorCode;
@@ -65,7 +64,7 @@ int main(){
   struct gameInfo mainInfo;
   mainInfo.end = 0;
   mainInfo.errorCode = 0;
-  mainInfo.nextEvent = 1;
+  mainInfo.nextEvent = 0;
   mainInfo.iPA = 100;
   mainInfo.iPB = 100;
   mainInfo.iPC = 100;
