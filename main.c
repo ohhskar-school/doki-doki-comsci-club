@@ -65,9 +65,9 @@ int main(){
   mainInfo.end = 0;
   mainInfo.errorCode = 0;
   mainInfo.nextEvent = 0;
-  mainInfo.iPA = 100;
-  mainInfo.iPB = 100;
-  mainInfo.iPC = 100;
+  mainInfo.iPA = 0;
+  mainInfo.iPB = 0;
+  mainInfo.iPC = 0;
   mainInfo = computeHearts(mainInfo);
 
   //Present Splash Screen

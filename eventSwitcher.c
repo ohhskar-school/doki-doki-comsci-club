@@ -10,8 +10,10 @@ struct gameInfo eventSwitcher(struct gameInfo _eventInfo){
       _eventInfo = mainMenu(_eventInfo);
       break;
     case 10:
-      _eventInfo = talkMenu(_eventInfo);
+      _eventInfo = startGame(_eventInfo);
       break;
+    case 21:
+      _eventInfo = 
     default:
       _eventInfo.errorCode = 1;
       break;
