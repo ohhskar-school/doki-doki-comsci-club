@@ -3,7 +3,7 @@
 #include "gameInfo.h"
 #include "hud.h"
 
-struct gameInfo mainMenu(struct gameInfo _eventInfo){
+gameInfo mainMenu(gameInfo _eventInfo){
   printf("\nMain Menu\n");
 
   //Setting Options
@@ -49,7 +49,7 @@ struct gameInfo mainMenu(struct gameInfo _eventInfo){
   return _eventInfo;
 }
 
-struct gameInfo talkMenu(struct gameInfo _eventInfo){
+gameInfo talkMenu(gameInfo _eventInfo){
   printf("\nWho do you want to talk to?\n");
   //Setting Options
   char options[3][50];

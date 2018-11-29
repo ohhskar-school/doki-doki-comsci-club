@@ -1,2 +1,2 @@
-struct gameInfo mainMenu(struct gameInfo _eventInfo);
-struct gameInfo talkMenu(struct gameInfo _eventInfo);
+gameInfo mainMenu(gameInfo _eventInfo);
+gameInfo talkMenu(gameInfo _eventInfo);

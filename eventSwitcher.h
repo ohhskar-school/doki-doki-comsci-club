@@ -1,1 +1,1 @@
-struct gameInfo eventSwitcher(struct gameInfo _eventInfo);
+gameInfo eventSwitcher(gameInfo _eventInfo);
