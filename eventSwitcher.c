@@ -12,8 +12,9 @@ struct gameInfo eventSwitcher(struct gameInfo _eventInfo){
     case 10:
       _eventInfo = startGame(_eventInfo);
       break;
-    case 21:
-      _eventInfo = 
+    case 20:
+      _eventInfo = dayFirst(_eventInfo);
+      break;
     default:
       _eventInfo.errorCode = 1;
       break;
