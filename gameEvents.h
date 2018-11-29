@@ -1,3 +1,10 @@
 struct gameInfo mainMenu(struct gameInfo _eventInfo);
 struct gameInfo startGame(struct gameInfo _eventInfo);
-struct gameInfo dayFirst(struct gameInfo _eventInfo);
+struct gameInfo firstOne(struct gameInfo _eventInfo);
+struct gameInfo branchOne(struct gameInfo _eventInfo);
+struct gameInfo branchTwo(struct gameInfo _eventInfo);
+struct gameInfo branchThree(struct gameInfo _eventInfo);
+struct gameInfo firstTwo(struct gameInfo_eventInfo);
+struct gameInfo branchFour(struct gameInfo_eventInfo);
+struct gameInfo branchFive(struct gameInfo_eventInfo);
+struct gameInfo firstThree(struct gameInfo_eventInfo);

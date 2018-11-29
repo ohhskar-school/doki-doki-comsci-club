@@ -68,7 +68,7 @@ struct gameInfo startGame(struct gameInfo _eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
-      _eventInfo.nextEvent = 20; // dayFirst
+      _eventInfo.nextEvent = 20; // firstOne
       _eventInfo.end = 1;
       optionLoopEnd = 1;
     }
@@ -80,7 +80,6 @@ struct gameInfo startGame(struct gameInfo _eventInfo){
     }
   }
   
-
   return _eventInfo;
 }
 
@@ -134,7 +133,7 @@ struct gameInfo talkMenu(struct gameInfo _eventInfo){
 */
 
 //First day
-struct gameInfo dayFirst(struct gameInfo _eventInfo){
+struct gameInfo firstOne(struct gameInfo _eventInfo){
   printf("\nWelcome to P University, the premier university of P country.\n");
   //system("clear");
   printf("\nIt's your first day as a BS Computer Science major and oh no! You're running late!\n");
@@ -177,7 +176,7 @@ struct gameInfo dayFirst(struct gameInfo _eventInfo){
 
   printf("\nMr.K: Introduce yourselves. Lets start at the back.\n");
 
-  printf("\nHe scans the room with his droopy dull black eyes and comes to rest on the girl beside you.\n")
+  printf("\nHe scans the room with his droopy dull black eyes and comes to rest on the girl beside you.\n");
 
   printf("\nMr. K: Let's start with you. The girl at the back.\n");
 
@@ -203,19 +202,19 @@ struct gameInfo dayFirst(struct gameInfo _eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
-      _eventInfo.nextEvent = 21; // dayFirst_branchOne
+      _eventInfo.nextEvent = 21; // branchOne
       _eventInfo.end = 1;
       _eventInfo.iPA += 25;
       optionLoopEnd = 1;
     }
     else if (option == 2){
-      _eventInfo.nextEvent = 22; // dayFirst_branchTwo
+      _eventInfo.nextEvent = 22; // branchTwo
       _eventInfo.end = 1;
       _eventInfo.iPA = 0;
       optionLoopEnd = 1;
     }
     else if (option == 3){
-      _eventInfo.nextEvent = 23; // dayFirst_branchThree
+      _eventInfo.nextEvent = 23; // branchThree
       _eventInfo.end = 1;
       _eventInfo.iPA -= 10;
       optionLoopEnd = 1;
@@ -232,7 +231,7 @@ struct gameInfo dayFirst(struct gameInfo _eventInfo){
 }
 
 //Result of option 1 in dayFirst
-struct gameInfo dayFirst_branchOne(struct gameInfo _eventInfo){
+struct gameInfo branchOne(struct gameInfo _eventInfo){
   printf("\nThe girl is startled and jumps up in her seat.\n");
 
   printf("\nThere is determination in her eyes as she opens her mouth to speak\n");
@@ -247,7 +246,7 @@ struct gameInfo dayFirst_branchOne(struct gameInfo _eventInfo){
 
   printf("\nShe looks really pretty when she smiles.\n");
 
-  printf("\nMr. K: Thank you, Chi-chi.\n")
+  printf("\nMr. K: Thank you, Chi-chi.\n");
 
   //Setting Options
   char options[1][50];
@@ -279,19 +278,20 @@ struct gameInfo dayFirst_branchOne(struct gameInfo _eventInfo){
   }
 
   return _eventInfo;
+
 }
 
 //Result of option 2 in dayFirst
-struct gameInfo dayFirst_branchTwo(struct gameInfo _eventInfo){
+struct gameInfo branchTwo(struct gameInfo _eventInfo){
   printf("\nThe girl slowly gets up from her seat and plays with her hair absentmindedly.\n");
 
   printf("\nGirl: Umm... My.. name is.. Chi-chi Santiago. It'snicetomeetyou!\n");
 
   printf("\nWith that, she falls back into her seat\nand dips her head, hiding behind her hair.\n");
 
-  printf("\n'Wow she's really shy..'\n")
+  printf("\n'Wow she's really shy..'\n");
 
-  printf("\nMr. K: Oookay, thank you, uh, Chi-chi.\n")
+  printf("\nMr. K: Oookay, thank you, uh, Chi-chi.\n");
 
   //Setting Options
   char options[1][50];
@@ -310,7 +310,7 @@ struct gameInfo dayFirst_branchTwo(struct gameInfo _eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
-      _eventInfo.nextEvent = 24; // dayFirst_Two
+      _eventInfo.nextEvent = 24; // firstTwo
       _eventInfo.end = 1;
       optionLoopEnd = 1;
     }
@@ -326,7 +326,7 @@ struct gameInfo dayFirst_branchTwo(struct gameInfo _eventInfo){
 }
 
 //Result of option 3 in dayFirst
-struct gameInfo dayFirst_branchThree(struct gameInfo _eventInfo){
+struct gameInfo branchThree(struct gameInfo _eventInfo){
   printf("\nShe looks even more scared and jumps in her seat all started.\n");
 
   printf("\nGirl: Ah! Um, I'm sorry! M-my name is Chi-chi.. Chi-chi Santiago!\nIt's nice to meet you all!\n");
@@ -336,7 +336,6 @@ struct gameInfo dayFirst_branchThree(struct gameInfo _eventInfo){
   printf("\nShe looks incredibly embarassed.\n");
 
   printf("\nMr. K: Okay, thank you, Chi-chi.\n");
-
 
   //Setting Options
   char options[1][50];
@@ -355,7 +354,7 @@ struct gameInfo dayFirst_branchThree(struct gameInfo _eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
-      _eventInfo.nextEvent = 24; // dayFirst_Two
+      _eventInfo.nextEvent = 24; // firstTwo
       _eventInfo.end = 1;
       optionLoopEnd = 1;
     }
@@ -371,7 +370,7 @@ struct gameInfo dayFirst_branchThree(struct gameInfo _eventInfo){
 }
 
 //First Day part 2
-struct gameInfo dayFirst_Two(struct gameInfo_eventInfo){
+struct gameInfo firstTwo(struct gameInfo_eventInfo){
   printf("\nMr. K: Okay onto the next person.\n");
 
   printf("\nHe looks at you as expectantly as his lazy eyes could. You begin to stand.\n");
@@ -419,14 +418,14 @@ struct gameInfo dayFirst_Two(struct gameInfo_eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
-      _eventInfo.nextEvent = 25; // dayFirst_branchFour
+      _eventInfo.nextEvent = 25; // branchFour
       _eventInfo.end = 1;
       _eventInfo.iPB -= 10;
       _eventInfo.iPC += 25
       optionLoopEnd = 1;
     }
     else if (option == 2){
-      _eventInfo.nextEvent = 26; // dayFirst_branchFive
+      _eventInfo.nextEvent = 26; // branchFive
       _eventInfo.end = 1;
       _eventInfo.iPB += 25;
       _eventInfo.iPC -= 10;
@@ -444,7 +443,7 @@ struct gameInfo dayFirst_Two(struct gameInfo_eventInfo){
 }
 
 //Result of option 1 for dayFirst_Two
-struct gameInfo dayFirst_branchFour(struct gameInfo_eventInfo){
+struct gameInfo branchFour(struct gameInfo_eventInfo){
   printf("\nYou introduce yourself - your name and age - normally.\n");
 
   printf("\nJeff looks slightly disappointed you didn't rise to his taunts.\nMr. K looks relieved.\n");
@@ -468,7 +467,7 @@ struct gameInfo dayFirst_branchFour(struct gameInfo_eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
-      _eventInfo.nextEvent = 27; // dayFirst_Three
+      _eventInfo.nextEvent = 27; // firstThree
       _eventInfo.end = 1;
       optionLoopEnd = 1;
     }
@@ -484,7 +483,7 @@ struct gameInfo dayFirst_branchFour(struct gameInfo_eventInfo){
 }
 
 //Result of option 2 for dayFirst_Two
-struct gameInfo dayFirst_branchFive(struct gameInfo_eventInfo){
+struct gameInfo branchFive(struct gameInfo_eventInfo){
   printf("\nJeff bursts out laughing. The whole class stirs in their seats.\n");
 
   printf("\nChi-chi besides you squeaks. Was that a laugh?\n");
@@ -514,7 +513,7 @@ struct gameInfo dayFirst_branchFive(struct gameInfo_eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
-      _eventInfo.nextEvent = 27; // dayFirst_Three
+      _eventInfo.nextEvent = 27; // firstThree
       _eventInfo.end = 1;
       optionLoopEnd = 1;
     }
@@ -530,7 +529,7 @@ struct gameInfo dayFirst_branchFive(struct gameInfo_eventInfo){
 }
 
 //First Day part 3
-struct gameInfo dayFirst_Three(struct gameInfo_eventInfo){
+struct gameInfo firstThree(struct gameInfo_eventInfo){
   printf("\nJeff turns to the rest of the class.\n");
 
   printf("\nJeff: Come join the CMSC club.\nIt's open to all CMSC majors and we're having a meeting later this afternoon.\n");
@@ -555,7 +554,7 @@ struct gameInfo dayFirst_Three(struct gameInfo_eventInfo){
 
   printf("\nFirst Day: COMPLETE!");
 
-  printf("\nNext chapter is At the CMSC Club. Proceed?\n");
+  printf("\nNext chapter is 'The CMSC Club.'\n");
 
 //Setting Options
   char options[1][50];
