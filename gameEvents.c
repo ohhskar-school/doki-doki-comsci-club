@@ -90,11 +90,20 @@ struct gameInfo talkMenu(struct gameInfo _eventInfo){
   return _eventInfo;
 }
 
-#Sample of an options screen related to the story
-#idk how to handle this yet lol 
+//First day
 struct gameInfo dayFirst(struct gameInfo _eventInfo){
-  printf("\nIt's your first day at a new school!\n");
-  printf("\nAll your classmates are staring at you expectantly.\n");
+  printf("\nWelcome to P University, the premier university of P country.\n");
+  system("clear");
+  printf("\nIt's your first day as a BS Computer Science major and oh no! You're running late!\n");
+  system("clear");
+  printf("\nQuick! Get into your classroom. You rush in and sit in a random seat near the back.\n");
+  system("clear");
+  printf("\nYou look around you, everyone's already here.\n");
+  system("clear");
+  printf("\nIn your hurry, you didn't notice you sat beside a girl.\n");
+  system("clear");
+  printf("\n'Wow, she's pretty', you think to yourself.\n");
+  system("clear");
   printf("\nWhat do you want to do?\n");
 
   //Setting Options
@@ -125,7 +134,7 @@ struct gameInfo dayFirst(struct gameInfo _eventInfo){
     else if (option == 2){
       _eventInfo.nextEvent = 21; // questMenu
       _eventInfo.end = 1;
-      _eve
+      _eventInfo.iPA = 
       optionLoopEnd = 1;
     }
     else if (option == 3){
