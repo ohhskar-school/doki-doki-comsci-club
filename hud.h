@@ -6,3 +6,4 @@ void printHUD(gameInfo _mainInfo);
 void printMenu(char options[][50], int numberOptions);
 void printError();
 void splashScreen();
+void continuePrompt(gameInfo _mainInfo);

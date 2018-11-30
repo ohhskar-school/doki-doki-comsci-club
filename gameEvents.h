@@ -1,4 +1,5 @@
 gameInfo mainMenu(gameInfo _eventInfo);
+gameInfo debug(gameInfo _eventInfo);
 gameInfo firstOne(gameInfo _eventInfo);
 gameInfo branchOne(gameInfo _eventInfo);
 gameInfo branchTwo(gameInfo _eventInfo);

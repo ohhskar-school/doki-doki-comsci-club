@@ -102,9 +102,9 @@ void splashScreen(){
 }
 
 void continuePrompt(gameInfo _mainInfo){
-  printHUD(_mainInfo);
   char handler[]=""; 
-  printf("Press ENTER to continue...\n");
-  scanf("%c",&handler);
+  printf("\n\nPress ENTER to continue...\n");
+  scanf("%c\n",&handler);
   system("clear");
+  printHUD(_mainInfo);
 }

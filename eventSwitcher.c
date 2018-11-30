@@ -1,6 +1,8 @@
 #include "gameInfo.h"
 #include "gameEvents.h"
 #include <stdio.h>
+#include <unistd.h>
+
 
 //Switches between different events and quests depending on the given number
 gameInfo eventSwitcher(gameInfo _eventInfo){
@@ -8,6 +10,9 @@ gameInfo eventSwitcher(gameInfo _eventInfo){
   {
     case 0:
       _eventInfo = mainMenu(_eventInfo);
+      break;
+    case 11:
+      _eventInfo = debug(_eventInfo);
       break;
     case 20:
       _eventInfo = firstOne(_eventInfo);
@@ -37,5 +42,6 @@ gameInfo eventSwitcher(gameInfo _eventInfo){
       _eventInfo.errorCode = 1;
       break;
   }
+
   return _eventInfo;
 }

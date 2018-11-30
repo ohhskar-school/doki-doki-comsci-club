@@ -7,13 +7,15 @@ gameInfo mainMenu(gameInfo _eventInfo){
   printf("\nMain Menu\n");
 
   //Setting Options
-  char options[2][50];
-  int numberOptions = 2;
+  char options[3][50];
+  int numberOptions = 3;
   strcpy(options[0], "Start Game");
   strcpy(options[1], "Exit Game");
+  strcpy(options[2], "Debug");
 
   //Prints the options
   printMenu(options, numberOptions);
+#include "hud.h"
   
   //Scans for the choice
   int optionLoopEnd = 0;
@@ -24,12 +26,17 @@ gameInfo mainMenu(gameInfo _eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
-      _eventInfo.nextEvent = 10; // startGame
+      _eventInfo.nextEvent = 20; // startGame
       _eventInfo.end = 1;
       optionLoopEnd = 1;
     }
     else if (option == 2){
       _eventInfo.nextEvent = 100000; // exitGame
+      _eventInfo.end = 1;
+      optionLoopEnd = 1;
+    }
+    else if (option == 3){
+      _eventInfo.nextEvent = 11;
       _eventInfo.end = 1;
       optionLoopEnd = 1;
     }
@@ -40,6 +47,18 @@ gameInfo mainMenu(gameInfo _eventInfo){
       printMenu(options, numberOptions);
     }
   }
+
+  return _eventInfo;
+}
+
+gameInfo debug(gameInfo _eventInfo){
+  int eventCode = 0;
+  printf("\nDebug Menu\n");
+  printf("Please enter an event code to move to that event: ");
+  scanf("%i", &eventCode);
+
+  _eventInfo.nextEvent = eventCode;
+  _eventInfo.end = 1;
 
   return _eventInfo;
 }
@@ -95,40 +114,40 @@ gameInfo mainMenu(gameInfo _eventInfo){
 gameInfo firstOne(gameInfo _eventInfo){
   printf("\nWelcome to P University, the premier university of P country.\n");
   printf("\nIt's your first day as a BS Computer Science major and oh no! You're running late!\n");
-
+  continuePrompt(_eventInfo);
   printf("\nQuick! Get into your classroom. You rush in and sit in a random seat near the back.\n");
   printf("\nYou look around you, everyone's already here.\n");
-
+  continuePrompt(_eventInfo);
   printf("\nIn your hurry, you didn't notice you sat beside a girl.\n");
   printf("\n'Wow, she's pretty', you think to yourself.\n");
-
+  continuePrompt(_eventInfo);
   printf("\nYou notice that she's sitting a little uncomfortably,\nlike she doesn't want to be seen...\n");
   printf("\n'Maybe she's a little shy...'");
-
+  continuePrompt(_eventInfo);
   printf("\nThe door bursts open again and a young man - probably still in his early twenties - trudges in\n");
   printf("\nHis hair is unkempt and sticking up at weird places,\nlike he just rolled out of bed right before coming in.\n");
-
+  continuePrompt(_eventInfo);
   printf("\n'Is this supposed to be our teacher?'\n");
   printf("\nTeacher: Yes, I am in fact your teacher, children... Unfortunately.");
-
+  continuePrompt(_eventInfo);
   printf("\n'Did I say that out loud?'\n");
   printf("\nTeacher: No, you did not.\n");
-
+  continuePrompt(_eventInfo);
   printf("\n'DOES THIS DUDE READ MINDS?'");
   printf("\nTeacher: And I also do not read minds. I just know that's what you're all thinking.\n");
-
+  continuePrompt(_eventInfo);
   printf("\nTeacher I don't really care what you all think though. I'm just here to do my job.\n");
   printf("\nTeacher: My name is Mr. K. Don't ask. Just call me Mr. K.\n");
-
+  continuePrompt(_eventInfo);
   printf("\nMr. K: I'll be your adviser and your Computer Science teacher for this semester.\n");
   printf("\nMr. K: I like a lot of things. I dislike a lot more things.\nNow I think that's enough about me.\n");
-
+  continuePrompt(_eventInfo);
   printf("\nMr.K: Introduce yourselves. Lets start at the back.\n");
-  printf("\nHe scans the room with his droopy dull black eyes and comes to rest on the girl beside you.\n");
-
+  printf("\nHe scans the room with his droopmainMenu dull black eyes and comes to rest on the girl beside you.\n");
+  continuePrompt(_eventInfo);
   printf("\nMr. K: Let's start with you. The girl at the back.\n");
   printf("\nAll eyes in the class turn to her. She pales and hesitates. She looks absolutely terrified.\n");
-
+  continuePrompt(_eventInfo);
   printf("\nMaybe you should say something. What do you want to say?\n");
 
   //Setting Options
@@ -266,7 +285,7 @@ gameInfo branchTwo(gameInfo _eventInfo){
   return _eventInfo;
 }
 
-//Result of option 3 in dayFirst
+//Result of option 3 in dayFirstu
 gameInfo branchThree(gameInfo _eventInfo){
   printf("\nShe looks even more scared and jumps in her seat all started.\n");
   printf("\nGirl: Ah! Um, I'm sorry! M-my name is Chi-chi.. Chi-chi Santiago!\nIt's nice to meet you all!\n");
@@ -375,10 +394,23 @@ gameInfo firstTwo(gameInfo _eventInfo){
 }
 
 //Result of option 1 for dayFirst_Two
+// gameInfo branchFour(gameInfo _eventInfo){
+//   printf("\nYou introduce yourself - your name and age - normally.\n");
+//   printf("\nJeff looks slightly disappointed you didn't rise to his taunts.\n");
+
+//   printf("\nMr. K looks relieved.\n");
+//   printf("\nYou sit back down, satisfied.\n");
+
+//   continuePrompt(_eventInfo);
+//   _eventInfo.nextEvent = 27;
+//   _eventInfo.end = 0;
+//   return _eventInfo;
+// }
+
 gameInfo branchFour(gameInfo _eventInfo){
   printf("\nYou introduce yourself - your name and age - normally.\n");
   printf("\nJeff looks slightly disappointed you didn't rise to his taunts.\n");
-
+  continuePrompt(_eventInfo);
   printf("\nMr. K looks relieved.\n");
   printf("\nYou sit back down, satisfied.\n");
 
