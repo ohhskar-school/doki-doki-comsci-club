@@ -2,6 +2,8 @@
 #include "eventSwitcher.h"
 #include "hud.h"
 #include <stdio.h>
+#include <ncurses.h>
+#include <unistd.h>
 
 
 /*
@@ -47,28 +49,32 @@ int main()
   gameInfo mainInfo;
   mainInfo.end = 0;
   mainInfo.errorCode = 0;
+  mainInfo.nextEvent = 0;
   for(int i = 0; i < 3; i++){
     mainInfo.hearts[i] = 0;
   }
   for(int i = 0; i < 3; i++){
-    mainInfo.interestPoints[i] = 0;
+    mainInfo.interestPoints[i] = 200;
   }
   mainInfo.day = 1;
 
   //Initialize ncurses
   initializeNcurses();
+  initializeColors();
 
   //Present Splash Screen
   splashScreen();
   presentsScreen();
-  
   //Main Game Loop
   while (mainInfo.end == 0 || mainInfo.errorCode == 0){
     mainInfo = gameEngine(mainInfo);
   }
 
   if (mainInfo.errorCode != 0){
-    printf("Error %i has occured", mainInfo.errorCode);
+    clear();
+    printw("Error %i has occured!", mainInfo.errorCode);
+    refresh();
+    sleep(10);
   }
 
   return 0;

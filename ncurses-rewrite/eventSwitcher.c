@@ -6,10 +6,10 @@ gameInfo eventSwitcher(gameInfo _branchInfo){
   switch (_branchInfo.nextEvent)
   {
     case 0:
-      // _branchInfo = mainMenu(_branchInfo);
+      _branchInfo = mainMenu(_branchInfo);
       break;
     default:
-      // _branchInfo.errorCode = 1;
+      _branchInfo.errorCode = 1;
       break;
   }
 
