@@ -35,7 +35,7 @@ void printLine(){
 }
 
 void printHearts(int hearts){
-  for(int i = 0; i < hearts; i++){
+  for(int i = 100; i < hearts; i++){
     printf("*");
   }
   printf(" ");

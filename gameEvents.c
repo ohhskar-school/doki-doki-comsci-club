@@ -265,7 +265,7 @@ struct gameInfo branchOne(struct gameInfo _eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
-      _eventInfo.nextEvent = 24; // dayFirst_Two
+      _eventInfo.nextEvent = 24; // firstTwo
       _eventInfo.end = 1;
       optionLoopEnd = 1;
     }
@@ -306,7 +306,7 @@ struct gameInfo branchTwo(struct gameInfo _eventInfo){
   int option = 0;
   while (optionLoopEnd == 0){
 
-    printf("\nPress Next to begin\n> ");
+    printf("\nPress Next\n> ");
     scanf("%i", &option);
 
     if (option == 1){
@@ -354,7 +354,7 @@ struct gameInfo branchThree(struct gameInfo _eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
-      _eventInfo.nextEvent = 24; // firstTwo
+      _eventInfo.nextEvent = 21; // firstTwo
       _eventInfo.end = 1;
       optionLoopEnd = 1;
     }
@@ -405,7 +405,7 @@ struct gameInfo firstTwo(struct gameInfo _eventInfo){
   char options[2][50];
   int numberOptions = 2;
   strcpy(options[0], "Introduce yourself nicely.");
-  strcpy(options[1], "Be rude back.'I'm 19 years old. I like pizza and I don't like random dudes who barge in unannounced.'");
+  strcpy(options[1], "'Be rude back");
   //Prints the options
   printMenu(options, numberOptions);
   
@@ -446,7 +446,9 @@ struct gameInfo firstTwo(struct gameInfo _eventInfo){
 struct gameInfo branchFour(struct gameInfo _eventInfo){
   printf("\nYou introduce yourself - your name and age - normally.\n");
 
-  printf("\nJeff looks slightly disappointed you didn't rise to his taunts.\nMr. K looks relieved.\n");
+  printf("\nJeff looks slightly disappointed you didn't rise to his taunts.\n");
+
+  printf("\nMr. K looks relieved.\n");
 
   printf("\nYou sit back down, satisfied.\n");
 
