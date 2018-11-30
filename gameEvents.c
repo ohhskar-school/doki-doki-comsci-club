@@ -26,6 +26,7 @@ gameInfo mainMenu(gameInfo _eventInfo){
     scanf("%i", &option);
 
     if (option == 1){
+
       _eventInfo.nextEvent = 20; // startGame
       _eventInfo.end = 1;
       optionLoopEnd = 1;
@@ -63,91 +64,44 @@ gameInfo debug(gameInfo _eventInfo){
   return _eventInfo;
 }
 
-// gameInfo talkMenu(gameInfo _eventInfo){
-//   printf("\nWho do you want to talk to?\n");
-//   //Setting Options
-//   char options[3][50];
-//   int numberOptions = 3;
-//   strcpy(options[0], "A");
-//   strcpy(options[1], "B");
-//   strcpy(options[2], "C");
-
-//   //Prints the options
-//   printMenu(options, numberOptions);
-
-//   //Scans for the choiceu
-//   int optionLoopEnd = 0;
-//   int option = 0;
-//   while (optionLoopEnd == 0){
-
-//     printf("\nPlease enter your choice:\n> ");
-//     scanf("%i", &option);
-
-//     if (option == 1){
-//       _eventInfo.nextEvent = 11; // talkWithA
-//       _eventInfo.end = 1;
-//       optionLoopEnd = 1;
-//     }
-//     else if (option == 2){
-//       _eventInfo.nextEvent = 12; // talkWithB
-//       _eventInfo.end = 1;
-//       optionLoopEnd = 1;
-//     }
-//     else if (option == 2){
-//       _eventInfo.nextEvent = 13; // talkWithC
-//       _eventInfo.end = 1;
-//       optionLoopEnd = 1;
-//     }
-//     else {
-//       option = 0;
-//       printError();
-//       printHUD(_eventInfo);
-//       printMenu(options, numberOptions);
-//     }
-//   }
-
-//   return _eventInfo;
-// }
-// */
-
 //First day
 gameInfo firstOne(gameInfo _eventInfo){
   printf("\nWelcome to P University, the premier university of P country.\n");
   printf("\nIt's your first day as a BS Computer Science major and oh no! You're running late!\n");
-  continuePrompt(_eventInfo);
+  
   printf("\nQuick! Get into your classroom. You rush in and sit in a random seat near the back.\n");
   printf("\nYou look around you, everyone's already here.\n");
-  continuePrompt(_eventInfo);
+  
   printf("\nIn your hurry, you didn't notice you sat beside a girl.\n");
   printf("\n'Wow, she's pretty', you think to yourself.\n");
-  continuePrompt(_eventInfo);
+  
   printf("\nYou notice that she's sitting a little uncomfortably,\nlike she doesn't want to be seen...\n");
   printf("\n'Maybe she's a little shy...'");
-  continuePrompt(_eventInfo);
+  
   printf("\nThe door bursts open again and a young man - probably still in his early twenties - trudges in\n");
   printf("\nHis hair is unkempt and sticking up at weird places,\nlike he just rolled out of bed right before coming in.\n");
-  continuePrompt(_eventInfo);
+  
   printf("\n'Is this supposed to be our teacher?'\n");
-  printf("\nTeacher: Yes, I am in fact your teacher, children... Unfortunately.");
-  continuePrompt(_eventInfo);
+  printf("\nTeacher: Yes, I am in fact your teacher, children... Unfortunately.\n");
+  
   printf("\n'Did I say that out loud?'\n");
   printf("\nTeacher: No, you did not.\n");
-  continuePrompt(_eventInfo);
-  printf("\n'DOES THIS DUDE READ MINDS?'");
+  
+  printf("\n'DOES THIS DUDE READ MINDS?'\n");
   printf("\nTeacher: And I also do not read minds. I just know that's what you're all thinking.\n");
-  continuePrompt(_eventInfo);
+  
   printf("\nTeacher I don't really care what you all think though. I'm just here to do my job.\n");
   printf("\nTeacher: My name is Mr. K. Don't ask. Just call me Mr. K.\n");
-  continuePrompt(_eventInfo);
+  
   printf("\nMr. K: I'll be your adviser and your Computer Science teacher for this semester.\n");
   printf("\nMr. K: I like a lot of things. I dislike a lot more things.\nNow I think that's enough about me.\n");
-  continuePrompt(_eventInfo);
+  
   printf("\nMr.K: Introduce yourselves. Lets start at the back.\n");
   printf("\nHe scans the room with his droopmainMenu dull black eyes and comes to rest on the girl beside you.\n");
-  continuePrompt(_eventInfo);
+  
   printf("\nMr. K: Let's start with you. The girl at the back.\n");
   printf("\nAll eyes in the class turn to her. She pales and hesitates. She looks absolutely terrified.\n");
-  continuePrompt(_eventInfo);
+  
   printf("\nMaybe you should say something. What do you want to say?\n");
 
   //Setting Options
@@ -383,6 +337,8 @@ gameInfo firstTwo(gameInfo _eventInfo){
       optionLoopEnd = 1;
     }
     else {
+  _eventInfo.nextEvent = 27; // firstThree
+  _eventInfo.end = 1;
       option = 0;
       printError();
       printHUD(_eventInfo);
@@ -393,55 +349,24 @@ gameInfo firstTwo(gameInfo _eventInfo){
   return _eventInfo;
 }
 
-//Result of option 1 for dayFirst_Two
-// gameInfo branchFour(gameInfo _eventInfo){
-//   printf("\nYou introduce yourself - your name and age - normally.\n");
-//   printf("\nJeff looks slightly disappointed you didn't rise to his taunts.\n");
-
-//   printf("\nMr. K looks relieved.\n");
-//   printf("\nYou sit back down, satisfied.\n");
-
-//   continuePrompt(_eventInfo);
-//   _eventInfo.nextEvent = 27;
-//   _eventInfo.end = 0;
-//   return _eventInfo;
-// }
-
 gameInfo branchFour(gameInfo _eventInfo){
   printf("\nYou introduce yourself - your name and age - normally.\n");
   printf("\nJeff looks slightly disappointed you didn't rise to his taunts.\n");
-  continuePrompt(_eventInfo);
-  printf("\nMr. K looks relieved.\n");
-  printf("\nYou sit back down, satisfied.\n");
 
-//Setting Options
-  char options[1][50];
-  int numberOptions = 1;
-  strcpy(options[0], "Next");
+  _eventInfo.nextEvent = 27; // firstThree
+  _eventInfo.end = 1;
 
-  //Prints the options
-  printMenu(options, numberOptions);
+  _eventInfo.nextEvent = 27; // firstThree
+  _eventInfo.end = 1;
 
-  //Scans for the choiceu
-  int optionLoopEnd = 0;
-  int option = 0;
-  while (optionLoopEnd == 0){
+  _eventInfo.nextEvent = 27; // firstThree
+  _eventInfo.end = 1;
 
-    printf("\nPress Next\n> ");
-    scanf("%i", &option);
+  _eventInfo.nextEvent = 27; // firstThree
+  _eventInfo.end = 1;
 
-    if (option == 1){
-      _eventInfo.nextEvent = 27; // firstThree
-      _eventInfo.end = 1;
-      optionLoopEnd = 1;
-    }
-    else {
-      option = 0;
-      printError();
-      printHUD(_eventInfo);
-      printMenu(options, numberOptions);
-    }
-  }
+  _eventInfo.nextEvent = 27; // firstThree
+  _eventInfo.end = 1;
 
   return _eventInfo;
 }

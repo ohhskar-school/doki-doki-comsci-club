@@ -100,10 +100,3 @@ void splashScreen(){
   printPadding(y, lines);
   sleep(2);
 }
-
-void continuePrompt(gameInfo _mainInfo){
-  printf("\n\nPress ENTER to continue...\n");
-  system("read");
-  system("clear");
-  printHUD(_mainInfo);
-}
