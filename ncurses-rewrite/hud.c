@@ -26,6 +26,7 @@ void initializeColors(){
   //Setting Color Pairs
   start_color();
   init_pair(1, COLOR_RED, COLOR_BLACK);
+  init_pair(2, COLOR_YELLOW, COLOR_BLACK);
 }
 
 void fullScreenCentered(const char **line, int lineSize){
@@ -36,9 +37,11 @@ void fullScreenCentered(const char **line, int lineSize){
   getmaxyx(stdscr,row,col);
 
   //Prints line
+  attron(COLOR_PAIR(2));
   for(int i = 0; i < lineSize; i++){
     mvprintw(((row/2)-floor(lineSize/2))+i, (col-strlen(line[i]))/2, "%s", line[i]);
   }
+  attroff(COLOR_PAIR(2));
   
   refresh();
   sleep(2); 
@@ -84,19 +87,21 @@ void createGameScreen(const char **line, int lines, const char **option, int opt
 
   //Set Height of the Different Windows
   int hudHeight = 3;
-  int contentHeight = lines + 2;
+  int contentHeight = lines + 1;
   int optionHeight = options + 2;
 
   //Calculate Hearts for the HUD
   incomingInfo = computeHearts(incomingInfo);
 
-  //Create HUD
+  //Create HUDWINDOW
   WINDOW *hudWindow = newwin(hudHeight,col,0,0);
   box(hudWindow,0,0);
   
   //Creates the content for the HUD
+  //Prints the Main Texts
   mvwprintw(hudWindow, 1,2, "Oscar Valles | Hearts: A: ");
 
+  //Creates the Hearts for each person with colors
   wattron(hudWindow, COLOR_PAIR(1));
   for(int i = 0; i < incomingInfo.hearts[0]; i++){
     wprintw(hudWindow, "*");
@@ -123,17 +128,40 @@ void createGameScreen(const char **line, int lines, const char **option, int opt
 
   //Create Content Window
   WINDOW *contentWindow = newwin(contentHeight,col,hudHeight,0);
-  for(int i = 0; i < lines; i++){
-    mvwprintw(contentWindow,i+1,2,"%s", line[i]);
+  int contentRow = 1, counter = 0;
+  while (counter < lines){
+    if (!(strcmp(line[counter], ""))){
+      mvwprintw(contentWindow, contentRow+1, 2, "Press ENTER to continue");
+      wrefresh(contentWindow);
+      getch();
+      wmove(contentWindow, contentRow+1, 0);
+      wclrtoeol(contentWindow);
+      contentRow = 1;
+    } else {
+      if (contentRow == 1){
+        wclear(contentWindow);
+      }
+      mvwprintw(contentWindow, contentRow, 2, "%s", line[counter]);
+      contentRow++;
+    }
+    counter++;
   }
+
   wrefresh(contentWindow);
+  
 
   //Create Option Window
   WINDOW *optionWindow = newwin(optionHeight,col,contentHeight + hudHeight,0);
+  mvwprintw(optionWindow,1,2,"What would you like to do?");
   for(int i = 0; i < options; i++){
-    mvwprintw(optionWindow,i+1,2,"%s", option[i]);
+    mvwprintw(optionWindow,i+3,2,"%s", option[i]);
   }
   wrefresh(optionWindow);
+  getch();
 
-  sleep(2);
+  //Cleanup
+  delwin(hudWindow);
+  delwin(contentWindow);
+  delwin(optionWindow);
+  clear();
 }

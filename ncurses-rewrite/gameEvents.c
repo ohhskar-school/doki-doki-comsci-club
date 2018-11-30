@@ -5,9 +5,16 @@
 
 
 gameInfo mainMenu(gameInfo _eventInfo){
-  int lines = 1;
+  int lines = 7;
   const char *line[lines];
-  line[0] = "Main Menu";
+  line[0] = "Line 1";
+  line[1] = "Line 2";
+  line[2] = "";
+  line[3] = "Line 4";
+  line[4] = "Line 5";
+  line[5] = "Line 6";
+  line[6] = "";
+
 
   //Setting Options
   int options = 3;
@@ -18,5 +25,6 @@ gameInfo mainMenu(gameInfo _eventInfo){
 
   createGameScreen(line, lines, option, options, _eventInfo);
 
+  _eventInfo.nextEvent = 100000;
   return _eventInfo;
 }

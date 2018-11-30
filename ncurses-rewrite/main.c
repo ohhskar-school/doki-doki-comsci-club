@@ -63,12 +63,18 @@ int main()
   initializeColors();
 
   //Present Splash Screen
+  presentsScreen(); 
   splashScreen();
-  presentsScreen();
+
   //Main Game Loop
   while (mainInfo.end == 0 || mainInfo.errorCode == 0){
     mainInfo = gameEngine(mainInfo);
   }
+
+  //Cleanup
+  clear();
+  refresh();
+  endwin();
 
   if (mainInfo.errorCode != 0){
     clear();
