@@ -1,4 +1,4 @@
-#include "gameEvents.h"
+#include "eventSwitcher.h"
 #include "gameInfo.h"
 
 //Switches between different events and quests depending on the given number

@@ -1,5 +1,6 @@
 #include "gameInfo.h"
 #include "eventSwitcher.h"
+#include "hud.h"
 #include <stdio.h>
 
 
@@ -54,6 +55,14 @@ int main()
   }
   mainInfo.day = 1;
 
+  //Initialize ncurses
+  initializeNcurses();
+
+  //Present Splash Screen
+  splashScreen();
+  presentsScreen();
+  
+  //Main Game Loop
   while (mainInfo.end == 0 || mainInfo.errorCode == 0){
     mainInfo = gameEngine(mainInfo);
   }

@@ -1,10 +1,23 @@
-CC=gcc
-CFLAGS=-lncurses -I. -lm
-DEPS = gameInfo.h
-OBJ = main.o
+TARGET = game
+LIBS = -lncurses -lm
+CC = gcc
+CFLAGS =
 
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+.PHONY: default all clean
 
-game: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+default: $(TARGET)
+all: default
+
+OBJECTS = $(patsubst %.c, %.o, $(wildcard *.c))
+HEADERS = $(wildcard *.h)
+
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+.PRECIOUS: $(TARGET) $(OBJECTS)
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(OBJECTS) -Wall $(LIBS) -o $@
+
+clean:
+	-rm -f *.o
