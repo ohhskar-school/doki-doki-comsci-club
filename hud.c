@@ -41,7 +41,7 @@ void printHearts(int hearts){
   printf(" ");
 }
 
-void printHUD(struct gameInfo _mainInfo){
+void printHUD(gameInfo _mainInfo){
   system("clear");
   printLine();
   printf("| Hearts: A: ");

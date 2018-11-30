@@ -7,7 +7,7 @@
 #include "hud.h"
 
 //Computes for the number of hearts based on the current interestPoints
-struct gameInfo computeHearts(struct gameInfo _mainInfo){
+gameInfo computeHearts(gameInfo _mainInfo){
   _mainInfo.heartsA = floor(_mainInfo.iPA/100);
   _mainInfo.heartsB = floor(_mainInfo.iPB/100);
   _mainInfo.heartsC = floor(_mainInfo.iPC/100);
@@ -16,9 +16,9 @@ struct gameInfo computeHearts(struct gameInfo _mainInfo){
 }
 
 //takes care of the data between the main function and the events
-struct gameInfo eventEngine(struct gameInfo _mainInfo){
+gameInfo eventEngine(gameInfo _mainInfo){
   //Initialize event variables
-  struct gameInfo eventInfo;
+  gameInfo eventInfo;
   eventInfo = _mainInfo;
   eventInfo.end = 0;
   eventInfo.errorCode = 0;
@@ -61,7 +61,7 @@ struct gameInfo eventEngine(struct gameInfo _mainInfo){
 
 int main(){
   //Initialize Variables
-  struct gameInfo mainInfo;
+  gameInfo mainInfo;
   mainInfo.end = 0;
   mainInfo.errorCode = 0;
   mainInfo.nextEvent = 0;

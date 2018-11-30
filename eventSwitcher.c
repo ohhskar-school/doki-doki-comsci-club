@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 //Switches between different events and quests depending on the given number
-struct gameInfo eventSwitcher(struct gameInfo _eventInfo){
+gameInfo eventSwitcher(gameInfo _eventInfo){
   switch (_eventInfo.nextEvent)
   {
     case 0:
