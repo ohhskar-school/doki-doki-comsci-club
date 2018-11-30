@@ -15,7 +15,6 @@ gameInfo mainMenu(gameInfo _eventInfo){
 
   //Prints the options
   printMenu(options, numberOptions);
-#include "hud.h"
   
   //Scans for the choice
   int optionLoopEnd = 0;

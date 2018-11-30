@@ -3,15 +3,17 @@
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <math.h>
-#include<string.h>
+#include <string.h>
 #include "gameInfo.h"
 
+//Gets the size of the terminal
 struct winsize getSize(){
   struct winsize windowSize;
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &windowSize);
   return windowSize;
 }
 
+//Prints stings centered horizontally
 void printCentered(int x, char * content){
   for(int i = 0; i < (floor((x - strlen(content))/2) - 1) ; i++)
     {
@@ -20,11 +22,14 @@ void printCentered(int x, char * content){
     printf("%s\n", content);
 }
 
+//Prints padding so that elements can be centered vertically
 void printPadding(int y, int lines){
   for(int i = 0; i < floor(((y-lines)/2)) - 1; i++){
     printf("\n");
   }
 }
+
+//Prints a line the length of the terminal
 void printLine(){
   struct winsize windowSize = getSize();
   for(int i = 0; i < windowSize.ws_col; i++)
@@ -34,6 +39,7 @@ void printLine(){
   printf("\n");
 }
 
+//Prints hearts based on the _mainInfo
 void printHearts(int hearts){
   for(int i = 100; i < hearts; i++){
     printf("*");
@@ -41,6 +47,17 @@ void printHearts(int hearts){
   printf(" ");
 }
 
+
+//Computes for the number of hearts based on the current interestPoints
+gameInfo computeHearts(gameInfo _mainInfo){
+  _mainInfo.heartsA = floor(_mainInfo.iPA/100);
+  _mainInfo.heartsB = floor(_mainInfo.iPB/100);
+  _mainInfo.heartsC = floor(_mainInfo.iPC/100);
+
+  return _mainInfo;
+}
+
+//Prints the main HUD
 void printHUD(gameInfo _mainInfo){
   system("clear");
   printLine();
@@ -54,6 +71,7 @@ void printHUD(gameInfo _mainInfo){
   printLine();
 }
 
+//Prints the option menu
 void printMenu(char options[][50], int numberOptions){
   printf("\nYou have the following options:\n");
   for(int i = 0; i < numberOptions; i++)
@@ -63,6 +81,7 @@ void printMenu(char options[][50], int numberOptions){
   printf("\n");
 }
 
+//Prints if output is invalid
 void printError(){
   struct winsize windowSize = getSize();
   int y = windowSize.ws_row;
@@ -72,9 +91,10 @@ void printError(){
   system("clear");
   printPadding(y, lines);
   printCentered(x, line1);
-  sleep(2);
+  sleep(1);
 }
 
+//Prints the splash screen with the game
 void splashScreen(){
   struct winsize windowSize = getSize();
   int y = windowSize.ws_row;

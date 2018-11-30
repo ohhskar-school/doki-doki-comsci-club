@@ -1,0 +1,1 @@
+gameInfo eventSwitcher(gameInfo _branchInfo);
