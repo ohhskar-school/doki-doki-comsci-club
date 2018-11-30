@@ -109,7 +109,7 @@ WINDOW *createHUD(int hudHeight, gameInfo incomingInfo){
   //Creates the Hearts for each person with colors
   wattron(hudWindow, COLOR_PAIR(1));
   for(int i = 0; i < incomingInfo.hearts[0]; i++){
-    wprintw(hudWindow, "<3 ");
+    wprintw(hudWindow, "*");
   }
   wattroff(hudWindow, COLOR_PAIR(1));
 
@@ -117,7 +117,7 @@ WINDOW *createHUD(int hudHeight, gameInfo incomingInfo){
 
   wattron(hudWindow, COLOR_PAIR(1));
   for(int i = 0; i < incomingInfo.hearts[1]; i++){
-    wprintw(hudWindow, "<3 ");
+    wprintw(hudWindow, "*");
   }
   wattroff(hudWindow, COLOR_PAIR(1));
 
@@ -125,7 +125,7 @@ WINDOW *createHUD(int hudHeight, gameInfo incomingInfo){
   
   wattron(hudWindow, COLOR_PAIR(1));
   for(int i = 0; i < incomingInfo.hearts[2]; i++){
-    wprintw(hudWindow, "<3 ");
+    wprintw(hudWindow, "*");
   }
   wattroff(hudWindow, COLOR_PAIR(1));
 
