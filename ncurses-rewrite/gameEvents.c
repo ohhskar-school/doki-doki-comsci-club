@@ -17,14 +17,27 @@ gameInfo mainMenu(gameInfo _eventInfo){
 
 
   //Setting Options
-  int options = 3;
+  int options = 5;
   const char *option[options];
   option[0]="Start Game";
   option[1]="Exit Game";
   option[2]="Debug";
+  option[3]="Debug";
+  option[4]="Debug";
 
-  createGameScreen(line, lines, option, options, _eventInfo);
-
-  _eventInfo.nextEvent = 100000;
+  int choice = createGameScreen(line, lines, option, options, _eventInfo);
+  
+  switch(choice){
+    case 1:
+    case 2:
+      _eventInfo.nextEvent = 100000;
+      _eventInfo.end = 1;
+      break;
+    case 3:
+    default:
+      _eventInfo.errorCode = 2;
+      _eventInfo.end = 1;
+  }
+  
   return _eventInfo;
 }

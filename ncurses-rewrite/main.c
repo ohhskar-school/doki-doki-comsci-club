@@ -29,7 +29,7 @@ gameInfo gameEngine(gameInfo _mainInfo){
   while (branchInfo.end == 0 && branchInfo.errorCode == 0){
     branchInfo = eventSwitcher(branchInfo);
   }
-  
+
   _mainInfo = branchInfo; //Finalizes data from the branch
   _mainInfo.day++;
 
@@ -39,7 +39,6 @@ gameInfo gameEngine(gameInfo _mainInfo){
   } else {
     _mainInfo.end = 0;
   }
-
   return _mainInfo;
 }
 
@@ -67,7 +66,7 @@ int main()
   splashScreen();
 
   //Main Game Loop
-  while (mainInfo.end == 0 || mainInfo.errorCode == 0){
+  while (mainInfo.end == 0 && mainInfo.errorCode == 0){
     mainInfo = gameEngine(mainInfo);
   }
 
@@ -80,7 +79,7 @@ int main()
     clear();
     printw("Error %i has occured!", mainInfo.errorCode);
     refresh();
-    sleep(10);
+    sleep(5);
   }
 
   return 0;

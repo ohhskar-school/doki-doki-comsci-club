@@ -15,11 +15,11 @@ gameInfo computeHearts(gameInfo incomingInfo){
 
 void initializeNcurses(){
   initscr();                        //Initialize ncurses
-  sleep(2);
-  raw();                            //Enable Line Buffering
-  keypad(stdscr, TRUE);             //Enable Arrow Keys for Option Selection
+  box(stdscr, 0, 0);
+  cbreak();                         //Enable Line Buffering
   noecho();                         //Disable Echoing
   curs_set(0);                      //Disable Cursor
+  keypad(stdscr, TRUE); //Enable using the arrow key for options
 }
 
 void initializeColors(){
@@ -76,24 +76,29 @@ void presentsScreen(){
   fullScreenCentered(line,lineSize);
 }
 
-//Creates A Screen Per Event
-void createGameScreen(const char **line, int lines, const char **option, int options, gameInfo incomingInfo){
-  clear();
-  refresh();
-  
-  //Get Terminal Sizeinit_pair(1, COLOR_RED, COLOR_BLACK);
+// void thankYouScreen(){
+//   int lineSize = 7;
+//   const char *line[lineSize];
+//   line[0]="    _____  _  _    _    _  _  _  __ __   __ ___   _   _      ";
+//   line[1]="   |_   _|| || |  /_\  | \| || |/ / \ \ / // _ \ | | | |     ";
+//   line[2]="     | |  | __ | / _ \ | .` || ' <   \ V /| (_) || |_| |     ";
+//   line[3]="  ___|_|__|_||_|/_/_\_\|_|\_||_|\_\_  |_| _\___/  \___/__  _ ";
+//   line[4]=" | __|/ _ \ | _ \ | _ \| |     /_\\ \ / /|_ _|| \| | / __|| |";
+//   line[5]=" | _|| (_) ||   / |  _/| |__  / _ \\ V /  | | | .` || (_ ||_|";
+//   line[6]=" |_|  \___/ |_|_\ |_|  |____|/_/ \_\|_|  |___||_|\_| \___|(_)";
+
+//   fullScreenCentered(line,lineSize);
+// }
+
+WINDOW *createHUD(int hudHeight, gameInfo incomingInfo){
+  //Get Terminal Size
   int row,col;
   getmaxyx(stdscr,row,col);
-
-  //Set Height of the Different Windows
-  int hudHeight = 3;
-  int contentHeight = lines + 1;
-  int optionHeight = options + 2;
-
+  
   //Calculate Hearts for the HUD
   incomingInfo = computeHearts(incomingInfo);
 
-  //Create HUDWINDOW
+  //Create HUD Windows
   WINDOW *hudWindow = newwin(hudHeight,col,0,0);
   box(hudWindow,0,0);
   
@@ -104,7 +109,7 @@ void createGameScreen(const char **line, int lines, const char **option, int opt
   //Creates the Hearts for each person with colors
   wattron(hudWindow, COLOR_PAIR(1));
   for(int i = 0; i < incomingInfo.hearts[0]; i++){
-    wprintw(hudWindow, "*");
+    wprintw(hudWindow, "<3 ");
   }
   wattroff(hudWindow, COLOR_PAIR(1));
 
@@ -112,7 +117,7 @@ void createGameScreen(const char **line, int lines, const char **option, int opt
 
   wattron(hudWindow, COLOR_PAIR(1));
   for(int i = 0; i < incomingInfo.hearts[1]; i++){
-    wprintw(hudWindow, "*");
+    wprintw(hudWindow, "<3 ");
   }
   wattroff(hudWindow, COLOR_PAIR(1));
 
@@ -120,14 +125,21 @@ void createGameScreen(const char **line, int lines, const char **option, int opt
   
   wattron(hudWindow, COLOR_PAIR(1));
   for(int i = 0; i < incomingInfo.hearts[2]; i++){
-    wprintw(hudWindow, "*");
+    wprintw(hudWindow, "<3 ");
   }
   wattroff(hudWindow, COLOR_PAIR(1));
 
   wrefresh(hudWindow);
+  
+  return hudWindow;
+}
 
-  //Create Content Window
-  WINDOW *contentWindow = newwin(contentHeight,col,hudHeight,0);
+WINDOW *createContentScreen(int contentHeight, int starty, const char **line, int lines){  
+  //Get Terminal Size
+  int row,col;
+  getmaxyx(stdscr,row,col);
+
+  WINDOW *contentWindow = newwin(contentHeight,col,starty,0);
   int contentRow = 1, counter = 0;
   while (counter < lines){
     if (!(strcmp(line[counter], ""))){
@@ -146,22 +158,109 @@ void createGameScreen(const char **line, int lines, const char **option, int opt
     }
     counter++;
   }
-
   wrefresh(contentWindow);
-  
 
-  //Create Option Window
-  WINDOW *optionWindow = newwin(optionHeight,col,contentHeight + hudHeight,0);
-  mvwprintw(optionWindow,1,2,"What would you like to do?");
+  return contentWindow;
+}
+
+
+void printMenu(WINDOW *optionWindow, int selection, const char **option, int options){
+  
+  int x = 2, y = 3;	
   for(int i = 0; i < options; i++){
-    mvwprintw(optionWindow,i+3,2,"%s", option[i]);
+    if(selection == i + 1){	
+      wattron(optionWindow, A_REVERSE); 
+      mvwprintw(optionWindow, y, x, " %s ", option[i]);
+      wattroff(optionWindow, A_REVERSE);
+    }	else {
+      mvwprintw(optionWindow, y, x, " %s ", option[i]);
+    }
+    y++;
   }
   wrefresh(optionWindow);
-  getch();
+}
+
+optionReturn createOptions(int optionHeight, int starty, const char **option, int options){
+  //Initializing Variables
+  optionReturn returnValues;
+  returnValues.choice = 0;
+  int selection = 1;
+  int c;
+
+  //Get Terminal Size
+  int row,col;
+  getmaxyx(stdscr,row,col);
+
+  returnValues.optionWindow = newwin(optionHeight,col,starty,0);
+  keypad(returnValues.optionWindow, TRUE);
+  mvwprintw(returnValues.optionWindow,1,2,"press the ARROW KEYS to move and ENTER to confirm your choice");
+  wrefresh(returnValues.optionWindow);
+
+  printMenu(returnValues.optionWindow, selection, option, options);
+  while(1){
+  c = wgetch(returnValues.optionWindow);
+    switch(c){
+      case KEY_UP:
+        if(selection == 1){
+          selection = options;
+        }
+        else{
+          --selection;
+        }
+        break;
+      case KEY_DOWN:
+        if(selection == options){
+          selection = 1;
+        }
+        else{
+          ++selection;
+        }
+        break;
+      case 10:
+        returnValues.choice = selection;
+        break;
+      default:
+        break;
+    }
+    printMenu(returnValues.optionWindow, selection, option, options);
+    if(returnValues.choice != 0)	/* User did a choice come out of the infinite loop */
+      break;
+  }
+
+  return returnValues;
+}
+
+//Creates A Screen Per Event
+int createGameScreen(const char **line, int lines, const char **option, int options, gameInfo incomingInfo){
+  clear();
+  refresh();
+
+  int row,col;
+  getmaxyx(stdscr,row,col);
+
+  //Set Height of the Different Windows
+  int hudHeight = 3;
+  int contentHeight = lines + 1;
+  int optionHeight = options + 7;
+
+  //Initialize Windows
+  WINDOW *hudWindow, *contentWindow;
+  optionReturn optionValues;
+
+  hudWindow = createHUD(hudHeight, incomingInfo);
+
+  contentWindow = createContentScreen(contentHeight, hudHeight, line, lines);
+
+  optionValues = createOptions(optionHeight, contentHeight + hudHeight, option, options);
 
   //Cleanup
+  wclear(hudWindow);
+  wclear(contentWindow);
+  wclear(optionValues.optionWindow);
   delwin(hudWindow);
   delwin(contentWindow);
-  delwin(optionWindow);
+  delwin(optionValues.optionWindow);
   clear();
+  
+  return optionValues.choice; 
 }
