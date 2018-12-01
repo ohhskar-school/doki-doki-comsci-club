@@ -1,86 +1,85 @@
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
 #include "gameInfo.h"
-#include "gameEvents.h"
 #include "eventSwitcher.h"
 #include "hud.h"
+#include <stdio.h>
+#include <ncurses.h>
+#include <unistd.h>
 
-//Computes for the number of hearts based on the current interestPoints
-struct gameInfo computeHearts(struct gameInfo _mainInfo){
-  _mainInfo.heartsA = floor(_mainInfo.iPA/100);
-  _mainInfo.heartsB = floor(_mainInfo.iPB/100);
-  _mainInfo.heartsC = floor(_mainInfo.iPC/100);
 
-  return _mainInfo;
-}
+/*
+ * Just run make to compile the files. The makefile compiles the file with 
+ * the flags -lncurses and -lm to compile with ncurses and math support.
+*/
 
 //takes care of the data between the main function and the events
-struct gameInfo eventEngine(struct gameInfo _mainInfo){
+gameInfo gameEngine(gameInfo _mainInfo){
+
   //Initialize event variables
-  struct gameInfo eventInfo;
-  eventInfo = _mainInfo;
-  eventInfo.end = 0;
-  eventInfo.errorCode = 0;
-  eventInfo.nextEvent = _mainInfo.nextEvent;
+  gameInfo branchInfo;
+  branchInfo = _mainInfo;
+  branchInfo.end = 0;
+  branchInfo.errorCode = 0;
 
-  //Main Event loop
-  while (eventInfo.end == 0 && eventInfo.errorCode == 0){
+  /*  
+  *   Loops until a branch has ended. branchInfo.end signifies that a branch 
+  *   has ended and a checkpoint has been reached. A checkpoint means that
+  *  a day has passed.
+  */
 
-    //recomputes the hearts for the HUD
-    _mainInfo = computeHearts(_mainInfo);
-    printHUD(_mainInfo);
-
-    //switches to events based on the next room
-    eventInfo = eventSwitcher(eventInfo);
-
-    //finalizes changes in iPs from events
-    _mainInfo.iPA = eventInfo.iPA;
-    _mainInfo.iPB = eventInfo.iPB;
-    _mainInfo.iPC = eventInfo.iPC;
+  while (branchInfo.end == 0 && branchInfo.errorCode == 0){
+    branchInfo = eventSwitcher(branchInfo);
   }
 
-  //End the game if next event == 999
-  if(eventInfo.nextEvent == 100000){
+  _mainInfo = branchInfo; //Finalizes data from the branch
+  _mainInfo.day++;
+
+  //End the game if next day == 100000
+  if(branchInfo.nextEvent == 100000){
     _mainInfo.end = 1;
   } else {
     _mainInfo.end = 0;
   }
-
-  // After finishing the event, sets the mainInfo nextEvent from eventInfo;
-  _mainInfo.nextEvent = eventInfo.nextEvent;
-  //Error Codes
-  if (eventInfo.errorCode){
-    _mainInfo.errorCode = eventInfo.errorCode;
-  } else {
-    _mainInfo.errorCode = 0;
-  }
-
   return _mainInfo;
 }
 
-int main(){
-  //Initialize Variables
-  struct gameInfo mainInfo;
+int main()
+{
+  //Initializing Variables;
+  gameInfo mainInfo;
   mainInfo.end = 0;
   mainInfo.errorCode = 0;
   mainInfo.nextEvent = 0;
-  mainInfo.iPA = 100;
-  mainInfo.iPB = 100;
-  mainInfo.iPC = 100;
-  mainInfo = computeHearts(mainInfo);
+  for(int i = 0; i < 3; i++){
+    mainInfo.hearts[i] = 0;
+  }
+  for(int i = 0; i < 3; i++){
+    mainInfo.interestPoints[i] = 200;
+  }
+  mainInfo.day = 1;
+
+  //Initialize ncurses
+  initializeNcurses();
+  initializeColors();
 
   //Present Splash Screen
+  presentsScreen(); 
   splashScreen();
 
-  //Main Game Logic
-  while(mainInfo.end == 0 && mainInfo.errorCode == 0){
-    mainInfo = eventEngine(mainInfo);
+  //Main Game Loop
+  while (mainInfo.end == 0 && mainInfo.errorCode == 0){
+    mainInfo = gameEngine(mainInfo);
   }
-  
-  //Error Checking
+
+  //Cleanup
+  clear();
+  refresh();
+  endwin();
+
   if (mainInfo.errorCode != 0){
-    printf("Error %i occured.", mainInfo.errorCode);
+    clear();
+    printw("Error %i has occured!", mainInfo.errorCode);
+    refresh();
+    sleep(5);
   }
 
   return 0;

@@ -3,104 +3,41 @@
 #include "gameInfo.h"
 #include "hud.h"
 
-struct gameInfo mainMenu(struct gameInfo _eventInfo){
-  printf("\nMain Menu\n");
+
+gameInfo mainMenu(gameInfo _eventInfo){
+  int lines = 7;
+  const char *line[lines];
+  line[0] = "Line 1";
+  line[1] = "Line 2";
+  line[2] = "";
+  line[3] = "Line 4";
+  line[4] = "Line 5";
+  line[5] = "Line 6";
+  line[6] = "";
+
 
   //Setting Options
-  char options[3][50];
-  int numberOptions = 3;
-  strcpy(options[0], "Talk");
-  strcpy(options[1], "Quest");
-  strcpy(options[2], "Exit Game");
-  //Prints the options
-  printMenu(options, numberOptions);
+  int options = 5;
+  const char *option[options];
+  option[0]="Start Game";
+  option[1]="Exit Game";
+  option[2]="Debug";
+  option[3]="Debug";
+  option[4]="Debug";
+
+  int choice = createGameScreen(line, lines, option, options, _eventInfo);
   
-  //Scans for the choice
-  int optionLoopEnd = 0;
-  int option = 0;
-  while (optionLoopEnd == 0){
-
-    printf("\nPlease enter your choice:\n> ");
-    scanf("%i", &option);
-
-    if (option == 1){
-      _eventInfo.nextEvent = 10; // talkMenu
+  switch(choice){
+    case 1:
+    case 2:
+      _eventInfo.nextEvent = 100000;
       _eventInfo.end = 1;
-      optionLoopEnd = 1;
-    }
-    else if (option == 2){
-      _eventInfo.nextEvent = 20; // questMenu
+      break;
+    case 3:
+    default:
+      _eventInfo.errorCode = 2;
       _eventInfo.end = 1;
-      optionLoopEnd = 1;
-    }
-    else if (option == 3){
-      _eventInfo.nextEvent = 100000; // exitGame
-      _eventInfo.end = 1;
-      optionLoopEnd = 1;
-    }
-    else {
-      option = 0;
-      printError();
-      printHUD(_eventInfo);
-      printMenu(options, numberOptions);
-    }
   }
-
+  
   return _eventInfo;
 }
-
-struct gameInfo talkMenu(struct gameInfo _eventInfo){
-  printf("\nWho do you want to talk to?\n");
-  //Setting Options
-  char options[3][50];
-  int numberOptions = 3;
-  strcpy(options[0], "A");
-  strcpy(options[1], "B");
-  strcpy(options[2], "C");
-
-  //Prints the options
-  printMenu(options, numberOptions);
-
-  //Scans for the choiceu
-  int optionLoopEnd = 0;
-  int option = 0;
-  while (optionLoopEnd == 0){
-
-    printf("\nPlease enter your choice:\n> ");
-    scanf("%i", &option);
-
-    if (option == 1){
-      _eventInfo.nextEvent = 11; // talkWithA
-      _eventInfo.end = 1;
-      optionLoopEnd = 1;
-    }
-    else if (option == 2){
-      _eventInfo.nextEvent = 12; // talkWithB
-      _eventInfo.end = 1;
-      optionLoopEnd = 1;
-    }
-    else if (option == 2){
-      _eventInfo.nextEvent = 13; // talkWithC
-      _eventInfo.end = 1;
-      optionLoopEnd = 1;
-    }
-    else {
-      option = 0;
-      printError();
-      printHUD(_eventInfo);
-      printMenu(options, numberOptions);
-    }
-  }
-
-  return _eventInfo;
-}
-
-/* nextEvent code guides 
-* 0 = Main Menu
-* 10 = Talk
-* 11 = Talk with A
-* 12 = Talk with B
-* 13 = Talk with C
-* 20 = Quest Menu
-* 100000 = Exit Game
-*/

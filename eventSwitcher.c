@@ -1,20 +1,19 @@
+#include "eventSwitcher.h"
 #include "gameInfo.h"
-#include "gameEvents.h"
-#include <stdio.h>
+#include "hud.h"
 
 //Switches between different events and quests depending on the given number
-struct gameInfo eventSwitcher(struct gameInfo _eventInfo){
-  switch (_eventInfo.nextEvent)
-  {
+gameInfo eventSwitcher(gameInfo _branchInfo){
+  switch (_branchInfo.nextEvent){
     case 0:
-      _eventInfo = mainMenu(_eventInfo);
+      _branchInfo = mainMenu(_branchInfo);
       break;
-    case 10:
-      _eventInfo = talkMenu(_eventInfo);
+    case 100000:
       break;
     default:
-      _eventInfo.errorCode = 1;
+      _branchInfo.errorCode = 1;
       break;
   }
-  return _eventInfo;
+
+  return _branchInfo;
 }

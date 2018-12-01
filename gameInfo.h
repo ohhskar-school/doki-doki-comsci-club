@@ -1,5 +1,17 @@
-struct gameInfo {
+#ifndef GAMEINFO_H
+#define GAMEINFO_H
+#include <ncurses.h>
+
+typedef struct{
   int end, nextEvent, errorCode;
-  int iPA, iPB, iPC;
-  int heartsA, heartsB, heartsC;
-};
+  int interestPoints[3];
+  int hearts[3];
+  int day;
+} gameInfo;
+
+typedef struct{
+  int choice;
+  WINDOW *optionWindow;
+} optionReturn;
+
+#endif

@@ -1,2 +1,7 @@
-struct gameInfo mainMenu(struct gameInfo _eventInfo);
-struct gameInfo talkMenu(struct gameInfo _eventInfo);
+#ifndef GAMEVENTS_H
+#define GAMEEVENTS_H
+#include "gameInfo.h"
+
+gameInfo mainMenu(gameInfo _eventInfo);
+
+#endif

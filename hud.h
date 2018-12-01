@@ -1,9 +1,11 @@
-struct winsize getSize();
-void printCentered(int x, char * content);
-void printLine();
-void printHearts(int hearts);
-void printHUD(struct gameInfo _mainInfo);
-void printMenu(char options[][50], int numberOptions);
-void printError();
+#ifndef HUD_C
+#define HUD_C
+
+void initializeNcurses();
+void initializeColors();
 void splashScreen();
-struct gameInfo createCharacter(struct gameInfo _mainInfo);
+void presentsScreen();
+void thankYouScreen();
+int createGameScreen(const char **line, int lines, const char **option, int options, gameInfo incomingInfo);
+
+#endif
