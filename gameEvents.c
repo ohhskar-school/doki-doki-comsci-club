@@ -29,6 +29,9 @@ gameInfo mainMenu(gameInfo _eventInfo){
   
   switch(choice){
     case 1:
+      _eventInfo.nextEvent = 10;
+      _eventInfo.end = 1;
+      break;
     case 2:
       _eventInfo.nextEvent = 100000;
       _eventInfo.end = 1;
@@ -40,4 +43,23 @@ gameInfo mainMenu(gameInfo _eventInfo){
   }
   
   return _eventInfo;
+}
+/*
+gameInfo startGame(gameInfo _eventInfo){
+  int lines =
+  const char *line[lines];
+  line[0] = "Welcome to Doki Doki CMSC Club"
+  line[1] = "";
+  line[2] = "Your college love story awaits!"
+}
+*/
+
+gameInfo dayOne(gameInfo _eventInfo){
+  int lines = 
+  const char  *line[lines];
+
+  line[0] = "Welcome to P University, the premier university in the country!"
+  line[1] = "";
+  line[2] = "It's your first day as a BS Computer Science major and oh no! You're running late!"
+  line[3] = "Quick get into your classroom!"
 }
