@@ -8,6 +8,17 @@ gameInfo eventSwitcher(gameInfo _branchInfo){
     case 0:
       _branchInfo = mainMenu(_branchInfo);
       break;
+    case 10:
+      break;
+    case 21:
+      _branchInfo = branchOne(_branchInfo);
+      break;
+    case 22:
+      _branchInfo = branchTwo(_branchInfo);
+      break;
+    case 23:
+      _branchInfo = branchThree(_branchInfo);
+      break;
     case 100000:
       break;
     default:
