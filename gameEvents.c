@@ -5,15 +5,14 @@
 
 
 gameInfo mainMenu(gameInfo _eventInfo){
-  int lines = 7;
+  int lines = 6;
   const char *line[lines];
-  line[0] = "Line 1";
-  line[1] = "Line 2";
+  line[0] = "Welcome to Doki Doki CMSC Club!";
+  line[1] = "Where your college love story awaits!";
   line[2] = "";
-  line[3] = "Line 4";
-  line[4] = "Line 5";
-  line[5] = "Line 6";
-  line[6] = "";
+  line[3] = "Use the arrow keys to move between options";
+  line[4] = "Press enter to select!";
+  line[5] = "";
 
 
   //Setting Options
@@ -46,7 +45,7 @@ gameInfo mainMenu(gameInfo _eventInfo){
 }
 
 gameInfo dayOne(gameInfo _eventInfo){
-  int lines = 47
+  int lines = 48
   const char  *line[lines];
 
   line[0] = "Welcome to P University, the premier university in the country!";
