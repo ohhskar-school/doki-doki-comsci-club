@@ -44,15 +44,6 @@ gameInfo mainMenu(gameInfo _eventInfo){
   
   return _eventInfo;
 }
-/*
-gameInfo startGame(gameInfo _eventInfo){
-  int lines =
-  const char *line[lines];
-  line[0] = "Welcome to Doki Doki CMSC Club"
-  line[1] = "";
-  line[2] = "Your college love story awaits!"
-}
-*/
 
 gameInfo dayOne(gameInfo _eventInfo){
   int lines = 
