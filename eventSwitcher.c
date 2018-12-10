@@ -12,15 +12,27 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
         case 10:
             _branchInfo = dayOne(_branchInfo);
             break;
-        // case 21:
-        //   _branchInfo = branchOne(_branchInfo);
-        //   break;
-        // case 22:
-        //   _branchInfo = branchTwo(_branchInfo);
-        //   break;
-        // case 23:
-        //   _branchInfo = branchThree(_branchInfo);
-        //   break;
+        case 11:
+            _branchInfo = dayOneCont(_branchInfo);
+            break;
+        case 12:
+            _branchInfo = dayOneContTwo(_branchInfo);
+            break;
+        case 21:
+            _branchInfo = pathOne(_branchInfo);
+            break;
+        case 22:
+            _branchInfo = pathTwo(_branchInfo);
+            break;
+        case 23:
+            _branchInfo = pathThree(_branchInfo);
+            break;
+        case 24:
+            _branchInfo = pathFour(_branchInfo);
+            break;
+        case 25:
+            _branchInfo = pathFive(_branchInfo);
+            break;
         case 100000:
             break;
         default:
