@@ -324,7 +324,7 @@ gameInfo dayOneCont(gameInfo _eventInfo){
 }
 
 gameInfo pathFour(gameInfo _eventInfo){
-    int lines = 9;
+    int lines = 7;
     const char *line[lines];
     int choice = 0;
 
@@ -337,7 +337,7 @@ gameInfo pathFour(gameInfo _eventInfo){
     line[6] = "You sit back down, satisfied.";
 
 //Setting Options
-    int options = 2;
+    int options = 1;
     const char *option[options];
     option[0] = "........";
 
@@ -378,7 +378,7 @@ gameInfo pathFive(gameInfo _eventInfo){
     line[15] = "";
 
 //Setting Options
-    int options = 2;
+    int options = 1;
     const char *option[options];
     option[0] = "........";
 
@@ -397,7 +397,7 @@ gameInfo pathFive(gameInfo _eventInfo){
 }
 
 gameInfo dayOneContTwo(gameInfo _eventInfo){
-    int lines = 9;
+    int lines = 31;
     const char *line[lines];
     int choice = 0;
 
@@ -434,7 +434,7 @@ gameInfo dayOneContTwo(gameInfo _eventInfo){
     line[30] = "Congratulations on completing your first day!";
 
 //Setting Options
-    int options = 2;
+    int options = 1;
     const char *option[options];
     option[0] = "........";
 
