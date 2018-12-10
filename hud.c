@@ -278,11 +278,88 @@ WINDOW *createEnemyHud(bossStruct boss, int hudHeight) {
         mvwprintw(enemyHud, 2, space + nameLen + 14, "#");
     }
     wattroff(enemyHud, COLOR_PAIR(1));
-
     wattroff(enemyHud, A_BOLD);
 
     box(enemyHud, 0, 0);
     wrefresh(enemyHud);
 
     return enemyHud;
+}
+
+WINDOW *createPlayerHud(playerStruct player, int hudHeight) {
+    int row, col;
+    getmaxyx(stdscr, row, col);
+
+    WINDOW *playerHud = newwin(hudHeight, col / 2, row - hudHeight, 0);
+
+    wattron(playerHud, A_BOLD);
+    mvwprintw(playerHud, 2, 3, "HEALTH: ");
+    int remainingSpace = (col / 2) - 15;
+    float healthPercentage = ((float)player.health / (float)player.maxHealth) * remainingSpace;
+
+    wattron(playerHud, COLOR_PAIR(1));
+    for (int i = ceil(healthPercentage), space = 0; i > 0; i--, space++) {
+        mvwprintw(playerHud, 2, space + 11, "#");
+    }
+    wattroff(playerHud, COLOR_PAIR(1));
+    wattroff(playerHud, A_BOLD);
+
+    box(playerHud, 0, 0);
+    wrefresh(playerHud);
+
+    return playerHud;
+}
+
+optionReturn createOptionHud(int hudHeight) {
+    optionReturn returnInfo;
+    int row, col;
+    int choice;
+    getmaxyx(stdscr, row, col);
+
+    returnInfo.optionWindow = newwin(hudHeight, col / 2, row - hudHeight, col / 2);
+    returnInfo.choice = 0;
+    keypad(returnInfo.optionWindow, TRUE);
+    box(returnInfo.optionWindow, 0, 0);
+    wrefresh(returnInfo.optionWindow);
+
+    int options = 3;
+    const char *option[options];
+    option[0] = "Fight";
+    option[1] = "Evade";
+    option[2] = "Taunt";
+
+    while (1) {
+        for (int i = 0; i < options; i++) {
+            if (i == returnInfo.choice) {
+                wattron(returnInfo.optionWindow, A_REVERSE);
+            }
+            mvwprintw(returnInfo.optionWindow, 2, i * 7 + 3, " %s ", option[i]);
+            wattroff(returnInfo.optionWindow, A_REVERSE);
+        }
+        choice = wgetch(returnInfo.optionWindow);
+
+        switch (choice) {
+            case KEY_LEFT:
+                if (returnInfo.choice == 0) {
+                    returnInfo.choice = options - 1;
+                } else {
+                    returnInfo.choice--;
+                }
+                break;
+            case KEY_RIGHT:
+                if (returnInfo.choice == options - 1) {
+                    returnInfo.choice = 0;
+                } else {
+                    returnInfo.choice++;
+                }
+                break;
+            default:
+                break;
+        }
+        if (choice == 10) {
+            break;
+        }
+    }
+
+    return returnInfo;
 }

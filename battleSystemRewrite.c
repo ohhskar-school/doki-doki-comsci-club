@@ -44,8 +44,12 @@ void bossBattle(int bossSelection, gameInfo _battleInfo, int questGiver) {
         WINDOW *enemyHudWindow;
         WINDOW *playerHudWindow;
         WINDOW *contentWindow;
+        optionReturn optionWindow;
 
         enemyHudWindow = createEnemyHud(boss, hudHeight);
+        // contentWindow = createContentHud();
+        playerHudWindow = createPlayerHud(player, hudHeight);
+        optionWindow = createOptionHud(hudHeight);
         sleep(2);
     }
 }

@@ -29,7 +29,7 @@ gameInfo mainMenu(gameInfo _eventInfo) {
     switch (choice) {
         case 0:
             _eventInfo.nextEvent = 10;
-            _eventInfo.end = 1;
+            _eventInfo.end = 0;
             break;
         case 1:
             _eventInfo.nextEvent = 100000;
