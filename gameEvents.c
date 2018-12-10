@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include "battleSystemRewrite.h"
 #include "gameInfo.h"
 #include "hud.h"
 
@@ -16,11 +17,12 @@ gameInfo mainMenu(gameInfo _eventInfo) {
     line[5] = "";
 
     //Setting Options
-    int options = 3;
+    int options = 4;
     const char *option[options];
     option[0] = "Start Game";
     option[1] = "Exit Game";
     option[2] = "Debug";
+    option[3] = "Fight";
 
     choice = createGameScreen(line, lines, option, options, _eventInfo);
 
@@ -36,6 +38,9 @@ gameInfo mainMenu(gameInfo _eventInfo) {
         case 2:
             _eventInfo.nextEvent = 10;
             _eventInfo.end = 1;
+        case 3:
+            bossBattle(1, _eventInfo, 1);
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;

@@ -75,21 +75,24 @@ void presentsScreen() {
     fullScreenCentered(line, lineSize);
 }
 
-// void thankYouScreen(){
-//   int lineSize = 7;
-//   const char *line[lineSize];
-//   line[0]="    _____  _  _    _    _  _  _  __ __   __ ___   _   _      ";
-//   line[1]="   |_   _|| || |  /_\  | \| || |/ / \ \ / // _ \ | | | |     ";
-//   line[2]="     | |  | __ | / _ \ | .` || ' <   \ V /| (_) || |_| |     ";
-//   line[3]="  ___|_|__|_||_|/_/_\_\|_|\_||_|\_\_  |_| _\___/  \___/__  _ ";
-//   line[4]=" | __|/ _ \ | _ \ | _ \| |     /_\\ \ / /|_ _|| \| | / __|| |";
-//   line[5]=" | _|| (_) ||   / |  _/| |__  / _ \\ V /  | | | .` || (_ ||_|";
-//   line[6]=" |_|  \___/ |_|_\ |_|  |____|/_/ \_\|_|  |___||_|\_| \___|(_)";
+void getReadyScreen() {
+    int lineSize = 10;
+    const char *line[lineSize];
+    line[0] = "       ___ ___ _____   ___ ___   _   _____   __      ";
+    line[1] = "      / __| __|_   _| | _ \\ __| /_\\ |   \\ \\ / /      ";
+    line[2] = "     | (_ | _|  | |   |   / _| / _ \\| |) \\ V /       ";
+    line[3] = "      \\___|___| |_|  _|_|_\\___/_/_\\_\\___/ |_|        ";
+    line[4] = "           | __/ _ \\| _ \\ |_   _| || | __|           ";
+    line[5] = "           | _| (_) |   /   | | | __ | _|            ";
+    line[6] = "  _  _ ____|_|_\\___/|_|_\\__ |_| |_||_|___|_ _    ___ ";
+    line[7] = " | \\| | __\\ \\/ /_   _| | _ ) /_\\_   _|_   _| |  | __|";
+    line[8] = " | .` | _| >  <  | |   | _ \\/ _ \\| |   | | | |__| _| ";
+    line[9] = " |_|\\_|___/_/\\_\\ |_|   |___/_/ \\_\\_|   |_| |____|___|";
+    fullScreenCentered(line, lineSize);
+}
 
-//   fullScreenCentered(line,lineSize);
-// }
-
-WINDOW *createHUD(int hudHeight, gameInfo incomingInfo) {
+WINDOW *
+createHUD(int hudHeight, gameInfo incomingInfo) {
     //Get Terminal Size
     int row, col;
     getmaxyx(stdscr, row, col);
