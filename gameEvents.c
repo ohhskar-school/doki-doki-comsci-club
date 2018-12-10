@@ -5,6 +5,7 @@
 #include "hud.h"
 
 gameInfo mainMenu(gameInfo _eventInfo) {
+
     int lines = 6;
     const char *line[lines];
     int choice = 0;
@@ -45,6 +46,9 @@ gameInfo mainMenu(gameInfo _eventInfo) {
 }
 
 gameInfo dayOne(gameInfo _eventInfo){
+
+//---> INSERT BATTLE 
+
     int lines = 53;
     const char *line[lines];
     int choice = 0;
@@ -115,7 +119,6 @@ gameInfo dayOne(gameInfo _eventInfo){
     switch (choice) {
         case 0:
             _eventInfo.nextEvent = 21;
-            interestPoints[0] += 25;
             _eventInfo.end = 0;
             break;
         case 1:
@@ -124,7 +127,6 @@ gameInfo dayOne(gameInfo _eventInfo){
             break;
         case 2:
             _eventInfo.nextEvent = 23;
-            interestPoints[0] -= 10;
             _eventInfo.end = 0;
         default:
             _eventInfo.errorCode = 2;
@@ -166,7 +168,6 @@ gameInfo pathOne(gameInfo _eventInfo){
     switch (choice){
         case 0:
             _eventInfo.nextEvent = 11;
-            interestPoints[0] += 25;
             _eventInfo.end = 0;
             break;
         case 1:
@@ -246,7 +247,6 @@ gameInfo pathThree(gameInfo _eventInfo){
     switch (choice){
         case 0:
             _eventInfo.nextEvent = 11;
-            interestPoints[0] += 10
             _eventInfo.end = 0;
             break;
         case 1:
@@ -308,12 +308,12 @@ gameInfo dayOneCont(gameInfo _eventInfo){
     switch (choice) {
         case 0:
             _eventInfo.nextEvent = 24;
-            interestPoints[2] += 25;
+            interestPoints[1] += 25;
             _eventInfo.end = 0;
             break;
         case 1:
             _eventInfo.nextEvent = 25;
-            interestPoints[1] += 25;
+            interestPoints[0] += 25;
             _eventInfo.end = 0;
             break;
         default:
@@ -343,9 +343,9 @@ gameInfo pathFour(gameInfo _eventInfo){
 
     createGameScreen(line, lines, option, options, _eventInfo);
 
-    switch (choice){
+    switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 11;
+            _eventInfo.nextEvent = 12;
             _eventInfo.end = 0;
             break;
         default:
@@ -384,9 +384,9 @@ gameInfo pathFive(gameInfo _eventInfo){
 
     createGameScreen(line, lines, option, options, _eventInfo);
 
-    switch (choice){
+    switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 11;
+            _eventInfo.nextEvent = 12;
             _eventInfo.end = 0;
             break;
         default:
@@ -442,7 +442,7 @@ gameInfo dayOneContTwo(gameInfo _eventInfo){
 
     switch (choice){
         case 0:
-            _eventInfo.nextEvent = 100000;
+            _eventInfo.nextEvent = 500;
             _eventInfo.end = 0;
             break;
         default:
@@ -451,3 +451,18 @@ gameInfo dayOneContTwo(gameInfo _eventInfo){
     }
   return _eventInfo;
 } 
+
+gameInfo dayTwo(gameInfo _eventInfo){
+    int lines = 
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "It's the 2nd day of classes in PU.";
+    line[1] = "";
+    line[2] = "This time, you're early for school";
+    line[3] = "and it won't be another hour until classes start.";
+    line[4] = "";
+    line[5] = "Chichi: HI!";
+    line[6] = "";
+
+}
