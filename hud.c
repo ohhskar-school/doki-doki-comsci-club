@@ -43,7 +43,7 @@ void fullScreenCentered(const char **line, int lineSize) {
     attroff(COLOR_PAIR(2));
 
     refresh();
-    sleep(2);
+    sleep(1);
 }
 
 void splashScreen() {
@@ -91,8 +91,7 @@ void getReadyScreen() {
     fullScreenCentered(line, lineSize);
 }
 
-WINDOW *
-createHUD(int hudHeight, gameInfo incomingInfo) {
+WINDOW *createHUD(int hudHeight, gameInfo incomingInfo) {
     //Get Terminal Size
     int row, col;
     getmaxyx(stdscr, row, col);
@@ -259,4 +258,31 @@ int createGameScreen(const char **line, int lines, const char **option, int opti
     clear();
 
     return optionValues.choice;
+}
+
+WINDOW *createEnemyHud(bossStruct boss, int hudHeight) {
+    int row, col;
+    getmaxyx(stdscr, row, col);
+
+    WINDOW *enemyHud = newwin(hudHeight, col, 0, 0);
+
+    int nameLen = strlen(boss.name);
+    wattron(enemyHud, A_BOLD);
+    mvwprintw(enemyHud, 2, 3, "%s", boss.name);
+    mvwprintw(enemyHud, 2, nameLen + 4, "| HEALTH: ");
+    int remainingSpace = col - (nameLen + 12);
+    float healthPercentage = ((float)boss.health / (float)boss.maxHealth) * remainingSpace;
+
+    wattron(enemyHud, COLOR_PAIR(1));
+    for (int i = ceil(healthPercentage), space = 0; i > 0; i--, space++) {
+        mvwprintw(enemyHud, 2, space + nameLen + 14, "#");
+    }
+    wattroff(enemyHud, COLOR_PAIR(1));
+
+    wattroff(enemyHud, A_BOLD);
+
+    box(enemyHud, 0, 0);
+    wrefresh(enemyHud);
+
+    return enemyHud;
 }

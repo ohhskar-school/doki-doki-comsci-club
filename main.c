@@ -30,6 +30,7 @@ gameInfo gameEngine(gameInfo _mainInfo) {
 
     _mainInfo = branchInfo;  //Finalizes data from the branch
     _mainInfo.day++;
+    _mainInfo.nextEvent = 1;
 
     //End the game if next day == 100000
     if (branchInfo.nextEvent == 100000) {

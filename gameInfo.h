@@ -17,6 +17,7 @@ typedef struct {
 typedef struct {
     int damage;
     int health;
+    int maxHealth;
     int move;
     int skill;
     char* name;
@@ -25,6 +26,7 @@ typedef struct {
 typedef struct {
     int damage;
     int health;
+    int maxHealth;
 } playerStruct;
 
 #endif
