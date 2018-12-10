@@ -147,7 +147,7 @@ WINDOW *createContentScreen(int contentHeight, int starty, const char **line, in
         if (!(strcmp(line[counter], ""))) {
             mvwprintw(contentWindow, contentRow + 1, 0, "Press ENTER to continue");
             wrefresh(contentWindow);
-            getch();
+            wgetch(contentWindow);
             wmove(contentWindow, contentRow + 1, 0);
             wclrtoeol(contentWindow);
             contentRow = 1;
@@ -175,8 +175,7 @@ optionReturn createOptions(int optionHeight, int starty, const char **option, in
     //Initializing Variables
     optionReturn returnValues;
     returnValues.choice = 0;
-    int selection = 1;
-    int c;
+    int choice;
 
     //Get Terminal Size
     int row, col;
@@ -187,35 +186,40 @@ optionReturn createOptions(int optionHeight, int starty, const char **option, in
     mvwprintw(returnValues.optionWindow, 1, 0, "press the ARROW KEYS to move and ENTER to confirm your choice");
     wrefresh(returnValues.optionWindow);
 
-    printMenu(returnValues.optionWindow, selection, option, options);
     while (1) {
-        c = wgetch(returnValues.optionWindow);
-        switch (c) {
+        for (int i = 0; i < options; i++) {
+            if (i == returnValues.choice) {
+                wattron(returnValues.optionWindow, A_REVERSE);
+            }
+            mvwprintw(returnValues.optionWindow, i + 3, 0, " %s ", option[i]);
+            wattroff(returnValues.optionWindow, A_REVERSE);
+        }
+        choice = wgetch(returnValues.optionWindow);
+
+        switch (choice) {
             case KEY_UP:
-                if (selection == 1) {
-                    selection = options;
+                if (returnValues.choice == 0) {
+                    returnValues.choice = options - 1;
                 } else {
-                    --selection;
+                    returnValues.choice--;
                 }
                 break;
             case KEY_DOWN:
-                if (selection == options) {
-                    selection = 1;
+                if (returnValues.choice == options - 1) {
+                    returnValues.choice = 0;
                 } else {
-                    ++selection;
+                    returnValues.choice++;
                 }
-                break;
-            case 10:
-                returnValues.choice = selection;
                 break;
             default:
                 break;
         }
-        printMenu(returnValues.optionWindow, selection, option, options);
-        if (returnValues.choice != 0) /* User did a choice come out of the infinite loop */
+        if (choice == 10) {
             break;
+        }
     }
 
+    keypad(returnValues.optionWindow, FALSE);
     return returnValues;
 }
 
@@ -229,7 +233,7 @@ int createGameScreen(const char **line, int lines, const char **option, int opti
 
     //Set Height of the Different Windows
     int hudHeight = 3;
-    int contentHeight = lines + 1;
+    int contentHeight = 10;
     int optionHeight = options + 7;
 
     //Initialize Windows

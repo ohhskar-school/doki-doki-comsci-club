@@ -9,9 +9,6 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
         case 0:
             _branchInfo = mainMenu(_branchInfo);
             break;
-        case 2:
-            _branchInfo = mainMenu2(_branchInfo);
-            break;
         case 10:
             _branchInfo = dayOne(_branchInfo);
             break;
