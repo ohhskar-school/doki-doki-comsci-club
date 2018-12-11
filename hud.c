@@ -310,7 +310,7 @@ WINDOW *createPlayerHud(playerStruct player, int hudHeight) {
     return playerHud;
 }
 
-optionReturn createOptionHud(int hudHeight) {
+optionReturn createOptionHud(int hudHeight, char **option, int options) {
     optionReturn returnInfo;
     int row, col;
     int choice;
@@ -321,12 +321,6 @@ optionReturn createOptionHud(int hudHeight) {
     keypad(returnInfo.optionWindow, TRUE);
     box(returnInfo.optionWindow, 0, 0);
     wrefresh(returnInfo.optionWindow);
-
-    int options = 3;
-    const char *option[options];
-    option[0] = "Fight";
-    option[1] = "Evade";
-    option[2] = "Taunt";
 
     while (1) {
         for (int i = 0; i < options; i++) {
@@ -364,7 +358,7 @@ optionReturn createOptionHud(int hudHeight) {
     return returnInfo;
 }
 
-WINDOW *createContentHud(int hudHeight, const char **line, int lines) {
+WINDOW *createContentHud(int hudHeight, char **line, int lines) {
     int row, col;
     getmaxyx(stdscr, row, col);
 

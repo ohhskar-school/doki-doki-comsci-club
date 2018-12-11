@@ -2,5 +2,5 @@
 #define BATTLESYSTEM_H
 #include "gameInfo.h"
 
-void bossBattle(int bossSelection, gameInfo _battleInfo, int questGiver);
+int bossBattle(int bossSelection, gameInfo _battleInfo);
 #endif
