@@ -103,7 +103,7 @@ gameInfo dayOne(gameInfo _eventInfo){
     line[47] = "All eyes in the class turn to her.";
     line[48] = "Her eyes in turn widen. She looks absolutely terrified!";
     line[49] = "";
-    line[50] = "Maybe I should say something. What do I to say?";
+    line[50] = "Maybe I should say something. What do I say?";
     line[51] = "";
 
     //Setting Options
@@ -695,15 +695,16 @@ gameInfo clubOneContFive(gameInfo _eventInfo){
 } 
 
 gameInfo clubPathOne(gameInfo _eventInfo){
-    int lines = 5
+    int lines = 6
     const char *line[lines];
     int choice = 0;
 
     line[0] = "The corner of Jeff's lips quirk up in a handsome smirk.";
-    line[1] = "Oof if he looked like this all the time, I probably wouldn't mind one date..";
-    line[2] = "";
-    line[3] = "Jeff: Why not?";
-    line[4] = "";
+    line[1] = "Oof if he looked like this all the time,"; 
+    line[2] = "I probably wouldn't mind more than one date..";
+    line[3] = "";
+    line[4] = "Jeff: Why not?";
+    line[5] = "";
 
 //Setting Options
     int options = 1;
@@ -725,7 +726,7 @@ gameInfo clubPathOne(gameInfo _eventInfo){
 }
 
 gameInfo clubPathTwo(gameInfo _eventInfo){
-    int lines = 
+    int lines = 15
     const char *line[lines];
     int choice = 0;
 
@@ -733,7 +734,49 @@ gameInfo clubPathTwo(gameInfo _eventInfo){
     line[1] = "Jeff: Take all the time you need. But I did win fair and square though.";
     line[2] = "";
     line[3] = "The honor card. Typical."
-    
+    line[4] = "I shake my head and sigh. To hell with it.";
+    line[5] = "";
+    line[6] = "Me: Fine then. Just one date. What can it hurt?";
+    line[7] = "Jeff cracks a mischievous grin and I swear I felt my heart skip a beat.";   
+    line[8] = "";
+    line[9] = "Jeff: That didn't take much convincing.";
+    line[10] = "I pull my tongue out at him.";
+    line[11] = "Me: Shut up. Win gracefully.";
+    line[12] = "";
+    line[13] = "Jeff booms in laughter and looks at me with fond eyes.";
+    line[14] = "So different from the patronizing looks he gave before.";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "........";
+
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 506;
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
+  return _eventInfo;
+}
+
+gameInfo clubPathThree(gameInfo _eventInfo){
+    int lines =
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "Jeff laughs and I swear I thought it was the prettiest sound.";
+    line[1] = "I think I must be going crazy.";
+    line[2] = "";
+    line[3] = "Jeff: I didn't think you'd agree that quickly.";
+    line[4] = "";
+    line[5] = "I didn't think I would either.";
+    line[6] = ""
 }
 
 gameInfo clubOneContSix(gameInfo _eventInfo){
@@ -757,7 +800,7 @@ gameInfo clubOneContSix(gameInfo _eventInfo){
     line[13] = "Jeff turned to them and started to chatting as if nothing happened.";
     line[14] = "What have I gotten myself into?";
     line[15] = "";
-    line[16] = ""
+    line[16] = "";
 }
 
 
@@ -774,7 +817,7 @@ gameInfo dayTwo(gameInfo _eventInfo){
     line[5] = "Chichi: HI!";
     
     //Setting Options
-    int options = 1;
+    int op/tions = 1;
     const char *option[options];
     option[0] = "Hi!";
     option[1] = "AH! I scared me.";
