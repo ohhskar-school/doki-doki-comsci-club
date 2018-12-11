@@ -8,37 +8,8 @@
 /*
  * Just run make to compile the files. The makefile compiles the file with 
  * the flags -lncurses and -lm to compile with ncurses and math support.
+ * Tested to work on Manjaro Linux. Kernel no. 4.19.6-1-MANJARO
 */
-
-//takes care of the data between the main function and the events
-gameInfo gameEngine(gameInfo _mainInfo) {
-    //Initialize event variables
-    gameInfo branchInfo;
-    branchInfo = _mainInfo;
-    branchInfo.end = 0;
-    branchInfo.errorCode = 0;
-
-    /*  
-  *   Loops until a branch has ended. branchInfo.end signifies that a branch 
-  *   has ended and a checkpoint has been reached. A checkpoint means that
-  *  a day has passed.
-  */
-
-    while (branchInfo.end == 0 && branchInfo.errorCode == 0) {
-        branchInfo = eventSwitcher(branchInfo);
-    }
-
-    _mainInfo = branchInfo;  //Finalizes data from the branch
-    _mainInfo.nextEvent = 500;
-
-    //End the game if next day == 100000
-    if (branchInfo.nextEvent == 100000) {
-        _mainInfo.end = 1;
-    } else {
-        _mainInfo.end = 0;
-    }
-    return _mainInfo;
-}
 
 int main() {
     //Initializing Variables;
@@ -63,7 +34,7 @@ int main() {
 
     //Main Game Loop
     while (mainInfo.end == 0 && mainInfo.errorCode == 0) {
-        mainInfo = gameEngine(mainInfo);
+        mainInfo = eventSwitcher(mainInfo);
     }
 
     //Cleanup
