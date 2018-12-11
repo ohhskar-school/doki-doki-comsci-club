@@ -55,6 +55,11 @@ void bossBattle(int bossSelection, gameInfo _battleInfo, int questGiver) {
         contentWindow = createContentHud(hudHeight, line, lines);
         playerHudWindow = createPlayerHud(player, hudHeight);
         optionWindow = createOptionHud(hudHeight);
+
+        //optionWindow.choice ==
+        // option[0] = "Fight";
+        // option[1] = "Evade";
+        // option[2] = "Taunt";
         sleep(2);
     }
 }
