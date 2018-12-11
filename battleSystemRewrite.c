@@ -46,8 +46,13 @@ void bossBattle(int bossSelection, gameInfo _battleInfo, int questGiver) {
         WINDOW *contentWindow;
         optionReturn optionWindow;
 
+        int lines = 2;
+        const char *line[2];
+        line[0] = "ok";
+        line[1] = "Nani";
+
         enemyHudWindow = createEnemyHud(boss, hudHeight);
-        // contentWindow = createContentHud();
+        contentWindow = createContentHud(hudHeight, line, lines);
         playerHudWindow = createPlayerHud(player, hudHeight);
         optionWindow = createOptionHud(hudHeight);
         sleep(2);

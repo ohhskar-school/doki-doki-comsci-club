@@ -101,7 +101,7 @@ WINDOW *createHUD(int hudHeight, gameInfo incomingInfo) {
 
     //Create HUD Windows
     WINDOW *hudWindow = newwin(hudHeight, col, 0, 0);
-    box(hudWindow, 1, 1);
+    box(hudWindow, 0, 0);
 
     //Creates the content for the HUD
     //Prints the Main Texts
@@ -362,4 +362,19 @@ optionReturn createOptionHud(int hudHeight) {
     }
 
     return returnInfo;
+}
+
+WINDOW *createContentHud(int hudHeight, const char **line, int lines) {
+    int row, col;
+    getmaxyx(stdscr, row, col);
+
+    WINDOW *contentHud = newwin(row - (hudHeight * 2), col, hudHeight, 0);
+    box(contentHud, 0, 0);
+
+    for (int i = 0; i < lines; i++) {
+        mvwprintw(contentHud, i + 2, 3, "%s", line[i]);
+    }
+
+    wrefresh(contentHud);
+    return contentHud;
 }
