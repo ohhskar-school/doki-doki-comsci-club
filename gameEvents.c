@@ -1085,7 +1085,7 @@ gameInfo battleTwo(gameInfo _eventInfo) {
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 100;
+            _eventInfo.nextEvent = 501;
             _eventInfo.interestPoints[0] += 50;
             _eventInfo.end = 0;
         default:
