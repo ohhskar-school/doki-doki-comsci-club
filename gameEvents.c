@@ -37,9 +37,11 @@ gameInfo mainMenu(gameInfo _eventInfo) {
         case 2:
             _eventInfo.nextEvent = 10;
             _eventInfo.end = 0;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -124,9 +126,11 @@ gameInfo dayOne(gameInfo _eventInfo) {
         case 2:
             _eventInfo.nextEvent = 203;
             _eventInfo.end = 0;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -173,6 +177,7 @@ gameInfo onePathOne(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -213,7 +218,9 @@ gameInfo onePathTwo(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -252,7 +259,9 @@ gameInfo onePathThree(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -315,7 +324,9 @@ gameInfo dayOneCont(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -348,7 +359,9 @@ gameInfo onePathFour(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -389,7 +402,9 @@ gameInfo onePathFive(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -456,7 +471,9 @@ gameInfo dayOneContTwo(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -484,7 +501,9 @@ gameInfo clubOne(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -534,7 +553,9 @@ gameInfo clubOneCont(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -571,7 +592,9 @@ gameInfo clubOneContTwo(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -608,7 +631,9 @@ gameInfo clubOneContThree(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+    
     return _eventInfo;
 }
 
@@ -663,7 +688,9 @@ gameInfo clubOneContFour(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -712,7 +739,9 @@ gameInfo clubOneContFive(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -743,7 +772,9 @@ gameInfo clubPathOne(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -783,7 +814,9 @@ gameInfo clubPathTwo(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+    
     return _eventInfo;
 }
 
@@ -819,10 +852,13 @@ gameInfo clubPathThree(gameInfo _eventInfo) {
             _eventInfo.nextEvent = 2208;  //clubPathBranchOne
             _eventInfo.interestPoints[0] += 25;
             _eventInfo.end = 0;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -867,7 +903,9 @@ gameInfo clubPathBranchOne(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -919,10 +957,13 @@ gameInfo clubOneContSix(gameInfo _eventInfo) {
         case 1:
             _eventInfo.nextEvent = 507;
             _eventInfo.end = 0;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -952,10 +993,13 @@ gameInfo clubOneContSeven(gameInfo _eventInfo) {
         case 1:
             _eventInfo.nextEvent = 508;
             _eventInfo.end = 0;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -1006,7 +1050,9 @@ gameInfo clubOneContEight(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
+
     return _eventInfo;
 }
 
@@ -1044,6 +1090,7 @@ gameInfo dayTwo(gameInfo _eventInfo){
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
+
   return _eventInfo;
 } 
 /*
@@ -1074,6 +1121,7 @@ gameInfo battleOne(gameInfo _eventInfo) {
             _eventInfo.end = 1;
             break;
     }
+
     return _eventInfo;
 }
 
@@ -1096,6 +1144,7 @@ gameInfo battleTwo(gameInfo _eventInfo) {
             _eventInfo.end = 1;
             break;
     }
+
     return _eventInfo;
 }
 
@@ -1113,6 +1162,7 @@ gameInfo battleThree(gameInfo _eventInfo) {
             _eventInfo.end = 1;
             break;
     }
+
     return _eventInfo;
 }
 
@@ -1135,6 +1185,7 @@ gameInfo battleFour(gameInfo _eventInfo) {
             _eventInfo.end = 1;
             break;
     }
+
     return _eventInfo;
 }
 
@@ -1162,6 +1213,7 @@ gameInfo resultOne(gameInfo _eventInfo) {
             _eventInfo.end = 1;
             break;
     }
+
     return _eventInfo;
 }
 
@@ -1198,5 +1250,6 @@ gameInfo resultThree(gameInfo _eventInfo) {
             _eventInfo.end = 1;
             break;
     }
+    
     return _eventInfo;
 }
