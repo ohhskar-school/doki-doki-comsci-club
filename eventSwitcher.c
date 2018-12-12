@@ -48,9 +48,6 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
         case 208:
             _branchInfo = clubPathThree(_branchInfo);
             break;
-        // case 209:
-        //     _branchInfo = clubPathFour(_branchInfo);
-        //     break;
         case 2208:
             _branchInfo = clubPathBranchOne(_branchInfo);
             break;
@@ -81,9 +78,27 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
         case 508:
             _branchInfo = clubOneContEight(_branchInfo);
             break;
-        // case 509:
-        //     _branchInfo = clubOneContNine(_branchInfo);
-        //     break;
+        case 1001:
+            _branchInfo = battleOne(_branchInfo);
+            break;
+        case 1002:
+            _branchInfo = battleTwo(_branchInfo);
+            break;
+        case 1003:
+            _branchInfo = battleThree(_branchInfo);
+            break;
+        case 1004:
+            _branchInfo = battleFour(_branchInfo);
+            break;
+        case 1201
+            _branchInfo = resultOne(_branchInfo);
+            break;
+        case 1202:
+            _branchInfo = resultTwo(_branchInfo);
+            break;
+        case 1204:
+            _branchInfo = resultThree(_branchInfo);
+            break;
         case 100000:
             break;
         default:

@@ -6,6 +6,7 @@
 #include "hud.h"
 
 gameInfo mainMenu(gameInfo _eventInfo) {
+
     int lines = 6;
     const char *line[lines];
     int choice = 0;
@@ -17,22 +18,21 @@ gameInfo mainMenu(gameInfo _eventInfo) {
     line[5] = "";
 
     //Setting Options
-    int options = 4;
+    int options = 3;
     const char *option[options];
     option[0] = "Start Game";
     option[1] = "Exit Game";
     option[2] = "Debug";
-    option[3] = "Fight";
 
-    choice = choice = createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 100;
+            _eventInfo.nextEvent = 1001; //battleOne
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 100000;
+            _eventInfo.nextEvent = 100000; //exitGame
             _eventInfo.end = 1;
             break;
         case 2:
@@ -46,9 +46,7 @@ gameInfo mainMenu(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
-gameInfo dayOne(gameInfo _eventInfo) {
-    //--->> INSERT BATTLE
-
+gameInfo dayOne(gameInfo _eventInfo){
     int lines = 52;
     const char *line[lines];
     int choice = 0;
@@ -135,7 +133,7 @@ gameInfo dayOne(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
-gameInfo onePathOne(gameInfo _eventInfo) {
+gameInfo onePathOne(gameInfo _eventInfo){
     int lines = 15;
     const char *line[lines];
     int choice = 0;
@@ -156,15 +154,15 @@ gameInfo onePathOne(gameInfo _eventInfo) {
     line[13] = "She looks really pretty when she smiles.";
     line[14] = "";
 
-    //Setting Options
+//Setting Options
     int options = 2;
     const char *option[options];
     option[0] = "Smile back to her";
     option[1] = ".......";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
-    switch (choice) {
+    switch (choice){
         case 0:
             _eventInfo.nextEvent = 101;
             _eventInfo.end = 0;
@@ -178,10 +176,10 @@ gameInfo onePathOne(gameInfo _eventInfo) {
             _eventInfo.end = 1;
     }
 
-    return _eventInfo;
+return _eventInfo;
 }
 
-gameInfo onePathTwo(gameInfo _eventInfo) {
+gameInfo onePathTwo(gameInfo _eventInfo){
     int lines = 9;
     const char *line[lines];
     int choice = 0;
@@ -196,15 +194,15 @@ gameInfo onePathTwo(gameInfo _eventInfo) {
     line[7] = "'Wow she's really shy...'";
     line[8] = "";
 
-    //Setting Options
+//Setting Options
     int options = 2;
     const char *option[options];
     option[0] = "Ignore her.";
     option[1] = ".......";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
-    switch (choice) {
+    switch (choice){
         case 0:
             _eventInfo.nextEvent = 101;
             _eventInfo.end = 0;
@@ -217,10 +215,10 @@ gameInfo onePathTwo(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+return _eventInfo;
 }
 
-gameInfo onePathThree(gameInfo _eventInfo) {
+gameInfo onePathThree(gameInfo _eventInfo){
     int lines = 9;
     const char *line[lines];
     int choice = 0;
@@ -235,15 +233,15 @@ gameInfo onePathThree(gameInfo _eventInfo) {
     line[7] = "I have a feeling I should have said something nicer...";
     line[8] = "";
 
-    //Setting Options
+//Setting Options
     int options = 2;
     const char *option[options];
     option[0] = "'Sorry, you did good.'";
     option[1] = ".......";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
-    switch (choice) {
+    switch (choice){
         case 0:
             _eventInfo.nextEvent = 101;
             _eventInfo.end = 0;
@@ -256,10 +254,10 @@ gameInfo onePathThree(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo dayOneCont(gameInfo _eventInfo) {
+gameInfo dayOneCont(gameInfo _eventInfo){
     int lines = 31;
     const char *line[lines];
     int choice = 0;
@@ -322,7 +320,7 @@ gameInfo dayOneCont(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
-gameInfo onePathFour(gameInfo _eventInfo) {
+gameInfo onePathFour(gameInfo _eventInfo){
     int lines = 8;
     const char *line[lines];
     int choice = 0;
@@ -336,12 +334,12 @@ gameInfo onePathFour(gameInfo _eventInfo) {
     line[6] = "I sit back down, satisfied.";
     line[7] = "";
 
-    //Setting Options
+//Setting Options
     int options = 1;
     const char *option[options];
     option[0] = "........";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -352,10 +350,10 @@ gameInfo onePathFour(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo onePathFive(gameInfo _eventInfo) {
+gameInfo onePathFive(gameInfo _eventInfo){
     int lines = 16;
     const char *line[lines];
     int choice = 0;
@@ -377,12 +375,12 @@ gameInfo onePathFive(gameInfo _eventInfo) {
     line[14] = "I sit back down with a smirk.";
     line[15] = "";
 
-    //Setting Options
+//Setting Options
     int options = 1;
     const char *option[options];
     option[0] = "........";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -393,10 +391,10 @@ gameInfo onePathFive(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo dayOneContTwo(gameInfo _eventInfo) {
+gameInfo dayOneContTwo(gameInfo _eventInfo){
     int lines = 42;
     const char *line[lines];
     int choice = 0;
@@ -439,7 +437,7 @@ gameInfo dayOneContTwo(gameInfo _eventInfo) {
     line[35] = "With that he walks out the door in a hurry.";
     line[36] = "The rest of the class files out after him.";
     line[37] = "";
-    line[38] = "Oh wait!";
+    line[38] = "Oh wait!"
     line[39] = "That's right! It's the CMSC Club's first meeting later.";
     line[40] = "Should I go?";
     line[41] = "";
@@ -449,7 +447,7 @@ gameInfo dayOneContTwo(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "........";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -460,25 +458,38 @@ gameInfo dayOneContTwo(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
-}
+  return _eventInfo;
+} 
 
-gameInfo clubOne(gameInfo _eventInfo) {
-    int lines = 4;
+gameInfo clubOne(gameInfo _eventInfo){
+    int lines = 3;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "On my way looking for the CMSC Club room,";
-    line[1] = "A horde of upperclassmen suddenly appear!";
+    line[1] = "A wild horde of club recruiters suddenly appear!";
     line[2] = "'Join our club!'";
-    line[3] = "AHHH!!";
 
-    // --->> BATTLE HERE PLS
+//Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "AHHHH!!";
 
-    // choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 1002;
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
+  return _eventInfo;
 }
 
-gameInfo clubOneCont(gameInfo _eventInfo) {
+gameInfo clubOneCont(gameInfo _eventInfo){
     int lines = 15;
     const char *line[lines];
     int choice = 0;
@@ -492,7 +503,7 @@ gameInfo clubOneCont(gameInfo _eventInfo) {
     line[6] = "Well, isn't it awfully obvious who made these..";
     line[7] = "";
     line[8] = "The signs lead me to a room in Building C";
-    line[9] = "and the door is cracked wide open for visitors.";
+    line[9] = "and the door is cracked wide open for visitors.";    
     line[10] = "";
     line[11] = "I peek inside, and the only person there is Jeff.";
     line[12] = "He's sitting in one of the desks, doing something on his laptop.";
@@ -506,9 +517,9 @@ gameInfo clubOneCont(gameInfo _eventInfo) {
     option[1] = "Why not?";
     option[2] = "Really though, do I have a choice?";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
-    switch (choice) {
+    switch (choice){
         case 0:
             _eventInfo.nextEvent = 502;
             _eventInfo.end = 0;
@@ -525,10 +536,10 @@ gameInfo clubOneCont(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
-}
+  return _eventInfo;
+} 
 
-gameInfo clubOneContTwo(gameInfo _eventInfo) {
+gameInfo clubOneContTwo(gameInfo _eventInfo){
     int lines = 5;
     const char *line[lines];
     int choice = 0;
@@ -545,9 +556,9 @@ gameInfo clubOneContTwo(gameInfo _eventInfo) {
     option[0] = "Why wouldn't I when you literally threatened our entire class..";
     option[1] = "I wanna learn. Thought this was the place I could do that.";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
-    switch (choice) {
+    switch (choice){
         case 0:
             _eventInfo.nextEvent = 503;
             _eventInfo.interestPoints[0] += 25;
@@ -562,10 +573,10 @@ gameInfo clubOneContTwo(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo clubOneContThree(gameInfo _eventInfo) {
+gameInfo clubOneContThree(gameInfo _eventInfo){
     int lines = 7;
     const char *line[lines];
     int choice = 0;
@@ -584,9 +595,9 @@ gameInfo clubOneContThree(gameInfo _eventInfo) {
     option[0] = "There doesn't seem to be a lot of people..";
     option[1] = "Is this really the club? There aren't a lot of people.";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
-    switch (choice) {
+    switch (choice){
         case 0:
             _eventInfo.nextEvent = 504;
             _eventInfo.end = 0;
@@ -599,10 +610,10 @@ gameInfo clubOneContThree(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo clubOneContFour(gameInfo _eventInfo) {
+gameInfo clubOneContFour(gameInfo _eventInfo){
     int lines = 30;
     const char *line[lines];
     int choice = 0;
@@ -638,12 +649,30 @@ gameInfo clubOneContFour(gameInfo _eventInfo) {
     line[28] = "Me: What? What do you mean date-?";
     line[29] = "Jeff: Too late! Here we go~!";
 
-    // --->> INSERT BATTLE HERE, PLS RIG THAT JEFF WINS
+//Setting Options
+    int options = 2;
+    const char *option[options];
+    option[0] = "Oh no!";
 
-    // choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice){
+        case 0:
+            _eventInfo.nextEvent = 1003;
+            _eventInfo.end = 0;
+            break;
+        case 1:
+            _eventInfo.nextEvent = 504;
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
+  return _eventInfo;
 }
 
-gameInfo clubOneContFive(gameInfo _eventInfo) {
+gameInfo clubOneContFive(gameInfo _eventInfo){
     int lines = 11;
     const char *line[lines];
     int choice = 0;
@@ -667,49 +696,49 @@ gameInfo clubOneContFive(gameInfo _eventInfo) {
     option[1] = "Could you give me some time to think?";
     option[2] = "Hmm, sure okay. Why not.";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
-    switch (choice) {
+    switch (choice){
         case 0:
             _eventInfo.nextEvent = 206;
-            _eventInfo.interestPoints[0] += 20;
+            _eventInfo.interestPoints[0] += 20
             _eventInfo.end = 0;
             break;
         case 1:
             _eventInfo.nextEvent = 207;
-            _eventInfo.interestPoints[0] += 25;
+            _eventInfo.interestPoints[0] += 25
             _eventInfo.end = 0;
             break;
         case 2:
             _eventInfo.nextEvent = 208;
-            _eventInfo.interestPoints[0] += 50;
+            _eventInfo.interestPoints[0] += 50
             _eventInfo.end = 0;
             break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
-}
+  return _eventInfo;
+} 
 
-gameInfo clubPathOne(gameInfo _eventInfo) {
-    int lines = 6;
+gameInfo clubPathOne(gameInfo _eventInfo){
+    int lines = 6
     const char *line[lines];
     int choice = 0;
 
     line[0] = "The corner of Jeff's lips quirk up in a handsome smirk.";
-    line[1] = "Oof if he looked like this all the time,";
+    line[1] = "Oof if he looked like this all the time,"; 
     line[2] = "I probably wouldn't mind more than one date..";
     line[3] = "";
     line[4] = "Jeff: Why not?";
     line[5] = "";
 
-    //Setting Options
+//Setting Options
     int options = 1;
     const char *option[options];
     option[0] = "........";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -720,22 +749,22 @@ gameInfo clubPathOne(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo clubPathTwo(gameInfo _eventInfo) {
-    int lines = 15;
+gameInfo clubPathTwo(gameInfo _eventInfo){
+    int lines = 15
     const char *line[lines];
     int choice = 0;
 
     line[0] = "Jeff regards me thoughtfully and shrugs.";
     line[1] = "Jeff: Take all the time you need. But I did win fair and square though.";
     line[2] = "";
-    line[3] = "The honor card. Typical.";
+    line[3] = "The honor card. Typical."
     line[4] = "I shake my head and sigh. To hell with it.";
     line[5] = "";
     line[6] = "Me: Fine then. Just one date. What can it hurt?";
-    line[7] = "Jeff cracks a mischievous grin and I swear I felt my heart skip a beat.";
+    line[7] = "Jeff cracks a mischievous grin and I swear I felt my heart skip a beat.";   
     line[8] = "";
     line[9] = "Jeff: That didn't take much convincing.";
     line[10] = "I pull my tongue out at him.";
@@ -749,7 +778,7 @@ gameInfo clubPathTwo(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "........";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -760,10 +789,10 @@ gameInfo clubPathTwo(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo clubPathThree(gameInfo _eventInfo) {
+gameInfo clubPathThree(gameInfo _eventInfo){
     int lines = 8;
     const char *line[lines];
     int choice = 0;
@@ -783,27 +812,27 @@ gameInfo clubPathThree(gameInfo _eventInfo) {
     option[0] = "That's not what I meant.";
     option[1] = "This was just a bit unexpected.";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 2208;  //clubPathBranchOne
-            _eventInfo.interestPoints[0] += 25;
+            _eventInfo.nextEvent = 2208; //clubPathBranchOne
+            _eventInfo.interestPoints += 25;
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 2208;  //clubPathBranchOne
-            _eventInfo.interestPoints[0] += 25;
+            _eventInfo.nextEvent = 2208 //clubPathBranchOne
+            _eventInfo.interestPoint += 25;
             _eventInfo.end = 0;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo clubPathBranchOne(gameInfo _eventInfo) {
-    int lines = 20;
+gameInfo clubPathBranchOne(gameEngine _eventInfo){
+    int lines = 
     const char *line[lines];
     int choice = 0;
 
@@ -827,13 +856,13 @@ gameInfo clubPathBranchOne(gameInfo _eventInfo) {
     line[17] = "";
     line[18] = "Jeff: Okay, whatever you say.";
     line[19] = "";
-
+   
     //Setting Options
     int options = 1;
     const char *option[options];
     option[0] = "........";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -844,10 +873,11 @@ gameInfo clubPathBranchOne(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo clubOneContSix(gameInfo _eventInfo) {
+
+gameInfo clubOneContSix(gameInfo _eventInfo){
     int lines = 26;
     const char *line[lines];
     int choice = 0;
@@ -885,7 +915,7 @@ gameInfo clubOneContSix(gameInfo _eventInfo) {
     option[0] = "Chichi! Over here";
     option[1] = ".....";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -899,11 +929,11 @@ gameInfo clubOneContSix(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo clubOneContSeven(gameInfo _eventInfo) {
-    int lines = 4;
+gameInfo clubOneContSeven(gameInfo _eventInfo){
+    int lines = 4
     const char *line[lines];
     int choice = 0;
 
@@ -913,12 +943,12 @@ gameInfo clubOneContSeven(gameInfo _eventInfo) {
     line[3] = "";
 
     //Setting Options
-    int options = 2;
+    int options = 2
     const char *option[options];
     option[0] = "No biggie.";
     option[1] = "It's fine. I completely understand.";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -932,11 +962,11 @@ gameInfo clubOneContSeven(gameInfo _eventInfo) {
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
+  return _eventInfo;
 }
 
-gameInfo clubOneContEight(gameInfo _eventInfo) {
-    int lines = 33;
+gameInfo clubOneContEight(gameInfo _eventInfo){
+    int lines = 
     const char *line[lines];
     int choice = 0;
 
@@ -965,39 +995,29 @@ gameInfo clubOneContEight(gameInfo _eventInfo) {
     line[22] = "The club meeting goes on pretty uneventfully. They talk about plans";
     line[23] = "for the club for the school year. After that, Mr. K dismisses us.";
     line[24] = "";
-    line[25] = "Chichi: I think I'm gonna head on home. I still have to work";
-    line[26] = "on the Comp Sci homework Mr. K gave us.";
-    line[27] = "    ";
-    line[28] = "Me: Oof! Thanks for reminding me, Chichi! I almost forgot about it.";
-    line[29] = "Do you think Mr. K has a proper format for it in mind?";
-    line[30] = "";
-    line[31] = "Chichi: Hmm, I'm not sure. Maybe we should ask him?";
-    line[32] = "    ";
-    line[33] = "Should we?";
+    line[25] = "I head home.";
 
     //Setting Options
-    int options = 2;
+    int options = 1;
     const char *option[options];
-    option[0] = "Yes";
-    option[1] = "No";
+    option[0] = "Go home";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
-    switch (choice) {
+    switch (choice){
         case 0:
-            _eventInfo.nextEvent = 509;
-            _eventInfo.end = 0;
-            break;
-        case 1:
-            _eventInfo.nextEvent = 10000;
+            _eventInfo.nextEvent = 1004;
             _eventInfo.end = 1;
             break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
-    return _eventInfo;
-}
+  return _eventInfo;
+} 
+
+
+
 /*
 gameInfo dayTwo(gameInfo _eventInfo){
     int lines = 6;
@@ -1017,7 +1037,7 @@ gameInfo dayTwo(gameInfo _eventInfo){
     option[0] = "Hi!";
     option[1] = "AH! I scared me.";
 
-    choice = createGameScreen(line, lines, option, options, _eventInfo);
+    createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice){
         case 0:
@@ -1042,3 +1062,141 @@ gameInfo twoPathOne(gameInfo _eventInfo){
 
     line[] = 
 }*/
+
+
+
+//BATTLES
+
+
+gameInfo battleOne(gameInfo _eventInfo){
+    int result = bossBattle(1, _eventInfo);
+
+    switch(result){
+        case 0:
+            _eventInfo.nextEvent = 1201;
+            _eventInfo.end = 0;
+            break;
+        case 1:
+            _eventInfo.nextEvent = 100;
+            _eventInfo.end = 0;
+        default:
+            _eventInfo.errorcode = 2;
+            _eventInfo.end = 1;
+    }
+  return _eventInfo;
+}
+
+gameInfo battleTwo(gameInfo _eventInfo){
+    int result = bossBattle(2, _eventInfo);
+
+    switch(result){
+        case 0:
+            _eventInfo.nextEvent = 1202;
+            _eventInfo.interestPoints[0] += 25;
+            _eventInfo.end = 0;
+            break;
+        case 1:
+            _eventInfo.nextEvent = 100;
+            _eventInfo.interestPoints[0] += 50;
+            _eventInfo.end = 0;
+        default:
+            _eventInfo.errorcode = 2;
+            _eventInfo.end = 1;
+    }
+  return _eventInfo;
+}
+
+gameInfo battleThree(gameInfo _eventInfo){
+    int result = bossBattle(3, _eventInfo);
+
+    switch(result){
+        case 0:
+            _eventInfo.nextEvent = 1000;
+            _eventInfo.interestPoints[0] += 75;
+            _eventInfo.end = 1;
+        default:
+            _eventInfo.errorcode = 2;
+            _eventInfo.end = 1;
+    }
+  return _eventInfo;
+}
+
+gameInfo battleFour(gameInfo _eventInfo){
+    int result = bossBattle(4, _eventInfo);
+
+    switch(result){
+        case 0:
+            _eventInfo.nextEvent = 1204;
+            _eventInfo.interesttPoints[1] += 50;
+            _eventInfo.end = 0;
+        case 1:
+            _eventInfo.nextEvent = 1000;
+            _eventInfo.interestPoints[1] += 75
+            _eventInfo.end = 1;
+        default:
+            _eventInfo.errorcode = 2;
+            _eventInfo.end = 1;
+    }
+  return _eventInfo;
+}
+
+gameInfo resultOne(gameInfo _eventInfo){
+    int lines = 1;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "You never woke up from your nightmare.";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "Quit";
+
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice){
+        case 0:
+            _eventInfo.end = 1;
+            break;
+       
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
+  return _eventInfo;
+} 
+
+gameInfo resultTwo(gameInfo _eventInfo){
+    int lines = 1;
+    const char *line[line];
+    int choice = 0;
+
+    line[0] = "Jeff";
+}
+
+gameInfo resultThree(gameInfo _eventInfo){
+    int lines = 2
+    const char *line[line];
+    int choice = 0;
+
+    line[0] = "The assignment was too much for you.";
+    line[1] = "You have failed Mr. K.";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "Quit";
+
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice){
+        case 0:
+            _eventInfo.end = 1;
+            break;
+       
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
+  return _eventInfo;
+}

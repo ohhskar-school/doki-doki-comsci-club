@@ -28,5 +28,12 @@ gameInfo clubOneContEight(gameInfo _eventInfo);
 gameInfo clubOneContNine(gameInfo _eventInfo);
 //gameInfo dayTwo(gameInfo _eventInfo);
 //gameInfo dayTwoCont(gameInfo _eventInfo);
+gameInfo battleOne(gameInfo _eventInfo);
+gameInfo battleTwo(gameInfo _eventInfo);
+gameInfo battleThree(gameInfo _eventInfo);
+gameInfo battleFour(gameInfo _eventInfo);
+gameInfo resultOne(gameInfo _eventInfo);
+gameInfo resultTwo(gameInfo _eventInfo);
+gameInfo resultThree(gameInfo _eventInfo);
 
 #endif
