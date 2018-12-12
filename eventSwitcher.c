@@ -90,7 +90,7 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
         case 1004:
             _branchInfo = battleFour(_branchInfo);
             break;
-        case 1201
+        case 1201:
             _branchInfo = resultOne(_branchInfo);
             break;
         case 1202:
