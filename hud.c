@@ -323,11 +323,13 @@ optionReturn createOptionHud(int hudHeight, char **option, int options) {
     wrefresh(returnInfo.optionWindow);
 
     while (1) {
+        int gap = 3;
         for (int i = 0; i < options; i++) {
             if (i == returnInfo.choice) {
                 wattron(returnInfo.optionWindow, A_REVERSE);
             }
-            mvwprintw(returnInfo.optionWindow, 2, i * 7 + 3, " %s ", option[i]);
+            mvwprintw(returnInfo.optionWindow, 2, gap, " %s ", option[i]);
+            gap += strlen(option[i]) + 2;
             wattroff(returnInfo.optionWindow, A_REVERSE);
         }
         choice = wgetch(returnInfo.optionWindow);

@@ -1,5 +1,4 @@
 #include <ncurses.h>
-#include <stdio.h>
 #include <unistd.h>
 #include "eventSwitcher.h"
 #include "gameInfo.h"
