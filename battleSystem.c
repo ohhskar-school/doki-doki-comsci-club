@@ -25,6 +25,12 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     boss.maxHealth = 100;
     boss.skill = 50;
 
+    switch (bossSelection) {
+        case 0: {
+            boss.name = "Boss 1";
+        }
+    }
+
     //Splash Screen
     getReadyScreen();
     clear();
@@ -456,7 +462,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         }
     }
 
-    if (player.health <= 0) {
+    if (boss.health <= 0) {
         success = 1;
     }
 
