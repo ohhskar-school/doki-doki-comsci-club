@@ -1153,7 +1153,7 @@ gameInfo battleThree(gameInfo _eventInfo) {
 
     switch (result) {
         case 0:
-            _eventInfo.nextEvent = 1000;
+            _eventInfo.nextEvent = 505;
             _eventInfo.interestPoints[0] += 75;
             _eventInfo.end = 1;
             break;
