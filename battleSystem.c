@@ -1,308 +1,464 @@
-// #include <stdio.h>
-// #include <stdlib.h>
+#include <ncurses.h>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
+#include "gameInfo.h"
+#include "hud.h"
 
-// struct bossStruct {
-//     int damage;
-//     int health;
-//     int move;
-//     int skill;
-//     char* name;
-// };
+int bossBattle(int bossSelection, gameInfo _battleInfo) {
+    //Setting Battle Info
+    unsigned int action = 0;
+    int battleOutcome = 0, bossSuccess = 0, playerSuccess = 0;
+    bossStruct boss;
+    playerStruct player;
+    srand((unsigned int)time(NULL));
+    int success = 1;
 
-// struct playerStruct {
-//     int interestPoints;
-//     int damage;
-//     int health;
-// };
+    //Setting Player Info
+    player.damage = 10;  //_battleInfo.interestPoints[2] * 3;
+    player.health = 100;
+    player.maxHealth = 100;
 
-// int bossBattle(int _boss) {
-//     unsigned int _action;
-//     int _battleOutcome, _bossSuccess, _playerSuccess;
-//     struct bossStruct boss;
-//     struct playerStruct player;
-//     srand((unsigned)time(&t));
+    //Selecting Boss Atrributes
+    boss.damage = 10;
+    boss.health = 75;
+    boss.maxHealth = 100;
+    boss.skill = 50;
 
-//     player.interestPoints = 5;
-//     player.damage = player.interestPoints * 3;
-//     player.health = 100;
+    //Splash Screen
+    getReadyScreen();
+    clear();
+    refresh();
 
-//     switch (_boss) {
-//         case 1:
-//             boss.damage = 10;
-//             boss.health = 30;
-//             boss.skill = 50;
-//             boss.name = "Maam Alota";
-//             break;
+    //Main Battle Loop;
+    while (boss.health > 0 && player.health > 0) {
+        //Creating Windows
+        int hudHeight = 5;
+        WINDOW *enemyHudWindow;
+        WINDOW *playerHudWindow;
+        WINDOW *contentWindow;
+        optionReturn optionWindow;
 
-//         case 2:
-//             boss.damage = 10;
-//             boss.health = 10;
-//             boss.skill = 50;
-//             boss.name = "Sir Ryan";
-//             break;
+        // Generates random boss move
+        boss.move = rand() % 3;
 
-//         case 3:
-//             boss.damage = 10;
-//             boss.health = 10;
-//             boss.skill = 50;
-//             boss.name = "CMSC";
-//             break;
+        // Calculates success rate
+        bossSuccess = rand() % 100;
+        playerSuccess = rand() % 100;
 
-//         case 4:
-//             boss.damage = 10;
-//             boss.health = 10;
-//             boss.skill = 50;
-//             boss.name = "CMSC";
-//             break;
+        int lines = 1;
+        char *line[lines];
+        line[0] = "What do you want to do?";
 
-//         case 5:
-//             boss.damage = 10;
-//             boss.health = 10;
-//             boss.skill = 50;
-//             boss.name = "CMSC";
-//             break;
-//     }
+        int options = 3;
+        char *option[options];
+        option[0] = "Fight";
+        option[1] = "Evade";
+        option[2] = "Taunt";
 
-//     while (boss.health > 0 && player.health > 0) {
-//         // Asks the player for input
-//         do {
-//             printf("What do you want to do? \n");
-//             scanf("%d", &_action);
-//         } while (_action > 4 && _action == 0);
+        enemyHudWindow = createEnemyHud(boss, hudHeight);
+        contentWindow = createContentHud(hudHeight, line, lines);
+        playerHudWindow = createPlayerHud(player, hudHeight);
+        optionWindow = createOptionHud(hudHeight, option, options);
+        // If boss attacks
+        if (boss.move == 0) {
+            lines = 1;
+            line[0] = "He tries to attack you.";
+            contentWindow = createContentHud(hudHeight, line, lines);
 
-//         // Generates random boss move
-//         boss.move = rand() % 3;
+            options = 1;
+            option[0] = "Next ";
+            createOptionHud(hudHeight, option, options);
+            // If attack succeeds
+            if (bossSuccess >= boss.skill) {
+                // If player chose to attack
+                if (optionWindow.choice == 0) {
+                    lines = 1;
+                    line[0] = "It hit!";
+                    player.health -= boss.damage;
+                    playerHudWindow = createEnemyHud(boss, hudHeight);
+                    contentWindow = createContentHud(hudHeight, line, lines);
 
-//         // Calculates success rate
-//         _bossSuccess = rand() % 100;
-//         _playerSuccess = rand() % 100;
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
 
-//         // If boss tries to attack
-//         if (boss.move == 0) {
-//             printf("%s tries to attack you. \n", boss.name);
+                    // If player attack succeeds
+                    if (playerSuccess >= 30) {
+                        lines = 1;
+                        line[0] = "You manage to land a hit yourself!";
+                        boss.health -= player.damage;
+                        enemyHudWindow = createEnemyHud(boss, hudHeight);
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    } else {
+                        lines = 1;
+                        line[0] = "You missed!";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
 
-//             // If boss attack succeeds
-//             if (_bossSuccess >= boss.skill) {
-//                 if (_action == 1) {
-//                     printf("It lands! You take %d damage \n", boss.damage);
-//                     player.health = player.health - boss.damage;
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
 
-//                     // If your attack succeeds
-//                     if (_playerSuccess >= 20) {
-//                         printf("You strike back! Dealing %d damage", player.damage);
-//                         boss.health = boss.health - player.damage;
-//                     } else {
-//                         printf("You strike back! But you missed. \n");
-//                     }
-//                 }
+                // If player chose to evade
+                else if (optionWindow.choice == 1) {
+                    // If player evade succeeds
+                    if (playerSuccess >= 30) {
+                        lines = 1;
+                        line[0] = "You manage to dodge his attack!";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    } else {
+                        lines = 1;
+                        player.health -= boss.damage;
+                        playerHudWindow = createEnemyHud(boss, hudHeight);
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
 
-//                 else if (_action == 2) {
-//                     // If your dodge succeeds
-//                     if (_playerSuccess >= 50) {
-//                         printf("You successfully dodge! \n");
-//                     } else {
-//                         printf("You try to dodge but the attack still lands. \n");
-//                         player.health = player.health - boss.damage;
-//                     }
-//                 }
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
 
-//                 else if (_action == 3) {
-//                     printf("%s hits you! You take %d damage \n", boss.name, boss.damage);
-//                     player.health = player.health - boss.damage;
-//                     printf("Despite the attack, you manage to taunt the enemy! \n");
-//                     printf("Your attack power increased! \n");
-//                     player.damage = player.damage + 5;
-//                 }
+                // If player chose to taunt
+                else if (optionWindow.choice == 2) {
+                    // If player taunt succeeds
+                    if (playerSuccess >= 20) {
+                        lines = 2;
+                        line[0] = "You successfully taunt your opponent!";
+                        line[1] = "Increasing your attack power by 5.";
+                        player.damage += 5;
+                        contentWindow = createContentHud(hudHeight, line, lines);
 
-//                 else if (_action == 4) {
-//                     // If you successfully flee
-//                     if (_playerSuccess >= 50) {
-//                         printf("You run away, but deep down you know that this isn't the last time you'll face each other \n");
-//                     } else {
-//                         printf("You try to flee but somehow can't! \n");
-//                     }
-//                 }
+                    } else {
+                        lines = 1;
+                        line[0] = "You try to taunt but it doesn't phase him at all!";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
 
-//             }
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
 
-//             // If boss attack fails
-//             else {
-//                 printf("%s 's attack misses!\n", boss.name);
+                // If boss attack fails
+            } else {
+                lines = 1;
+                line[0] = "He missed!";
+                contentWindow = createContentHud(hudHeight, line, lines);
 
-//                 if (_action == 1) {
-//                     // If your attack succeeds
-//                     if (_playerSuccess >= 20) {
-//                         printf("You take the opportunity and you strike! Dealing %d damage \n", player.damage);
-//                         boss.health = boss.health - player.damage;
-//                     } else {
-//                         printf("You try to take the opportunity but miss your attack. \n");
-//                     }
-//                 }
+                options = 1;
+                option[0] = "Next ";
+                createOptionHud(hudHeight, option, options);
 
-//                 else if (_action == 2) {
-//                     printf("You dodge anyway! \n");
-//                 }
+                // If player chose to attack
+                if (optionWindow.choice == 0) {
+                    // If player attack succeeds
+                    if (playerSuccess >= 30) {
+                        lines = 1;
+                        line[0] = "You take the opportunity and hit them hard!";
+                        boss.health -= player.damage;
+                        enemyHudWindow = createEnemyHud(boss, hudHeight);
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    } else {
+                        lines = 1;
+                        line[0] = "You missed!";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
 
-//                 else if (_action == 3) {
-//                     printf("You taunt at them for the missed attack. Increasing your attack power! \n");
-//                     player.damage = player.damage + 5;
-//                 }
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
 
-//                 else if (_action == 4) {
-//                     if (_playerSuccess >= 50) {
-//                         printf("You run away, but deep down you know that this isn't the last time you'll face each other \n");
-//                     } else {
-//                         printf("You try to flee but somehow can't! \n");
-//                     }
-//                 }
-//             }
-//         }
+                // If player chose to evade
+                else if (optionWindow.choice == 1) {
+                    lines = 1;
+                    line[0] = "You managed to dodge his attack";
+                    contentWindow = createContentHud(hudHeight, line, lines);
 
-//         // If boss tries to evade
-//         else if (boss.move == 1) {
-//             // If evade succeeds
-//             if (_bossSuccess >= boss.skill) {
-//                 if (_action == 1) {
-//                     printf("You missed! \n  ");
-//                 }
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
 
-//                 else if (_action == 2) {
-//                     printf("Both of you try to get away from each other \n");
-//                 }
+                // If player chose to taunt
+                else if (optionWindow.choice == 2) {
+                    // If player taunt succeeds
+                    if (playerSuccess >= 20) {
+                        lines = 2;
+                        line[0] = "You mock his weak attempt of an attack";
+                        line[1] = "Increasing your attack power by 5.";
+                        player.damage += 5;
+                        contentWindow = createContentHud(hudHeight, line, lines);
 
-//                 else if (_action == 3) {
-//                     printf("You taunt your opponent. Increasing your attack power! \n");
-//                     player.damage = player.damage + 5;
-//                 }
+                    } else {
+                        lines = 1;
+                        line[0] = "You try and mock his missed attack but choke on your own spit instead";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
 
-//                 else if (_action == 4) {
-//                     if (_playerSuccess >= 50) {
-//                         printf("You run away, but deep down you know that this isn't the last time you'll face each other \n");
-//                     } else {
-//                         printf("You try to flee but somehow can't! \n");
-//                     }
-//                 }
-//             }
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
+            }
+        }
 
-//             // If evade fails
-//             else {
-//                 if (_action == 1) {
-//                     printf("%s tries to evade but stumbles instead! \n", boss.name);
+        // If boss evades
+        if (boss.move == 1) {
+            lines = 1;
+            line[0] = "He tries to get away from you";
+            contentWindow = createContentHud(hudHeight, line, lines);
 
-//                     // If your attack succeeds
-//                     if (_playerSuccess >= 20) {
-//                         printf("You take the opportunity and you strike! Dealing %d damage \n", player.damage);
-//                         boss.health = boss.health - player.damage;
-//                     } else {
-//                         printf("You try to take the opportunity but miss your attack. \n");
-//                     }
-//                 }
+            options = 1;
+            option[0] = "Next ";
+            createOptionHud(hudHeight, option, options);
 
-//                 else if (_action == 2) {
-//                     printf("Both of you try to get away from each other \n");
-//                 }
+            // If evade succeeds
+            if (bossSuccess >= boss.skill) {
+                // If player chose to attack
+                if (optionWindow.choice == 0) {
+                    lines = 1;
+                    line[0] = "You miss!";
+                    contentWindow = createContentHud(hudHeight, line, lines);
 
-//                 else if (_action == 3) {
-//                     printf("%s tries to evade but stumbles instead! \n", boss.name);
-//                     printf("You laugh at his misfortune. Increasing your attack power! \n");
-//                     player.damage = player.damage + 5;
-//                 }
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
 
-//                 else if (_action == 4) {
-//                     if (_playerSuccess >= 50) {
-//                         printf("You run away, but deep down you know that this isn't the last time you'll face each other \n");
-//                     } else {
-//                         printf("You try to flee but somehow can't! \n");
-//                     }
-//                 }
-//             }
-//         }
+                // If player chose to evade
+                else if (optionWindow.choice == 1) {
+                    lines = 1;
+                    line[0] = "Both of you try to get away from each other";
+                    contentWindow = createContentHud(hudHeight, line, lines);
 
-//         // If boss tries to taunt
-//         else if (boss.move == 2) {
-//             // If taunt succeeds
-//             if (_bossSuccess >= boss.skill) {
-//                 boss.damage = boss.damage + 5;
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
 
-//                 if (_action == 1) {
-//                     printf("%s taunts at you! Their attack power has increased. \n", boss.name);
+                // If player chose to taunt
+                else if (optionWindow.choice == 2) {
+                    // If player taunt succeeds
+                    if (playerSuccess >= 20) {
+                        lines = 2;
+                        line[0] = "You successfully taunt your opponent!";
+                        line[1] = "Increasing your attack power by 5.";
+                        player.damage += 5;
+                        contentWindow = createContentHud(hudHeight, line, lines);
 
-//                     // If your attack succeeds
-//                     if (_playerSuccess >= 20) {
-//                         printf("You take the opportunity and you strike! Dealing %d damage \n", player.damage);
-//                         boss.health = boss.health - player.damage;
-//                     } else {
-//                         printf("You try to take the opportunity but miss your attack. \n");
-//                     }
-//                 }
+                    } else {
+                        lines = 1;
+                        line[0] = "You went the wrong way and got hit by his attack instead!";
+                        player.health -= boss.damage;
+                        playerHudWindow = createEnemyHud(boss, hudHeight);
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
 
-//                 else if (_action == 2) {
-//                     printf("You successfully dodge. \n");
-//                 }
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
 
-//                 else if (_action == 3) {
-//                     printf("Both of you taunt each other! Increasing both of your attack powers. \n");
-//                     player.damage = player.damage + 5;
-//                 }
+                // If boss evade fails
+            } else {
+                // If player chose to attack
+                if (optionWindow.choice == 0) {
+                    // If player attack succeeds
+                    if (playerSuccess >= 30) {
+                        lines = 1;
+                        line[0] = "He moved the wrong way and you managed to hit him!";
+                        boss.health -= player.damage;
+                        enemyHudWindow = createEnemyHud(boss, hudHeight);
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    } else {
+                        lines = 1;
+                        line[0] = "You missed!";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
 
-//                 else if (_action == 4) {
-//                     // If you successfully flee
-//                     if (_playerSuccess >= 50) {
-//                         printf("You run away, but deep down you know that this isn't the last time you'll face each other \n");
-//                     } else {
-//                         printf("You try to flee but somehow can't! \n");
-//                     }
-//                 }
-//             }
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
 
-//             // If taunt fails
-//             else {
-//                 if (_action == 1) {
-//                     printf("%s tries to taunt! But chokes on spit while doing so. \n", boss.name);
+                // If player chose to evade
+                else if (optionWindow.choice == 1) {
+                    lines = 1;
+                    line[0] = "Both of you get away from each other";
+                    contentWindow = createContentHud(hudHeight, line, lines);
 
-//                     // If your attack succeeds
-//                     if (_playerSuccess >= 20) {
-//                         printf("You take the opportunity and you strike! Dealing %d damage \n", player.damage);
-//                         boss.health = boss.health - player.damage;
-//                     } else {
-//                         printf("You try to take the opportunity but miss your attack. \n");
-//                     }
-//                 }
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
 
-//                 else if (_action == 2) {
-//                     printf("You successfully dodge! \n");
-//                 }
+                // If player chose to taunt
+                else if (optionWindow.choice == 2) {
+                    // If player taunt succeeds
+                    if (playerSuccess >= 20) {
+                        lines = 2;
+                        line[0] = "You successfully taunt your opponent";
+                        line[1] = "Increasing your attack power by 5.";
+                        player.damage += 5;
+                        contentWindow = createContentHud(hudHeight, line, lines);
 
-//                 else if (_action == 3) {
-//                     printf("%s tries to taunt! But chokes on spit while doing so. \n", boss.name);
-//                     printf("You laugh at the mishap! By doing so, you manage to increase your attack power. \n");
-//                     player.damage = player.damage + 5;
-//                 }
+                    } else {
+                        lines = 1;
+                        line[0] = "You try and insult him but choke on your own spit instead";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
 
-//                 else if (_action == 4) {
-//                     // If you successfully flee
-//                     if (_playerSuccess >= 50) {
-//                         printf("You run away, but deep down you know that this isn't the last time you'll face each other \n");
-//                     } else {
-//                         printf("You try to flee but somehow can't! \n");
-//                     }
-//                 }
-//             }
-//         }
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
+            }
+        }
 
-//         // If boss dies
-//         if (boss.health <= 0) {
-//             printf("You come out triumphant! \n");
-//             _battleOutcome = 1;
-//         }
-//         // If player dies
-//         else if (player.health <= 0) {
-//             printf("You have fallen unconscious. Your Doki Doki adventure ends here. \n");
-//             _battleOutcome = 0;
-//         }
-//     }
-// }
+        // If boss taunts
+        if (boss.move == 2) {
+            lines = 1;
+            line[0] = "He tries insulting you";
+            contentWindow = createContentHud(hudHeight, line, lines);
 
-// int battle() {
-//     bossBattle(1);
-// }
+            options = 1;
+            option[0] = "Next ";
+            createOptionHud(hudHeight, option, options);
+
+            // If taunt succeeds
+            if (bossSuccess >= boss.skill) {
+                lines = 1;
+                line[0] = "He manages to hurt your feelings and increase his attack power at the same time";
+                boss.damage += 5;
+                contentWindow = createContentHud(hudHeight, line, lines);
+
+                options = 1;
+                option[0] = "Next ";
+                createOptionHud(hudHeight, option, options);
+
+                // If player chose to attack
+                if (optionWindow.choice == 0) {
+                    // If player attack succeeds
+                    if (playerSuccess >= 30) {
+                        lines = 1;
+                        line[0] = "You take the opportunity and land a hit!";
+                        boss.health -= player.damage;
+                        enemyHudWindow = createEnemyHud(boss, hudHeight);
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    } else {
+                        lines = 1;
+                        line[0] = "You tried to hit him but badly missed";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
+
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
+
+                // If player chose to evade
+                else if (optionWindow.choice == 1) {
+                    lines = 1;
+                    line[0] = "You roll away from him";
+                    contentWindow = createContentHud(hudHeight, line, lines);
+
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
+
+                // If player chose to taunt
+                else if (optionWindow.choice == 2) {
+                    // If player taunt succeeds
+                    if (playerSuccess >= 20) {
+                        lines = 2;
+                        line[0] = "You give him a mouthful of insults as well!";
+                        line[1] = "Increasing your attack power by 5.";
+                        player.damage += 5;
+                        contentWindow = createContentHud(hudHeight, line, lines);
+
+                    } else {
+                        lines = 1;
+                        line[0] = "Stunned by what he just said, you just skipped your turn";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
+
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
+
+                // If boss taunt fails
+            } else {
+                lines = 1;
+                line[0] = "He stutters and fails to hurt your feelings";
+                contentWindow = createContentHud(hudHeight, line, lines);
+
+                options = 1;
+                option[0] = "Next ";
+                createOptionHud(hudHeight, option, options);
+
+                // If player chose to attack
+                if (optionWindow.choice == 0) {
+                    // If player attack succeeds
+                    if (playerSuccess >= 30) {
+                        lines = 1;
+                        line[0] = "You take the opportunity and hit them hard!";
+                        boss.health -= player.damage;
+                        enemyHudWindow = createEnemyHud(boss, hudHeight);
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    } else {
+                        lines = 1;
+                        line[0] = "You take a swing at him but miss!";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
+
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
+
+                // If player chose to evade
+                else if (optionWindow.choice == 1) {
+                    lines = 1;
+                    line[0] = "You roll away from him";
+                    contentWindow = createContentHud(hudHeight, line, lines);
+
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
+
+                // If player chose to taunt
+                else if (optionWindow.choice == 2) {
+                    // If player taunt succeeds
+                    if (playerSuccess >= 20) {
+                        lines = 2;
+                        line[0] = "You laugh at his attempt to insult you";
+                        line[1] = "Increasing your attack power by 10.";
+                        player.damage += 10;
+                        contentWindow = createContentHud(hudHeight, line, lines);
+
+                    } else {
+                        lines = 1;
+                        line[0] = "You try and insult him as well but choke on your own spit instead";
+                        contentWindow = createContentHud(hudHeight, line, lines);
+                    }
+
+                    options = 1;
+                    option[0] = "Next ";
+                    createOptionHud(hudHeight, option, options);
+                }
+            }
+        }
+    }
+
+    if (player.health <= 0) {
+        success = 1;
+    }
+
+    return success;
+}

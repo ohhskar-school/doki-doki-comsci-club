@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include "battleSystemRewrite.h"
+#include "battleSystem.h"
 #include "gameInfo.h"
 #include "hud.h"
 
