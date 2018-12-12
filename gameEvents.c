@@ -1067,7 +1067,6 @@ gameInfo twoPathOne(gameInfo _eventInfo){
 
 gameInfo battleOne(gameInfo _eventInfo) {
     int result = bossBattle(1, _eventInfo);
-
     switch (result) {
         case 0:
             _eventInfo.nextEvent = 1201;
@@ -1076,9 +1075,11 @@ gameInfo battleOne(gameInfo _eventInfo) {
         case 1:
             _eventInfo.nextEvent = 100;
             _eventInfo.end = 0;
+            break;
         default:
-            _eventInfo.errorCode = 2;
+            _eventInfo.errorCode = 5;
             _eventInfo.end = 1;
+            break;
     }
     return _eventInfo;
 }
@@ -1096,9 +1097,11 @@ gameInfo battleTwo(gameInfo _eventInfo) {
             _eventInfo.nextEvent = 100;
             _eventInfo.interestPoints[0] += 50;
             _eventInfo.end = 0;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
     return _eventInfo;
 }
@@ -1111,9 +1114,11 @@ gameInfo battleThree(gameInfo _eventInfo) {
             _eventInfo.nextEvent = 1000;
             _eventInfo.interestPoints[0] += 75;
             _eventInfo.end = 1;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
     return _eventInfo;
 }
@@ -1126,13 +1131,16 @@ gameInfo battleFour(gameInfo _eventInfo) {
             _eventInfo.nextEvent = 1204;
             _eventInfo.interestPoints[1] += 50;
             _eventInfo.end = 0;
+            break;
         case 1:
             _eventInfo.nextEvent = 1000;
             _eventInfo.interestPoints[1] += 75;
             _eventInfo.end = 1;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
     return _eventInfo;
 }
@@ -1159,6 +1167,7 @@ gameInfo resultOne(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
     return _eventInfo;
 }
@@ -1194,6 +1203,7 @@ gameInfo resultThree(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
     return _eventInfo;
 }
