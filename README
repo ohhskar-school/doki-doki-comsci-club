@@ -1,0 +1,19 @@
+Greetings!
+
+Included in this zip file are the files for our game, Doki Doki CMSC Club,
+
+Dependencies for this game include:
+  - NCurses
+  - Math
+
+To build this game run make, make already includes the flags needed to build the game
+
+built binaries can also be found in this file, entiled game
+
+Also included in this zip file is our partial documentation.
+
+for updates to this game beyond the semester, head to our github!
+https://github.com/ohhskar/cmsc11-game
+
+With thanks,
+Remote Control
