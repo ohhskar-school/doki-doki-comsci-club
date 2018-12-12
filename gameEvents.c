@@ -649,7 +649,7 @@ gameInfo clubOneContFour(gameInfo _eventInfo) {
     line[29] = "Jeff: Too late! Here we go~!";
 
     //Setting Options
-    int options = 2;
+    int options = 1;
     const char *option[options];
     option[0] = "Oh no!";
 
@@ -658,10 +658,6 @@ gameInfo clubOneContFour(gameInfo _eventInfo) {
     switch (choice) {
         case 0:
             _eventInfo.nextEvent = 1003;
-            _eventInfo.end = 0;
-            break;
-        case 1:
-            _eventInfo.nextEvent = 504;
             _eventInfo.end = 0;
             break;
         default:
