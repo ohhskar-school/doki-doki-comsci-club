@@ -39,7 +39,7 @@ gameInfo mainMenu(gameInfo _eventInfo) {
             _eventInfo.nextEvent = 10;
             _eventInfo.end = 1;
         case 3: {
-            int result = bossBattle(0, _eventInfo);
+            int result = bossBattle(1, _eventInfo);
             break;
         }
         default:
