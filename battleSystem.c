@@ -12,18 +12,52 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     bossStruct boss;
     playerStruct player;
     srand((unsigned int)time(NULL));
-    int success = 1;
+    int success = 0;
 
     //Setting Player Info
-    player.damage = 10;  //_battleInfo.interestPoints[2] * 3;
+    player.damage = _battleInfo.interestPoints[2];
     player.health = 100;
     player.maxHealth = 100;
 
-    //Selecting Boss Atrributes
-    boss.damage = 10;
-    boss.health = 75;
-    boss.maxHealth = 100;
-    boss.skill = 50;
+    //Selecting Boss Attributes
+    switch(bossSelection) {
+        case 1:
+            boss.damage = 10;
+            boss.health = 75;
+            boss.maxHealth = 100;
+            boss.skill = 50;
+            boss.name = "Math Ghost";
+            break;
+
+        case 2:
+            boss.damage = 10;
+            boss.health = 75;
+            boss.maxHealth = 100;
+            boss.skill = 50;
+            boss.name = "Club Recruiter Horde";
+            break;
+        case 3:
+            boss.damage = 10;
+            boss.health = 75;
+            boss.maxHealth = 100;
+            boss.skill = 50;
+            boss.name = "TECKEN";
+            break;
+        case 4:
+            boss.damage = 10;
+            boss.health = 75;
+            boss.maxHealth = 100;
+            boss.skill = 50;
+            boss.name = "CMSC 11 Assignment";
+            break;
+        case 5:
+            boss.damage = 10;
+            boss.health = 75;
+            boss.maxHealth = 100;
+            boss.skill = 50;
+            boss.name = "Mr. K's Pop Quiz";
+            break;
+    }
 
     //Splash Screen
     getReadyScreen();
@@ -52,9 +86,34 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
 
         int options = 3;
         char *option[options];
-        option[0] = "Fight";
-        option[1] = "Evade";
-        option[2] = "Taunt";
+
+        switch(bossSelection) {
+            case 1:
+                option[0] = "Guess";
+                option[1] = "Ignore";
+                option[2] = "Study";
+                break;
+            case 2:
+                option[0] = "Say NO";
+                option[1] = "Flee";
+                option[2] = "Sidestep";
+                break;
+            case 3:
+                option[0] = "Attack";
+                option[1] = "Evade";
+                option[2] = "Taunt";
+                break;
+            case 4:
+                option[0] = "Answer";
+                option[1] = "Skip";
+                option[2] = "Research";
+                break;
+            case 5:
+                option[0] = "Answer";
+                option[1] = "Skip";
+                option[2] = "Pray";
+                break;
+        }
 
         enemyHudWindow = createEnemyHud(boss, hudHeight);
         contentWindow = createContentHud(hudHeight, line, lines);
@@ -62,9 +121,29 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         optionWindow = createOptionHud(hudHeight, option, options);
         // If boss attacks
         if (boss.move == 0) {
-            lines = 1;
-            line[0] = "He tries to attack you.";
-            contentWindow = createContentHud(hudHeight, line, lines);
+
+            switch(bossSelection) {
+                case 1:
+                    lines = 1;
+                    line[0] = "The ghost tries to attack you!";
+                    contentWindow = createContentHud(hudHeight, line, lines);
+                case 2:
+                    lines = 1;
+                    line[0] = "They try to swarm you!";
+                    contentWindow = createContentHud(hudHeight, line, lines);
+                case 3:
+                    lines = 1;
+                    line[0] = "Jeff's character tries to hit yours!";
+                    contentWindow = createContentHud(hudHeight, line, lines);
+                case 4:
+                    lines = 1;
+                    line[0] = "He tries to attack you.";
+                    contentWindow = createContentHud(hudHeight, line, lines);
+                case 5:
+                    lines = 1;
+                    line[0] = "He tries to attack you.";
+                    contentWindow = createContentHud(hudHeight, line, lines);
+            }
 
             options = 1;
             option[0] = "Next ";
