@@ -59,6 +59,12 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             break;
     }
 
+    switch (bossSelection) {
+        case 0: {
+            boss.name = "Boss 1";
+        }
+    }
+
     //Splash Screen
     getReadyScreen();
     clear();
@@ -146,7 +152,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             }
 
             options = 1;
-            option[0] = "Next ";
+            option[0] = "Next";
             createOptionHud(hudHeight, option, options);
             // If attack succeeds
             if (bossSuccess >= boss.skill) {
@@ -159,7 +165,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     contentWindow = createContentHud(hudHeight, line, lines);
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
 
                     // If player attack succeeds
@@ -176,7 +182,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -195,7 +201,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -216,7 +222,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -227,7 +233,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                 contentWindow = createContentHud(hudHeight, line, lines);
 
                 options = 1;
-                option[0] = "Next ";
+                option[0] = "Next";
                 createOptionHud(hudHeight, option, options);
 
                 // If player chose to attack
@@ -246,7 +252,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -257,7 +263,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     contentWindow = createContentHud(hudHeight, line, lines);
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -278,7 +284,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
             }
@@ -291,7 +297,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             contentWindow = createContentHud(hudHeight, line, lines);
 
             options = 1;
-            option[0] = "Next ";
+            option[0] = "Next";
             createOptionHud(hudHeight, option, options);
 
             // If evade succeeds
@@ -303,7 +309,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     contentWindow = createContentHud(hudHeight, line, lines);
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -314,7 +320,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     contentWindow = createContentHud(hudHeight, line, lines);
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -337,7 +343,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -359,7 +365,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -370,7 +376,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     contentWindow = createContentHud(hudHeight, line, lines);
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -391,7 +397,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
             }
@@ -404,7 +410,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             contentWindow = createContentHud(hudHeight, line, lines);
 
             options = 1;
-            option[0] = "Next ";
+            option[0] = "Next";
             createOptionHud(hudHeight, option, options);
 
             // If taunt succeeds
@@ -415,7 +421,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                 contentWindow = createContentHud(hudHeight, line, lines);
 
                 options = 1;
-                option[0] = "Next ";
+                option[0] = "Next";
                 createOptionHud(hudHeight, option, options);
 
                 // If player chose to attack
@@ -434,7 +440,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -445,7 +451,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     contentWindow = createContentHud(hudHeight, line, lines);
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -466,7 +472,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -477,7 +483,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                 contentWindow = createContentHud(hudHeight, line, lines);
 
                 options = 1;
-                option[0] = "Next ";
+                option[0] = "Next";
                 createOptionHud(hudHeight, option, options);
 
                 // If player chose to attack
@@ -496,7 +502,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -507,7 +513,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     contentWindow = createContentHud(hudHeight, line, lines);
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
 
@@ -528,14 +534,14 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     }
 
                     options = 1;
-                    option[0] = "Next ";
+                    option[0] = "Next";
                     createOptionHud(hudHeight, option, options);
                 }
             }
         }
     }
 
-    if (player.health <= 0) {
+    if (boss.health <= 0) {
         success = 1;
     }
 
