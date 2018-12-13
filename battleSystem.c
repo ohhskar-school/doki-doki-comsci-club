@@ -507,7 +507,9 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         lines = 1;
                         switch (bossSelection) {
                             case 1:
-                                line[0] = "You manage to guess the answer to his math problem! Hurting the ghost's pride";
+                                lines = 2;
+                                line[0] = "You manage to guess the answer to his math problem!";
+                                line[1] = "Hurting the ghost's pride";
                                 break;
                             case 2:
                                 line[0] = "You say a resounding NO! Hurting their feelings";
