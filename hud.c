@@ -43,7 +43,7 @@ void fullScreenCentered(const char **line, int lineSize) {
     attroff(COLOR_PAIR(2));
 
     refresh();
-    sleep(4);
+    sleep(1);
 }
 
 void splashScreen() {
@@ -326,11 +326,11 @@ WINDOW *createEnemyHud(bossStruct boss, int hudHeight) {
     wattron(enemyHud, A_BOLD);
     mvwprintw(enemyHud, 2, 3, "%s", boss.name);
     mvwprintw(enemyHud, 2, nameLen + 4, "| HEALTH: ");
-    int remainingSpace = col - (nameLen + 12);
-    float healthPercentage = ((float)boss.health / (float)boss.maxHealth) * remainingSpace;
+    int remainingSpace = col - (nameLen + 17);
+    int healthPercentage = ((float)boss.health / (float)boss.maxHealth) * remainingSpace;
 
     wattron(enemyHud, COLOR_PAIR(1));
-    for (int i = ceil(healthPercentage), space = 0; i > 0; i--, space++) {
+    for (int i = healthPercentage, space = 0; i > 0; i--, space++) {
         mvwprintw(enemyHud, 2, space + nameLen + 14, "#");
     }
     wattroff(enemyHud, COLOR_PAIR(1));
@@ -412,7 +412,6 @@ optionReturn createOptionHud(int hudHeight, char **option, int options) {
             break;
         }
     }
-
     return returnInfo;
 }
 

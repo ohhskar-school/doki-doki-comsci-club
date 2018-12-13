@@ -14,21 +14,22 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     int success = 0;
 
     //Setting Player Info
-    player.damage = _battleInfo.interestPoints[2]/8;
     player.health = 100;
     player.maxHealth = 100;
 
     //Selecting Boss Attributes
-    switch(bossSelection) {
+    switch (bossSelection) {
         case 1:
+            player.damage = 20;
             boss.damage = 10;
-            boss.health = 80;
+            boss.health = 100;
             boss.maxHealth = 100;
             boss.skill = 30;
             boss.name = "Math Ghost";
             break;
 
         case 2:
+            player.damage = 20;
             boss.damage = 10;
             boss.health = 100;
             boss.maxHealth = 100;
@@ -36,13 +37,15 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             boss.name = "Club Recruiter Horde";
             break;
         case 3:
+            player.damage = _battleInfo.interestPoints[0] * 0.85;
             boss.damage = 40;
-            boss.health = 800;
+            boss.health = 1000;
             boss.maxHealth = 1000;
             boss.skill = 5;
             boss.name = "Jeff's TECKEN Character";
             break;
         case 4:
+            player.damage = _battleInfo.interestPoints[1] * 0.85;
             boss.damage = 10;
             boss.health = 100;
             boss.maxHealth = 100;
@@ -50,6 +53,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             boss.name = "CMSC 11 Assignment";
             break;
         case 5:
+            player.damage = _battleInfo.interestPoints[1] * 0.85;
             boss.damage = 10;
             boss.health = 100;
             boss.maxHealth = 100;
@@ -57,6 +61,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             boss.name = "Mr. K's Pop Quiz";
             break;
         case 6:
+            player.damage = _battleInfo.interestPoints[1] * 0.85;
             boss.damage = 10;
             boss.health = 75;
             boss.maxHealth = 100;
@@ -78,7 +83,6 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     optionReturn optionWindow;
 
     if (bossSelection == 6) {
-
         int lines = 1;
         char *line[lines];
         line[0] = "You approach Mr. K";
@@ -125,7 +129,6 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
 
     //Main Battle Loop;
     while (boss.health > 0 && player.health > 0) {
-
         // Generates random boss move
         boss.move = rand() % 3;
 
@@ -140,7 +143,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         int options = 3;
         char *option[options];
 
-        switch(bossSelection) {
+        switch (bossSelection) {
             case 1:
                 option[0] = "Guess";
                 option[1] = "Ignore";
@@ -175,9 +178,8 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
 
         // If boss attacks
         if (boss.move == 0) {
-            
             lines = 1;
-            switch(bossSelection) {
+            switch (bossSelection) {
                 case 1:
                     line[0] = "Math Ghost hits you with a math problem!";
                     break;
@@ -205,11 +207,10 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             createOptionHud(hudHeight, option, options);
             // If attack succeeds
             if (bossSuccess >= boss.skill) {
-
                 // If player chose to attack
                 if (optionWindow.choice == 0) {
                     lines = 1;
-                    switch(bossSelection) {
+                    switch (bossSelection) {
                         case 1:
                             line[0] = "You get confused! Hurting your brain in the process";
                             break;
@@ -226,7 +227,11 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                             line[0] = "You're stunned!";
                             break;
                     }
-                    player.health -= boss.damage;
+                    if (player.health >= boss.damage) {
+                        player.health -= boss.damage;
+                    } else {
+                        player.health = 0;
+                    }
                     playerHudWindow = createPlayerHud(player, hudHeight);
                     contentWindow = createContentHud(hudHeight, line, lines);
 
@@ -237,7 +242,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     // If player attack succeeds
                     if (playerSuccess >= 30) {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You try and guess, and succeed! You hurt the ghost's pride";
                                 break;
@@ -254,12 +259,16 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You manage to solve it anyway!";
                                 break;
                         }
-                        boss.health -= player.damage;
+                        if (boss.health >= player.damage) {
+                            boss.health -= player.damage;
+                        } else {
+                            boss.health = 0;
+                        }
                         enemyHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You try and guess anyway but guessed the wrong answer!";
                                 break;
@@ -289,7 +298,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     // If player evade succeeds
                     if (playerSuccess >= 30) {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You manage to ignore the math question!";
                                 break;
@@ -309,7 +318,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         contentWindow = createContentHud(hudHeight, line, lines);
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You tried ignoring, but were unsuccessful";
                                 break;
@@ -326,7 +335,11 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You tried to skip the question but it keeps bothering you";
                                 break;
                         }
-                        player.health -= boss.damage;
+                        if (player.health >= boss.damage) {
+                            player.health -= boss.damage;
+                        } else {
+                            player.health = 0;
+                        }
                         playerHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
                     }
@@ -338,10 +351,40 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
 
                 // If player chose to taunt
                 else if (optionWindow.choice == 2) {
+                    lines = 1;
+                    switch (bossSelection) {
+                        case 1:
+                            line[0] = "You get confused! Hurting your brain in the process";
+                            break;
+                        case 2:
+                            line[0] = "They try to swarm you! Hurting you in the process";
+                            break;
+                        case 3:
+                            line[0] = "He lands a hit!";
+                            break;
+                        case 4:
+                            line[0] = "You're stunned!";
+                            break;
+                        case 5:
+                            line[0] = "You're stunned!";
+                            break;
+                    }
+                    if (player.health >= boss.damage) {
+                        player.health -= boss.damage;
+                    } else {
+                        player.health = 0;
+                    }
+                    playerHudWindow = createPlayerHud(player, hudHeight);
+                    contentWindow = createContentHud(hudHeight, line, lines);
+
+                    options = 1;
+                    option[0] = "Next";
+                    createOptionHud(hudHeight, option, options);
+
                     // If player taunt succeeds
                     if (playerSuccess >= 20) {
                         lines = 3;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You study in order to solve the next equation";
                                 line[1] = "";
@@ -375,7 +418,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
 
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You tried studying but procrastinated instead";
                                 break;
@@ -400,10 +443,10 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     createOptionHud(hudHeight, option, options);
                 }
 
-            // If boss attack fails
+                // If boss attack fails
             } else {
                 lines = 1;
-                switch(bossSelection) {
+                switch (bossSelection) {
                     case 1:
                         line[0] = "It failed to confuse you!";
                         break;
@@ -431,7 +474,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     // If player attack succeeds
                     if (playerSuccess >= 30) {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You manage to guess the answer to his math problem! Hurting the ghost's pride";
                                 break;
@@ -448,12 +491,16 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You successfully answer the question!";
                                 break;
                         }
-                        boss.health -= player.damage;
+                        if (boss.health >= player.damage) {
+                            boss.health -= player.damage;
+                        } else {
+                            boss.health = 0;
+                        }
                         enemyHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You tried guessing, but failed miserably";
                                 break;
@@ -481,7 +528,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                 // If player chose to evade
                 else if (optionWindow.choice == 1) {
                     lines = 1;
-                    switch(bossSelection) {
+                    switch (bossSelection) {
                         case 1:
                             line[0] = "You ignore the ghost's attempt at confusing you";
                             break;
@@ -510,7 +557,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     // If player taunt succeeds
                     if (playerSuccess >= 20) {
                         lines = 3;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You study in order to solve the next equation";
                                 line[1] = "";
@@ -544,7 +591,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
 
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You tried to study, but procrastinated instead";
                                 break;
@@ -574,7 +621,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         // If boss evades
         if (boss.move == 1) {
             lines = 1;
-            switch(bossSelection) {
+            switch (bossSelection) {
                 case 1:
                     line[0] = "The ghost tries to disappear";
                     break;
@@ -602,7 +649,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                 // If player chose to attack
                 if (optionWindow.choice == 0) {
                     lines = 1;
-                    switch(bossSelection) {
+                    switch (bossSelection) {
                         case 1:
                             line[0] = "You try to guess but you can't see him!";
                             break;
@@ -629,7 +676,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                 // If player chose to evade
                 else if (optionWindow.choice == 1) {
                     lines = 1;
-                    switch(bossSelection) {
+                    switch (bossSelection) {
                         case 1:
                             line[0] = "You ignored his disappearing act";
                             break;
@@ -658,7 +705,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     // If player taunt succeeds
                     if (playerSuccess >= 20) {
                         lines = 3;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You study for his next attack";
                                 line[1] = "";
@@ -692,7 +739,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
 
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You tried studying but got bored";
                                 break;
@@ -717,14 +764,14 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     createOptionHud(hudHeight, option, options);
                 }
 
-            // If boss evade fails
+                // If boss evade fails
             } else {
                 // If player chose to attack
                 if (optionWindow.choice == 0) {
                     // If player attack succeeds
                     if (playerSuccess >= 30) {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You still manage to guess his problem!";
                                 break;
@@ -741,12 +788,16 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You don't let it discourage you and immediately start rewriting your answers";
                                 break;
                         }
-                        boss.health -= player.damage;
+                        if (boss.health >= player.damage) {
+                            boss.health -= player.damage;
+                        } else {
+                            boss.health = 0;
+                        }
                         enemyHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You try to guess but can't see it!";
                                 break;
@@ -774,7 +825,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                 // If player chose to evade
                 else if (optionWindow.choice == 1) {
                     lines = 1;
-                    switch(bossSelection) {
+                    switch (bossSelection) {
                         case 1:
                             line[0] = "You ignore his disappearing act";
                             break;
@@ -803,7 +854,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     // If player taunt succeeds
                     if (playerSuccess >= 20) {
                         lines = 3;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You study for its next attack";
                                 line[1] = "";
@@ -837,7 +888,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
 
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You try to study but get bored immediately";
                                 break;
@@ -867,7 +918,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         // If boss taunts
         if (boss.move == 2) {
             lines = 1;
-            switch(bossSelection) {
+            switch (bossSelection) {
                 case 1:
                     line[0] = "The ghost taunts you with a 5.00";
                     break;
@@ -893,7 +944,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             // If taunt succeeds
             if (bossSuccess >= boss.skill) {
                 lines = 3;
-                switch(bossSelection) {
+                switch (bossSelection) {
                     case 1:
                         line[0] = "Your anxiety kicks in and makes you think about your grades";
                         line[1] = "";
@@ -921,7 +972,11 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         line[2] = "Losing faith in yourself by 5";
                         break;
                 }
-                player.damage -= 5;
+                if (player.damage > 10) {
+                    player.damage -= 5;
+                } else {
+                    player.damage = 10;
+                }
                 contentWindow = createContentHud(hudHeight, line, lines);
 
                 options = 1;
@@ -933,7 +988,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     // If player attack succeeds
                     if (playerSuccess >= 30) {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You still manage to guess the answer!";
                                 break;
@@ -950,12 +1005,16 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You manage to get a few answers in!";
                                 break;
                         }
-                        boss.health -= player.damage;
+                        if (boss.health >= player.damage) {
+                            boss.health -= player.damage;
+                        } else {
+                            boss.health = 0;
+                        }
                         enemyHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You fail to guess the answer";
                                 break;
@@ -983,7 +1042,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                 // If player chose to evade
                 else if (optionWindow.choice == 1) {
                     lines = 1;
-                    switch(bossSelection) {
+                    switch (bossSelection) {
                         case 1:
                             line[0] = "You ignore your anxiety";
                             break;
@@ -1012,7 +1071,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     // If player taunt succeeds
                     if (playerSuccess >= 20) {
                         lines = 3;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You study even harder!";
                                 line[1] = "";
@@ -1046,7 +1105,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
 
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You tried studying but gave up halfway";
                                 break;
@@ -1071,10 +1130,10 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     createOptionHud(hudHeight, option, options);
                 }
 
-            // If boss taunt fails
+                // If boss taunt fails
             } else {
                 lines = 1;
-                switch(bossSelection) {
+                switch (bossSelection) {
                     case 1:
                         line[0] = "You are unaffected by its taunt";
                         break;
@@ -1102,7 +1161,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     // If player attack succeeds
                     if (playerSuccess >= 30) {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You manage to guess a correct answer! Hurting the ghost's pride";
                                 break;
@@ -1119,12 +1178,16 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You manage to answer the difficult question!";
                                 break;
                         }
-                        boss.health -= player.damage;
+                        if (boss.health >= player.damage) {
+                            boss.health -= player.damage;
+                        } else {
+                            boss.health = 0;
+                        }
                         enemyHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "Your guess was incorrect";
                                 break;
@@ -1152,7 +1215,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                 // If player chose to evade
                 else if (optionWindow.choice == 1) {
                     lines = 1;
-                    switch(bossSelection) {
+                    switch (bossSelection) {
                         case 1:
                             line[0] = "You manage to ignore the ghost";
                             break;
@@ -1181,7 +1244,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     // If player taunt succeeds
                     if (playerSuccess >= 20) {
                         lines = 3;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You study and study and study";
                                 line[1] = "";
@@ -1215,7 +1278,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
 
                     } else {
                         lines = 1;
-                        switch(bossSelection) {
+                        switch (bossSelection) {
                             case 1:
                                 line[0] = "You thought of studying, but never did";
                                 break;

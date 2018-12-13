@@ -39,7 +39,6 @@ int main() {
         return 0;
     }
     //Present Splash Screen
-    endScreen();
     splashScreen();
     //Main Game Loop
     while (mainInfo.end == 0 && mainInfo.errorCode == 0) {

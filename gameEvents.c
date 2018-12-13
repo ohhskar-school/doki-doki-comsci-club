@@ -44,10 +44,6 @@ gameInfo mainMenu(gameInfo _eventInfo) {
             _eventInfo.nextEvent = 10;
             _eventInfo.end = 1;
             break;
-        case 3: {
-            int result = bossBattle(6, _eventInfo);
-            break;
-        }
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
@@ -1539,7 +1535,7 @@ gameInfo dayTwoContTwo(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
-gameInfo dayTwoContThree(gameInfo _eventInfo){
+gameInfo dayTwoContThree(gameInfo _eventInfo) {
     int lines = 7;
     const char *line[lines];
     int choice = 0;
@@ -1572,7 +1568,7 @@ gameInfo dayTwoContThree(gameInfo _eventInfo){
     return _eventInfo;
 }
 
-gameInfo twoPathOne(gameInfo _eventInfo){
+gameInfo twoPathOne(gameInfo _eventInfo) {
     int lines = 15;
     const char *line[lines];
     int choice = 0;
