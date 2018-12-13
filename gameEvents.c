@@ -55,14 +55,13 @@ gameInfo mainMenu(gameInfo _eventInfo) {
 
 //After battleOne
 gameInfo homeOne(gameInfo _eventInfo) {
-    int lines = 4;
+    int lines = 3;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "Bzzzt...";
     line[1] = "";
     line[2] = "BZZZZZZZZZZZZZZZT";
-    line[3] = "";
 
     //Setting Options
     int options = 1;
@@ -140,7 +139,7 @@ gameInfo homeTwo(gameInfo _eventInfo) {
 }
 
 gameInfo homePathOne(gameInfo _eventInfo) {
-    int lines = 14;
+    int lines = 13;
     const char *line[lines];
     int choice = 0;
 
@@ -153,11 +152,10 @@ gameInfo homePathOne(gameInfo _eventInfo) {
     line[6] = "";
     line[7] = "A few blocks and I see it! I'm almost there!";
     line[8] = "";
-    line[9] = "I accidentally bump into a young man with unkempt hair and a lazy slouch";
-    line[10] = "I'm way too late to care and look back so I just keep running.";
+    line[9] = "I accidentally bump into a young man with unkempt hair.";
+    line[10] = "I'm too late to care to look back so I just keep running.";
     line[11] = "";
     line[12] = "And there it is! I'm finally here!";
-    line[13] = "";
 
     //Setting Options
     int options = 1;
@@ -168,7 +166,7 @@ gameInfo homePathOne(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 100;
+            _eventInfo.nextEvent = 100; //dayOne
             _eventInfo.end = 0;
             break;
         default:
@@ -181,7 +179,7 @@ gameInfo homePathOne(gameInfo _eventInfo) {
 }
 
 gameInfo homePathTwo(gameInfo _eventInfo) {
-    int lines = 18;
+    int lines = 17;
     const char *line[lines];
     int choice = 0;
 
@@ -202,7 +200,6 @@ gameInfo homePathTwo(gameInfo _eventInfo) {
     line[14] = "";
     line[15] = "How embarrassing!!";
     line[16] = "I pay quickly and run off to the school gates.";
-    line[17] = "";
 
     //Setting Options
     int options = 1;
@@ -213,7 +210,7 @@ gameInfo homePathTwo(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 100;
+            _eventInfo.nextEvent = 100; //dayOne
             _eventInfo.end = 0;
             break;
         default:
@@ -226,59 +223,60 @@ gameInfo homePathTwo(gameInfo _eventInfo) {
 }
 
 gameInfo dayOne(gameInfo _eventInfo) {
-    int lines = 49;
+    int lines = 50;
     const char *line[lines];
     int choice = 0;
 
-    line[0] = "'Welcome to P University, the premier university in the country!'";
-    line[1] = "That's what the huge banner greeted me when I walked into the university.";
-    line[2] = "It's my first day as a BS Computer Science major and OH NO!";
-    line[3] = "I'M ALREADY LATE FOR MY FIRST CLASS! Where's my classroom?!";
-    line[4] = "";
-    line[5] = "There it is! I rush in and sit in a random seat near the back.";
-    line[6] = "Everyone's already here.";
-    line[7] = "";
-    line[8] = "Beside me is a girl sitting by herself.";
-    line[9] = "     ";
-    line[10] = "'Wow, she's pretty', I think to myself.";
-    line[11] = "";
-    line[12] = "She's sitting a little unconfomfortably.";
-    line[13] = "Like maybe she doesn't want to be here";
-    line[14] = "Maybe she's a little shy...";
-    line[15] = "";
-    line[16] = "The door bursts open and a young man - probably still in his early twenties -";
-    line[17] = "trudges in. His hair is unkempt and sticking up at weird places.";
-    line[18] = "Like he just rolled out of bed before coming in.";
-    line[19] = "";
-    line[20] = "Is this supposed to be our teacher?";
-    line[21] = "   ";
-    line[22] = "Teacher: Yes, I am in fact your teacher, children... Unfortunately.";
-    line[23] = "";
-    line[24] = "Did I say that out loud?";
-    line[25] = "   ";
-    line[26] = "Teacher: No, you did not.";
-    line[27] = "";
-    line[28] = "DOES THIS DUDE READ MINDS?";
-    line[29] = "   ";
-    line[30] = "Teacher: I also do not read minds. I just know that's what you're all thinking.";
-    line[31] = "         I don't really care what you all think though. I'm just here to do my job.";
-    line[32] = "         My name is Mr. K. Don't ask. Just call me Mr. K.";
-    line[33] = "";
-    line[34] = "Mr. K: I'll be your adviser and your Computer Science teacher for this semester.";
-    line[35] = "       I like a lot of things. I also dislike a lot more things.";
-    line[36] = "       Now I think that's enough about me.";
-    line[37] = "";
-    line[38] = "Mr.K: It's time for you to introduce yourselves!";
-    line[39] = "";
-    line[40] = "He scans the room with his droopy dull black eyes.";
-    line[41] = "They come to rest on the girl sitting beside me.";
-    line[42] = "    ";
-    line[43] = "Mr. K: Let's start with you. The girl at the back.";
-    line[44] = "";
-    line[45] = "All eyes in the class turn to her.";
-    line[46] = "Her eyes in turn widen. She looks absolutely terrified!";
-    line[47] = "    ";
-    line[48] = "Maybe I should say something. What do I say?";
+    line[0] = "'Welcome to P University,";
+    line[1] = "the premier university in the country!'";
+    line[2] = "That's what the huge banner in front of the uni said.";
+    line[3] = "It's my first day as a BS Computer Science major and OH NO!";
+    line[4] = "I'M ALREADY LATE FOR MY FIRST CLASS! Where's my classroom?!";
+    line[5] = "";
+    line[6] = "There it is! I rush in and sit in a seat near the back.";
+    line[7] = "Everyone's already here.";
+    line[8] = "";
+    line[9] = "Beside me is a small girl sitting by herself.";
+    line[10] = "     ";
+    line[11] = "'Wow, she's pretty', I think to myself.";
+    line[12] = "";
+    line[13] = "She's sitting a little unconfomfortably.";
+    line[14] = "Like maybe she doesn't want to be here";
+    line[15] = "Maybe she's a little shy...";
+    line[16] = "";
+    line[17] = "The door bursts open and a young man -";
+    line[18] = "probably still in his early twenties - trudges in."
+    line[19] = "His hair is unkempt and sticking up at weird places.";
+    line[20] = "Like he just rolled out of bed before coming in.";
+    line[21] = "";
+    line[22] = "Is this supposed to be our teacher?";
+    line[23] = "   ";
+    line[24] = "Teacher: Yes, I am in fact your teacher... Unfortunately.";
+    line[25] = "";
+    line[26] = "Did I say that out loud?";
+    line[27] = "   ";
+    line[28] = "Teacher: No, you did not.";
+    line[29] = "";
+    line[30] = "DOES THIS DUDE READ MINDS?";
+    line[31] = "   ";
+    line[32] = "Teacher: No, I'm just here to do my job.";
+    line[33] = "         My name is Mr. K. Don't ask. Just call me Mr. K.";
+    line[34] = "";
+    line[35] = "Mr. K: I'm your adviser and your Computer Science teacher.";
+    line[36] = "       I like a lot of things. I dislike a lot more things.";
+    line[37] = "       Now I think that's enough about me.";
+    line[38] = "";
+    line[39] = "Mr.K: It's time for you to introduce yourselves!";
+    line[40] = "";
+    line[41] = "He scans the room with his droopy dull black eyes.";
+    line[42] = "They come to rest on the girl sitting beside me.";
+    line[43] = "    ";
+    line[44] = "Mr. K: Let's start with you. The girl at the back.";
+    line[45] = "";
+    line[46] = "All eyes in the class turn to her.";
+    line[47] = "Her eyes in turn widen. She looks absolutely terrified!";
+    line[48] = "    ";
+    line[49] = "Maybe I should say something. What do I say?";
 
     //Setting Options
     int options = 3;
@@ -321,30 +319,25 @@ gameInfo onePathOne(gameInfo _eventInfo) {
     line[2] = "Determination flashes in her eyes ";
     line[3] = "as she opens her mouth to squeak.";
     line[4] = "";
-    line[5] = "Girl: Good morning, everyone! My name is Chi-chi Santiago.";
-    line[6] = "Please call me Chi-chi! Thank you!";
+    line[5] = "Girl: Good morning, everyone! My name is Chichi Santiago.";
+    line[6] = "Please call me Chichi! Thank you!";
     line[7] = "";
-    line[8] = "Chi-chi then sits down in a hurry with color in her cheeks.";
-    line[9] = "She looks at me from under her lashes and flashes me a small grateful smile.";
-    line[10] = "";
-    line[11] = "Chi-Chi: Thank you.";
+    line[8] = "Chichi then sits down in a hurry with color in her cheeks.";
+    line[9] = "She looks at me from shyly and gives a small grateful smile.";
+    line[10] = "   ";
+    line[11] = "Chichi: Thank you.";
     line[12] = "   ";
     line[13] = "She looks really pretty when she smiles.";
 
     //Setting Options
     int options = 2;
     const char *option[options];
-    option[0] = "Smile back to her";
-    option[1] = ".......";
+    option[0] = "Smile back";
 
     choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 101;  //dayOneCont
-            _eventInfo.end = 0;
-            break;
-        case 1:
             _eventInfo.nextEvent = 101;  //dayOneCont
             _eventInfo.end = 0;
             break;
@@ -362,30 +355,25 @@ gameInfo onePathTwo(gameInfo _eventInfo) {
     const char *line[lines];
     int choice = 0;
 
-    line[0] = "The girl slowly gets up from her seat and speaks in a quiet voice.";
+    line[0] = "The girl gets up from her seat and speaks in a quiet voice.";
     line[1] = "    ";
-    line[2] = "Girl: Umm... My.. name is.. Chi-chi Santiago. It'snicetomeetyou!";
-    line[3] = "";
-    line[4] = "With that, she falls back into her seat.";
-    line[5] = "She dips her head to hide behind her hair.";
-    line[6] = "    ";
-    line[7] = "'Wow she's really shy...'";
-    line[8] = "";
+    line[2] = "Girl: Umm... My.. name is.. Chichi Santiago.";
+    line[3] = "      It'snicetomeetyou!";
+    line[4] = "";
+    line[5] = "With that, she falls back into her seat.";
+    line[6] = "She dips her head to hide behind her hair.";
+    line[7] = "    ";
+    line[8] = "'Wow she's really shy...'";
 
     //Setting Options
     int options = 2;
     const char *option[options];
-    option[0] = "Ignore her.";
-    option[1] = ".......";
+    option[0] = ".......";
 
     choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 101;  //dayOneCont
-            _eventInfo.end = 0;
-            break;
-        case 1:
             _eventInfo.nextEvent = 101;  //dayOneCont
             _eventInfo.end = 0;
             break;
@@ -399,19 +387,18 @@ gameInfo onePathTwo(gameInfo _eventInfo) {
 }
 
 gameInfo onePathThree(gameInfo _eventInfo) {
-    int lines = 9;
+    int lines = 8;
     const char *line[lines];
     int choice = 0;
 
-    line[0] = "She looks even more scared and jumps in her seat all started.";
+    line[0] = "She looks even more scared and jumps in her seat, startled.";
     line[1] = "   ";
-    line[2] = "Girl: Ah! Um, I'm sorry! M-my name is Chi-chi.. Chi-chi Santiago!";
-    line[3] = "It's nice to meet you all!";
+    line[2] = "Girl: Ah! Um, I'm sorry! M-my name is Chichi..";
+    line[3] = "      Chichi Santiago! It's nice to meet you all!";
     line[4] = "";
     line[5] = "She sits and hides behind her hair. She looks slightly red.";
     line[6] = "   ";
     line[7] = "I have a feeling I should have said something nicer...";
-    line[8] = "";
 
     //Setting Options
     int options = 2;
@@ -440,40 +427,45 @@ gameInfo onePathThree(gameInfo _eventInfo) {
 }
 
 gameInfo dayOneCont(gameInfo _eventInfo) {
-    int lines = 30;
+    int lines = 35;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "Mr. K: Okay, uh, thank you, Chichi.";
     line[1] = "       Onto the next person.";
     line[2] = "";
-    line[3] = "He looks at me as expectantly as his lazy eyes could. I begin to stand.";
-    line[4] = "";
-    line[5] = "Knock! Knock!";
-    line[6] = "   ";
-    line[7] = "The door opens and reveals a handsome dark haired boy.";
-    line[8] = "He looks at Mr. K with a scowl.";
-    line[9] = "";
-    line[10] = "Boy: Yo, Mr. K,  got a minute? It's about the CMSC Club.";
-    line[11] = "    ";
-    line[12] = "Mr. K: Good of you to barge in, Jeff. We're kind of in the middle of something.";
-    line[13] = "       Btw, everyone, this trespasser is Jeff Papadopolis, the CMSC Club president.";
-    line[14] = "";
-    line[15] = "Jeff: Yeah, my name's Jeff and this bum is the CMSC Club Adviser.";
-    line[16] = "    ";
-    line[17] = "Mr. K sighs defeatedly and mumbles to himself.";
-    line[18] = "Mr. K: So rude so early in the morning...";
-    line[19] = "";
-    line[20] = "Jeff looks around and notices I'm the only one standing.";
-    line[21] = "Jeff chuckles.";
-    line[22] = "";
-    line[23] = "Jeff: What's this dumbface doing?";
-    line[24] = "    ";
-    line[25] = "Mr. K: We were in the middle of introductions when you barged in...";
-    line[26] = "    ";
-    line[27] = "Jeff: Then by all means, go ahead, dumbface.";
-    line[28] = "";
-    line[29] = "Wow, he's rude. What do I do?";
+    line[3] = "He looks at me as expectantly as his lazy eyes could.";
+    line[4] = "I begin to stand.";
+    line[5] = "";
+    line[6] = "Knock! Knock!";
+    line[7] = "   ";
+    line[8] = "The door opens and reveals a handsome dark haired boy.";
+    line[9] = "He looks at Mr. K with a scowl.";
+    line[10] = "";
+    line[11] = "Boy: Yo, Mr. K,  got a minute? It's about the CMSC Club.";
+    line[12] = "    ";
+    line[13] = "Mr. K: Good of you to barge in, Jeff.";
+    line[14] = "       We're kind of in the middle of something.";
+    line[15] = "       Everyone, this trespasser is Jeff Papadopolis,";
+    line[16] = "       the CMSC Club president.";
+    line[17] = "";
+    line[18] = "Jeff: Yeah, my name's Jeff and I have no ragrets barging";
+    line[19] = "      in. This bum here is the CMSC Club Adviser.";
+    line[20] = "    ";
+    line[21] = "Mr. K sighs defeatedly and mumbles to himself.";
+    line[22] = "     ";
+    line[23] = "Mr. K: So rude so early in the morning...";
+    line[24] = "";
+    line[25] = "Jeff looks around and notices I'm the only one standing.";
+    line[26] = "      ";
+    line[27] = "Jeff: What's this dumbface doing?";
+    line[28] = "    ";
+    line[29] = "Mr. K: We were in the middle of introductions";
+    line[30] = "       when you barged in...";
+    line[31] = "    ";
+    line[32] = "Jeff: Then by all means, go ahead, dumbface.";
+    line[33] = "    ";
+    line[34] = "Wow, he's rude. What do I do?";
 
     //Setting Options
     int options = 2;
@@ -538,25 +530,27 @@ gameInfo onePathFour(gameInfo _eventInfo) {
 }
 
 gameInfo onePathFive(gameInfo _eventInfo) {
-    int lines = 15;
+    int lines = 17;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "I introduce myself - including my name, likes, and dislikes.";
-    line[1] = "'I like pineapples on pizza and dislike people who barge in uninvited.'";
-    line[2] = "";
-    line[3] = "The whole class stirs in their seats while Jeff just bursts out laughing.";
-    line[4] = "  ";
-    line[5] = "Chi-chi squeaks beside me. Was that a laugh?";
-    line[6] = "  ";
-    line[7] = "Mr. K sighs in defeat yet again.";
-    line[8] = "He looks like he would rather be at home right now.";
-    line[9] = "";
-    line[10] = "Jeff: I like your spunk, dumbface.";
-    line[11] = "   ";
-    line[12] = "For some reason, the grin on his face is more menacing than endearing.";
-    line[13] = "";
-    line[14] = "I sit back down with a smirk.";
+    line[1] = "'I like pineapples on pizza and dislike people who barge in";
+    line[2] = "uninvited.'";
+    line[3] = "";
+    line[4] = "The whole class gasps while Jeff just bursts out laughing.";
+    line[5] = "  ";
+    line[6] = "Chichi just squeaks beside me. Was that a laugh?";
+    line[7] = "  ";
+    line[8] = "Mr. K sighs in defeat yet again.";
+    line[9] = "He looks like he would rather be at home right now.";
+    line[10] = "";
+    line[11] = "Jeff: I like your spunk, dumbface.";
+    line[12] = "   ";
+    line[13] = "For some reason, the grin on his face is more";
+    line[14] = "menacing than endearing.";
+    line[15] = "";
+    line[16] = "I sit back down with a smirk.";
 
     //Setting Options
     int options = 1;
@@ -580,53 +574,53 @@ gameInfo onePathFive(gameInfo _eventInfo) {
 }
 
 gameInfo dayOneContTwo(gameInfo _eventInfo) {
-    int lines = 42;
+    int lines = 43;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "Jeff turns to the rest of the class.";
     line[1] = "   ";
     line[2] = "Jeff: Come join the CMSC club. It's open to all CMSC majors.";
-    line[3] = "      We're having a meeting later this afternoon. Yall better ";
+    line[3] = "      We're having a meeting later this afternoon. Y'all";
     line[4] = "      come if you want to get good at this course";
-    line[5] = "      because trust me yall need the help.";
-    line[5] = "";
-    line[6] = "Mr. K clears his throat. He's starting to look annoyed.";
-    line[7] = "";
-    line[8] = "Mr. K: Ooookay, thank you very much for the commercial break, Jeff.";
-    line[9] = "Now shoo, I'm teaching. See me later.";
-    line[10] = "";
-    line[11] = "Jeff: Whatever, I'm out. Bye.";
-    line[12] = "";
-    line[13] = "Jeff finally leaves and Mr. K heaves a sigh of relief.";
-    line[14] = "I think I've lost count of how many times he's sighed today.";
-    line[15] = "";
-    line[16] = "Mr. K: Okay now that that public disturbance has left, let's continue.";
-    line[17] = "Next person please.";
-    line[18] = "";
-    line[19] = "Class continues for the rest of the day.";
-    line[20] = "I listen as everyone introduces themselves.";
-    line[21] = "";
-    line[22] = "At some point, Mr. K has not so discreetly taken out a book";
-    line[23] = "and has begun reading.";
-    line[24] = "";
-    line[25] = "The clock is as slow as ever but yes! The day's finally over!";
-    line[26] = "";
-    line[27] = "The class starts to leave but then Mr. K stops us";
-    line[28] = "Mr. K: Not so fast, kids! Here's your first homework for the school year!";
-    line[29] = "";
-    line[30] = "He distributes copies of the homework to the entire class.";
-    line[31] = "As expected of a premier university, they waste no time!";
-    line[32] = "Mr. K: I expect that to be passed by tomorrow.";
-    line[33] = "Good bye, and welcome to PU!";
-    line[34] = "";
-    line[35] = "With that he walks out the door in a hurry.";
-    line[36] = "The rest of the class files out after him.";
-    line[37] = "";
-    line[38] = "Oh wait!";
-    line[39] = "That's right! It's the CMSC Club's first meeting later.";
-    line[40] = "Should I go?";
-    line[41] = "";
+    line[5] = "      because trust me y'all need the help.";
+    line[6] = "";
+    line[7] = "Mr. K clears his throat. He's starting to look annoyed.";
+    line[8] = "    ";
+    line[9] = "Mr. K: Ooookay, thank you very much for the commercial";
+    line[10] = "      break, Jeff. Now shoo. See me later.";
+    line[11] = "";
+    line[12] = "Jeff: Whatever, I'm out. Bye.";
+    line[13] = "      ";
+    line[14] = "Jeff finally leaves and Mr. K heaves a sigh of relief.";
+    line[15] = "I think I've lost count of how many times he's sighed today.";
+    line[16] = "";
+    line[17] = "Mr. K: Okay now that the public disturbance has left,";
+    line[18] = "       let's continue. Next person please.";
+    line[19] = "";
+    line[20] = "Class continues for the rest of the day.";
+    line[21] = "I listen as everyone introduces themselves.";
+    line[22] = "";
+    line[23] = "At some point, Mr. K has not so discreetly taken out a book";
+    line[24] = "and has begun reading.";
+    line[25] = "";
+    line[26] = "The clock is slow as ever but yes! The day's finally over!";
+    line[27] = "";
+    line[28] = "The class starts to leave but then Mr. K stops us";
+    line[29] = "Mr. K: Not so fast, kids! Here's your first homework";
+    line[30] = "       for the school year!";
+    line[31] = "";
+    line[32] = "He distributes copies of the homework to the entire class.";
+    line[33] = "As expected of a premier university, they waste no time!";
+    line[34] = "Mr. K: I expect that to be passed by tomorrow.";
+    line[35] = "Good bye, and welcome to PU!";
+    line[36] = "";
+    line[37] = "With that he walks out the door in a hurry.";
+    line[38] = "The rest of the class files out after him.";
+    line[39] = "";
+    line[40] = "Oh wait!";
+    line[41] = "That's right! It's the CMSC Club's first meeting later.";
+    line[42] = "Should I go?";
 
     //Setting Options
     int options = 1;
@@ -637,7 +631,7 @@ gameInfo dayOneContTwo(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 500;
+            _eventInfo.nextEvent = 500; //clubOne
             _eventInfo.end = 0;
             break;
         default:
@@ -667,7 +661,7 @@ gameInfo clubOne(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 1002;
+            _eventInfo.nextEvent = 1002; //battleTwo
             _eventInfo.end = 0;
             break;
         default:
