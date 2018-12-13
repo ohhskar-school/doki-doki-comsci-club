@@ -1092,7 +1092,7 @@ gameInfo clubPathBranchOne(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 506;
+            _eventInfo.nextEvent = 506;     //clubOneContSix
             _eventInfo.end = 0;
             break;
         default:
@@ -1105,7 +1105,7 @@ gameInfo clubPathBranchOne(gameInfo _eventInfo) {
 }
 
 gameInfo clubOneContSix(gameInfo _eventInfo) {
-    int lines = 25;
+    int lines = 27;
     const char *line[lines];
     int choice = 0;
 
@@ -1114,26 +1114,28 @@ gameInfo clubOneContSix(gameInfo _eventInfo) {
     line[2] = "my heart is beating out of my chest.";
     line[3] = "";
     line[4] = "I don't know how long we stayed liked that,";
-    line[5] = "but the magic broke when voices were starting to flow in from the hallway.";
-    line[6] = "";
-    line[7] = "I clear my throat and stand from my seat beside him";
-    line[8] = "He looks up at me and smirks that heart hammering smile again.";
-    line[9] = "     ";
-    line[10] = "Jeff: I'll see you at 7PM sharp.";
-    line[11] = "";
-    line[12] = "Right at that moment, the few other members of the CMSC Club walked in.";
-    line[13] = "Jeff turned to them and started chatting as if nothing happened.";
-    line[14] = "    ";
-    line[15] = "I stare at him, dumbfounded, for a while.";
-    line[16] = "What just happened? And what did I just get myself into?";
-    line[17] = "";
-    line[18] = "A familiar face walks - no, slumps through the door.";
-    line[19] = "What do you know, it's the club adviser himself.";
-    line[20] = "";
-    line[21] = "Jeff: Look who the cat finally dragged in.";
-    line[22] = "Mr. K: Dog. I love cats but I can't have one.";
-    line[23] = "";
-    line[24] = "At that moment, Chichi Santiago walks through the door.";
+    line[5] = "but the magic broke when voices were starting";
+    line[6] = "to flow in from the hallway.";
+    line[7] = "";
+    line[8] = "I clear my throat and stand from my seat beside him";
+    line[9] = "He looks up and smirks that heart hammering smile again.";
+    line[10] = "     ";
+    line[11] = "Jeff: I'll see you right after class tomorrow.";
+    line[12] = "";
+    line[13] = "Right then, the few other members of the CMSC Club walk in.";
+    line[14] = "Jeff starts chatting with them as if nothing happened.";
+    line[15] = "    ";
+    line[16] = "I stare at him, dumbfounded, for a while.";
+    line[17] = "What just happened? And what did I just get myself into?";
+    line[18] = "";
+    line[19] = "A familiar face walks - no, slumps through the door.";
+    line[20] = "What do you know, it's the club adviser himself.";
+    line[21] = "";
+    line[22] = "Jeff: Look who the cat finally dragged in.";
+    line[23] = "  ";
+    line[24] = "Mr. K: Dog. I love cats but I can't have one.";
+    line[25] = "";
+    line[26] = "At that moment, Chichi Santiago walks through the door.";
 
     //Setting Options
     int options = 2;
@@ -1145,11 +1147,11 @@ gameInfo clubOneContSix(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 507;
+            _eventInfo.nextEvent = 507;     //clubOneContSeven
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 507;
+            _eventInfo.nextEvent = 507;     //clubOneContSeven
             _eventInfo.end = 0;
             break;
         default:
@@ -1169,7 +1171,7 @@ gameInfo clubOneContSeven(gameInfo _eventInfo) {
     line[0] = "Chichi walks over meekly";
     line[1] = "    ";
     line[2] = "Chichi: Oh, it's you from class! Sorry about the";
-    line[3] = "\tintroduction thing. I get really shy.";
+    line[3] = "        introduction thing. I get really shy.";
 
     //Setting Options
     int options = 2;
@@ -1181,11 +1183,11 @@ gameInfo clubOneContSeven(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 508;
+            _eventInfo.nextEvent = 508;     //clubOneContEight
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 508;
+            _eventInfo.nextEvent = 508;     //clubOneContEight
             _eventInfo.end = 0;
             break;
         default:
@@ -1198,38 +1200,43 @@ gameInfo clubOneContSeven(gameInfo _eventInfo) {
 }
 
 gameInfo clubOneContEight(gameInfo _eventInfo) {
-    int lines = 27;
+    int lines = 33;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "She sighs happily and clasps her hands together.";
-    line[1] = "";
+    line[1] = "  ";
     line[2] = "Chichi: That's a relief! I was hoping we could be friends.";
-    line[3] = "\tI want to be friends with my first college seatmate.";
+    line[3] = "        I want to be friends with my first college seatmate.";
     line[4] = "";
     line[5] = "She's so cute! How could I say no?";
     line[6] = "    ";
     line[7] = "Me: Of course! I'd love to be friends.";
     line[8] = "Chichi: Yey!";
     line[9] = "";
-    line[10] = "Obtained a new friend! We exchange numbers.";
+    line[10] = "I obtained a new friend! We exchange numbers.";
     line[11] = "";
-    line[12] = "At the front of the room, Jeff clears his throat with Mr. K beside him.";
-    line[13] = "Jeff: Okay, losers, listen u-OW!";
-    line[14] = "Jeff yelps and bends to grab at his foot,";
-    line[15] = "while Mr. K beside him just smiles a bit too sweetly.";
-    line[16] = "    ";
-    line[17] = "Mr. K: What our club president means to say is 'Welcome to the CMSC Club'!";
-    line[18] = "";
-    line[19] = "The 3 other people in the room and me and Chichi clap our hands";
-    line[20] = "in an earnest attempt at applause.";
-    line[21] = "   ";
-    line[22] = "Mr. K: Thank you, thank you. ";
+    line[12] = "At the front of the room, Jeff stands with Mr. K beside him.";
+    line[13] = "Jeff clears his throat to grab everyone's attention.";
+    line[14] = "   ";
+    line[15] = "Jeff: Okay, losers, listen u-OW!";
+    line[16] = "";
+    line[17] = "Jeff yelps and bends to grab at his foot,";
+    line[18] = "while Mr. K beside him just smiles a bit too sweetly.";
+    line[19] = "    ";
+    line[20] = "Mr. K: What our club president means to say is";
+    line[21] = "'Welcome to the CMSC Club'!";
     line[22] = "";
-    line[23] = "The club meeting goes on pretty uneventfully. They talk about plans";
-    line[24] = "for the club for the school year. After that, Mr. K dismisses us.";
-    line[25] = "";
-    line[26] = "I head home.";
+    line[23] = "The 3 other people and Chichi and I clap our hands";
+    line[24] = "in an earnest attempt at applause.";
+    line[25] = "   ";
+    line[26] = "Mr. K: Thank you, thank you. ";
+    line[27] = "";
+    line[28] = "The club meeting goes on pretty uneventfully."
+    line[29] = "They talk about plans for the club for the school year.";
+    line[30] = "After that, Mr. K dismisses us.";
+    line[31] = "";
+    line[32] = "I head home.";
 
     //Setting Options
     int options = 1;
@@ -1240,7 +1247,7 @@ gameInfo clubOneContEight(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 1004;
+            _eventInfo.nextEvent = 303;     //homeThree 
             _eventInfo.end = 0;
             break;
         default:
@@ -1275,7 +1282,7 @@ gameInfo homeThree(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 1004;
+            _eventInfo.nextEvent = 1004;    //battleFour
             _eventInfo.end = 0;
             break;
         default:
@@ -1351,7 +1358,7 @@ gameInfo homePathThree(gameInfo _eventInfo) {
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 305;  //homePathThree
+            _eventInfo.nextEvent = 305;  //homeFive
             _eventInfo.end = 0;
         default:
             _eventInfo.errorCode = 2;
@@ -1381,16 +1388,16 @@ gameInfo homeFive(gameInfo _eventInfo) {
     line[11] = "";
     line[12] = "Chichi pauses, like she's thinking.";
     line[13] = "";
-    line[14] = "Chichi: I'm not really sure if Comp Sci was right for me either haha.";
+    line[14] = "Chichi: Not really sure if Comp Sci is right for me either.";
     line[15] = "Me: OOF big mood.";
     line[16] = "";
-    line[17] = "Chichi and I keep talking and before we know it, it's already late.";
-    line[18] = "      ";
-    line[19] = "Though school is beginning to stress me out,";
-    line[20] = "I'm glad I have a friend I can talk to.";
-    line[21] = "";
-    line[22] = "I go to sleep with thoughts of my future.";
-    line[23] = "";
+    line[17] = "Chichi and I keep talking and before we know it,";
+    line[18] = "it's already late in the evening.";
+    line[19] = "      ";
+    line[20] = "Though school is beginning to stress me out,";
+    line[21] = "I'm glad I have a friend I can talk to.";
+    line[22] = "";
+    line[23] = "I go to sleep with thoughts of my future.";
 
     //Setting Options
     int options = 1;
@@ -1422,8 +1429,8 @@ gameInfo dayTwo(gameInfo _eventInfo) {
     line[1] = "After last night's talk with Chichi,";
     line[2] = "I feel a bit more lighthearted.";
     line[2] = "";
-    line[3] = "I felt so nice that in a total reversal of yesterday's events, ";
-    line[4] = "I actually got to school an hour early.";
+    line[3] = "Now, in a total reversal of yesterday's events,";
+    line[4] = "I actually got to school an hour early this time.";
     line[5] = "    ";
     line[6] = "Me: I need coffee. This is ridiculous.";
     line[7] = "";
@@ -1516,13 +1523,13 @@ gameInfo dayTwoContTwo(gameInfo _eventInfo) {
     line[7] = "It's almost cute.";
     line[8] = "";
     line[9] = "Whoa, there self, this is your teacher. Reign in the hormones.";
-    line[10] = "";
+    line[10] = "   ";
     line[11] = "I shift my feet awkwardly and smile.";
-    line[12] = "     ";
+    line[12] = "   ";
     line[13] = "Me: It's okay, Mr. K. I'll.. sit somewhere else.";
     line[14] = "";
     line[15] = "He looks almost relieved but shakes his head.";
-    line[16] = "    ";
+    line[16] = "   ";
     line[17] = "Mr. K: No, it's fine. Come sit.";
 
     //Setting Options
@@ -1551,7 +1558,7 @@ gameInfo dayTwoContTwo(gameInfo _eventInfo) {
 }
 
 gameInfo dayTwoContThree(gameInfo _eventInfo) {
-    int lines = 6;
+    int lines = 7;
     const char *line[lines];
     int choice = 0;
 
@@ -1560,7 +1567,8 @@ gameInfo dayTwoContThree(gameInfo _eventInfo) {
     line[2] = "Judging from the cover, it's probably a book";
     line[3] = "of questionable material. I decide not to ask.";
     line[4] = "";
-    line[5] = "We sit in relatively awkward silence before I can't take it anymore";
+    line[5] = "We sit in relatively awkward silence until";
+    line[6] = "I just couldn't take it anymore!";
 
     //Setting Options
     int options = 2;
@@ -1608,8 +1616,8 @@ gameInfo twoPathOne(gameInfo _eventInfo) {
     line[11] = "";
     line[12] = "Mr. K rubs his chin thoughtfully as he studies me.";
     line[13] = "    ";
-    line[14] = "Mr. K: I guess, it's fine to tell you but I'd rather keep my job.";
-    line[15] = "       Ask me something else.";
+    line[14] = "Mr. K: I guess it's fine to tell you but I'd like to keep my";
+    line[15] = "       job. Ask me something else.";
 
     //Setting Options
     int options = 1;
@@ -1644,8 +1652,8 @@ gameInfo twoPathTwo(gameInfo _eventInfo) {
     line[4] = "I panic.";
     line[5] = "     ";
     line[6] = "Me: I-I mean! I'm not looking to offend you or anything but";
-    line[7] = "    like isn't it weird for a teacher to not tell his students";
-    line[8] = "    his real name? Like what if you're someone dangerous? What if";
+    line[7] = "    like isn't it weird for a teacher to not tell his class";
+    line[8] = "    his real name? What if you're someone dangerous? What if";
     line[9] = "    your some sort of serial killer? And we'd never know because";
     line[10] = "   we DON'T KNOW YOUR NAME.";
     line[11] = "";
@@ -1658,15 +1666,15 @@ gameInfo twoPathTwo(gameInfo _eventInfo) {
     line[18] = "     ";
     line[19] = "Mr. K bursts out laughing and just shakes his head.";
     line[20] = "     ";
-    line[21] = "Mr. K: It's okay. When I decided to go by just K, I already steeled";
-    line[22] = "       myself for the numerous questions.";
+    line[21] = "Mr. K: It's okay. When I decided to go by just K, I already";
+    line[22] = "        steeled myself for the numerous questions.";
     line[23] = "";
-    line[24] = "He fiddles with the corner of a page on his book and closes it.";
-    line[25] = "I just noticed but his hands look delicate yet strong. Like the hands";
-    line[26] = "of an aristocrat but also very much capable of the most compexly";
-    line[27] = "beautiful things.";
+    line[24] = "He fiddles with the corner of a page on his book.";
+    line[25] = "I just noticed but his hands look delicate, almost feminine.";
+    line[26] = "Like it was capable of the most beautiful and";
+    line[27] = "devastating things at the same time.";
     line[28] = "";
-    line[29] = "Mr. K: Honestly, I just wanna be mysterious.";
+    line[29] = "Mr. K: But honestly? I just really wanna be mysterious.";
     line[30] = "    ";
     line[31] = "He waggles his fingers playfully at me. I gulp.";
     line[32] = "THOSE BEAUTIFUL HANDS!";
@@ -1711,16 +1719,16 @@ gameInfo twoPathTwo(gameInfo _eventInfo) {
 }
 
 gameInfo dayTwoContFour(gameInfo _eventInfo) {
-    int lines = 16;
+    int lines = 17;
     const char *line[lines];
     int choice = 0;
 
-    line[0] = "When I get to the classroom, Mr. K is already there waiting for us.";
+    line[0] = "When I get to class, Mr. K is already there waiting for us.";
     line[1] = "    ";
-    line[2] = "He sees me enter and raises his hand from the book his reading to";
-    line[3] = "greet me.";
+    line[2] = "He sees me enter and raises his hand from the book";
+    line[3] = "he's reading to greet me.";
     line[4] = "    ";
-    line[5] = "Mr. K: Yo.";
+    line[5] = "Mr. K: Yo!";
     line[6] = "";
     line[7] = "He smiles a small smile and my heart skips a beat.";
     line[8] = "For some reason, despite the dark circles under his eyes";
@@ -1731,6 +1739,7 @@ gameInfo dayTwoContFour(gameInfo _eventInfo) {
     line[13] = "     ";
     line[14] = "'It's fine, it's just a little crush', I convince myself.";
     line[15] = "";
+    line[16] = "How do I greet him back?";
 
     //Setting Options
     int options = 2;
@@ -1827,7 +1836,7 @@ gameInfo dayTwoContSix(gameInfo _eventInfo) {
     line[10] = "    ";
     line[11] = "Mr. K: See you tomorrow, everyone!";
     line[12] = "    ";
-    line[13] = "Everyone goes to leave. Chichi and I walk out the door together";
+    line[13] = "Everyone leaves. Chichi and I walk out the door together";
     line[14] = "only to be greeted by a familiar smirking face.";
     line[15] = "";
     line[16] = "Me: Jeff!";
@@ -1850,7 +1859,7 @@ gameInfo dayTwoContSix(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 1006;  //battleFive
+            _eventInfo.nextEvent = 1006;  //battleSix
             _eventInfo.end = 0;
             break;
         default:
@@ -1947,7 +1956,7 @@ gameInfo battleFour(gameInfo _eventInfo) {
     switch (result) {
         case 0:
             _eventInfo.nextEvent = 1204;  //resultFour
-            _eventInfo.interestPoints[1] += 50;
+            _eventInfo.interestPoints[1] -= 25;
             _eventInfo.end = 0;
             break;
         case 1:
@@ -1999,7 +2008,7 @@ gameInfo battleSix(gameInfo _eventInfo) {
     //Success = 1
     switch (result) {
         case 0:
-            endScreen();  // displays the To Be Continued screen
+            endScreen();        // displays the To Be Continued screen
             _eventInfo.end = 1;
             break;
         default:
