@@ -1795,12 +1795,12 @@ gameInfo dayTwoContFive(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
-gameInfo dayTwoContSix(gameInfo _eventInfo){
+gameInfo dayTwoContSix(gameInfo _eventInfo) {
     int lines = 23;
     const char *line[lines];
     int choice = 0;
 
-    line[0] = "Mr. K: Okay, everyone pass your papers!"
+    line[0] = "Mr. K: Okay, everyone pass your papers!";
     line[1] = "     ";
     line[2] = "I pass my paper to the front, hoping to God I did well.";
     line[3] = "     ";
@@ -1846,7 +1846,6 @@ gameInfo dayTwoContSix(gameInfo _eventInfo){
 
     return _eventInfo;
 }
-
 
 // ---->>> BATTLES
 
@@ -1911,7 +1910,7 @@ gameInfo battleThree(gameInfo _eventInfo) {
     //Success = 1
     switch (result) {
         case 0:
-            _eventInfo.nextEvent = 505; //clubOneContFive
+            _eventInfo.nextEvent = 505;  //clubOneContFive
             _eventInfo.interestPoints[0] += 75;
             _eventInfo.end = 0;
             break;
@@ -1978,7 +1977,7 @@ gameInfo battleFive(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
-gameInfo battleSix(gameInfo _eventInfo){
+gameInfo battleSix(gameInfo _eventInfo) {
     int result = bossBattle(6, _eventInfo);
 
     //Switches between success and failure events
@@ -1986,7 +1985,7 @@ gameInfo battleSix(gameInfo _eventInfo){
     //Success = 1
     switch (result) {
         case 0:
-            endScreen();            // displays the To Be Continued screen
+            endScreen();  // displays the To Be Continued screen
             _eventInfo.end = 1;
             break;
         default:
@@ -1997,7 +1996,6 @@ gameInfo battleSix(gameInfo _eventInfo){
 
     return _eventInfo;
 }
-
 
 // ----->> BATTLE RESULTS
 

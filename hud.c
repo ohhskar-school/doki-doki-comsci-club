@@ -160,15 +160,16 @@ WINDOW *createHUD(int hudHeight, gameInfo incomingInfo) {
 
     //Creates the Hearts for each person with colors
     //Prints Active Hearts
+    int jeff;
     wattron(hudWindow, COLOR_PAIR(1));
-    for (int i = 0; i < incomingInfo.hearts[0]; i++) {
+    for (jeff = 0; jeff < incomingInfo.hearts[0]; jeff++) {
         wprintw(hudWindow, "*");
     }
     wattroff(hudWindow, COLOR_PAIR(1));
 
     //Prints Inactive Hearts
     wattroff(hudWindow, A_BOLD);
-    for (int i = 5; i > incomingInfo.hearts[0]; i--) {
+    for (int i = jeff; i < 5; i++) {
         wprintw(hudWindow, "*");
     }
     wattron(hudWindow, A_BOLD);
@@ -176,15 +177,16 @@ WINDOW *createHUD(int hudHeight, gameInfo incomingInfo) {
     wprintw(hudWindow, " Mr. K: ");
 
     //Prints Active Hearts
+    int k;
     wattron(hudWindow, COLOR_PAIR(1));
-    for (int i = 0; i < incomingInfo.hearts[1]; i++) {
+    for (k = 0; k < incomingInfo.hearts[1]; k++) {
         wprintw(hudWindow, "*");
     }
     wattroff(hudWindow, COLOR_PAIR(1));
 
     //Prints Inactive Hearts
     wattroff(hudWindow, A_BOLD);
-    for (int i = 5; i > incomingInfo.hearts[0]; i--) {
+    for (int i = k; i < 5; i++) {
         wprintw(hudWindow, "*");
     }
 

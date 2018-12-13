@@ -47,17 +47,17 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         case 4:
             player.damage = _battleInfo.interestPoints[1] * 0.85;
             boss.damage = 10;
-            boss.health = 100;
-            boss.maxHealth = 100;
+            boss.health = 750;
+            boss.maxHealth = 750;
             boss.skill = 30;
             boss.name = "CMSC 11 Assignment";
             break;
         case 5:
             player.damage = _battleInfo.interestPoints[1] * 0.85;
             boss.damage = 10;
-            boss.health = 100;
-            boss.maxHealth = 100;
-            boss.skill = 20;
+            boss.health = 1000;
+            boss.maxHealth = 1000;
+            boss.skill = 30;
             boss.name = "Mr. K's Pop Quiz";
             break;
         case 6:
@@ -403,7 +403,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your skill by 5";
                                 break;
                             case 4:
-                                line[0] = "You go on Google and do some research on your topic";
+                                line[0] = "You do a hasty Google search regarding your assignment";
                                 line[1] = "";
                                 line[2] = "Increasing your knowledge by 5";
                                 break;
@@ -429,7 +429,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You tried to talk trash but Jeff is amused at your attempt";
                                 break;
                             case 4:
-                                line[0] = "You tried to pray but broke down instead";
+                                line[0] = "You weren't able to find what you were looking for on the internet";
                                 break;
                             case 5:
                                 line[0] = "You tried to pray but broke down instead";
@@ -576,9 +576,9 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your skill by 5";
                                 break;
                             case 4:
-                                line[0] = "You pray to God that you could answer the next question";
+                                line[0] = "You do a hasty Google search regarding your assignment";
                                 line[1] = "";
-                                line[2] = "Increasing your faith in yourself by 5";
+                                line[2] = "Increasing your knowledge by 5";
                                 break;
                             case 5:
                                 line[0] = "You pray to God that you could answer the next question";
@@ -602,7 +602,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You tried to talk trash but stuttered instead";
                                 break;
                             case 4:
-                                line[0] = "You try to pray but broke down instead";
+                                line[0] = "You weren't able to find what you were looking for on the internet";
                                 break;
                             case 5:
                                 line[0] = "You try to pray but broke down instead";
@@ -724,9 +724,9 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your skill by 5";
                                 break;
                             case 4:
-                                line[0] = "You recite a little prayer";
+                                line[0] = "You quickly flip through your books for the answer";
                                 line[1] = "";
-                                line[2] = "Restoring faith in yourself by 5";
+                                line[2] = "Increasing your knowledge by 5";
                                 break;
                             case 5:
                                 line[0] = "You recite a little prayer";
@@ -750,7 +750,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You tried to talk trash but your insults were too soft!";
                                 break;
                             case 4:
-                                line[0] = "You tried praying but have an existential crisis instead";
+                                line[0] = "You aren't sure where to find information regarding your assignment";
                                 break;
                             case 5:
                                 line[0] = "You tried praying but have an existential crisis instead";
@@ -873,9 +873,9 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your skill by 5";
                                 break;
                             case 4:
-                                line[0] = "You start praying, hoping for a miracle";
+                                line[0] = "You quickly flip through your books for some answers";
                                 line[1] = "";
-                                line[2] = "Restoring faith in yourself by 5";
+                                line[2] = "Increasing your knowledge by 5";
                                 break;
                             case 5:
                                 line[0] = "You start praying, hoping for a miracle";
@@ -899,7 +899,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You trash talk horribly, causing Jeff to laugh at you";
                                 break;
                             case 4:
-                                line[0] = "You start praying but fell asleep halfway";
+                                line[0] = "You weren't able to find the answer on the internet";
                                 break;
                             case 5:
                                 line[0] = "You start praying but fell asleep halfway";
@@ -1090,9 +1090,9 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your skill by 10";
                                 break;
                             case 4:
-                                line[0] = "You pray a heartfelt prayer";
+                                line[0] = "You managed to ask your friend on Facebook for the answer";
                                 line[1] = "";
-                                line[2] = "Restoring faith in yourself by 10";
+                                line[2] = "Increasing your knowledge by 10";
                                 break;
                             case 5:
                                 line[0] = "You pray a heartfelt prayer";
@@ -1116,7 +1116,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You couldn't keep a straight face while insulting him, causing Jeff to laugh";
                                 break;
                             case 4:
-                                line[0] = "You tried to pray but slept halfway instead";
+                                line[0] = "You weren't able to find the information that you were looking for";
                                 break;
                             case 5:
                                 line[0] = "You tried to pray but slept halfway instead";
@@ -1263,9 +1263,9 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your skill by 5";
                                 break;
                             case 4:
-                                line[0] = "You start reciting all the prayers you know";
+                                line[0] = "You search through all your past notes";
                                 line[1] = "";
-                                line[2] = "Restoring faith in yourself by 5";
+                                line[2] = "Increasing your knowledge by 5";
                                 break;
                             case 5:
                                 line[0] = "You start reciting all the prayers you know";
@@ -1289,7 +1289,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You fail to insult Jeff";
                                 break;
                             case 4:
-                                line[0] = "You start praying but forgot what to say halfway";
+                                line[0] = "You weren't able to find your notes, probably because you didn't make any";
                                 break;
                             case 5:
                                 line[0] = "You start praying but forgot what to say halfway";
