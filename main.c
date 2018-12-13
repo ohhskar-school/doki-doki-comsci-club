@@ -20,17 +20,27 @@ int main() {
         mainInfo.hearts[i] = 0;
     }
     for (int i = 0; i < 3; i++) {
-        mainInfo.interestPoints[i] = 200;
+        mainInfo.interestPoints[i] = 50;
     }
 
     //Initialize ncurses
     initializeNcurses();
     initializeColors();
 
-    //Present Splash Screen
-    presentsScreen();
-    splashScreen();
+    //Get Terminal Size
+    int row, col;
+    getmaxyx(stdscr, row, col);
 
+    if (col < 80) {
+        sizeScreen();
+        clear();
+        refresh();
+        endwin();
+        return 0;
+    }
+    //Present Splash Screen
+    endScreen();
+    splashScreen();
     //Main Game Loop
     while (mainInfo.end == 0 && mainInfo.errorCode == 0) {
         mainInfo = eventSwitcher(mainInfo);

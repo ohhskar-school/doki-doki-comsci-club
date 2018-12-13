@@ -9,6 +9,9 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
         case 0:
             _branchInfo = mainMenu(_branchInfo);
             break;
+        case 2:
+            _branchInfo = splashScreenEvent(_branchInfo);
+            break;
         case 100:
             _branchInfo = dayOne(_branchInfo);
             break;
@@ -18,12 +21,18 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
         case 102:
             _branchInfo = dayOneContTwo(_branchInfo);
             break;
-        // case 103:
-        //     _branchInfo = dayTwo(_branchInfo);
+        case 103:
+            _branchInfo = dayTwo(_branchInfo);
+            break;
+        case 104:
+            _branchInfo = dayTwoContOne(_branchInfo);
+            break;
+        case 105:
+            _branchInfo = dayTwoContTwo(_branchInfo);
+            break;
+        // case 106:
+        //     _branchInfo = dayTwoContThree(_branchInfo);
         //     break;
-        // case 104:
-        //     _branchInfo = dayTwoCont(_branchInfo);
-        //    break;
         case 201:
             _branchInfo = onePathOne(_branchInfo);
             break;
@@ -98,6 +107,30 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
             break;
         case 1204:
             _branchInfo = resultThree(_branchInfo);
+            break;
+        case 301:
+            _branchInfo = homeOne(_branchInfo);
+            break;
+        case 302:
+            _branchInfo = homeTwo(_branchInfo);
+            break;
+        case 303:
+            _branchInfo = homeThree(_branchInfo);
+            break;
+        case 304:
+            _branchInfo = homeFour(_branchInfo);
+            break;
+        case 305:
+            _branchInfo = homeFive(_branchInfo);
+            break;
+        case 311:
+            _branchInfo = homePathOne(_branchInfo);
+            break;
+        case 312:
+            _branchInfo = homePathTwo(_branchInfo);
+            break;
+        case 313:
+            _branchInfo = homePathThree(_branchInfo);
             break;
         case 100000:
             break;
