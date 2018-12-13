@@ -674,25 +674,27 @@ gameInfo clubOne(gameInfo _eventInfo) {
 }
 
 gameInfo clubOneCont(gameInfo _eventInfo) {
-    int lines = 15;
+    int lines = 17;
     const char *line[lines];
     int choice = 0;
 
-    line[0] = "Phew! I finally got away from all those club recruiters.";
+    line[0] = "Phew! I finally got away from all those club recruiters!";
     line[1] = "";
     line[2] = "I'm starting to feel like I'm getting a little lost here.";
-    line[3] = "I rest my hand on a wall and it touches a piece of haphazardly taped bondpaper.";
-    line[4] = "";
-    line[5] = "'This way to the CMSC Club, losers >>>>'";
-    line[6] = "Well, isn't it awfully obvious who made these..";
-    line[7] = "";
-    line[8] = "The signs lead me to a room in Building C";
-    line[9] = "and the door is cracked wide open for visitors.";
-    line[10] = "";
-    line[11] = "I peek inside, and the only person there is Jeff.";
-    line[12] = "He's sitting in one of the desks, doing something on his laptop.";
-    line[13] = "Do I go in?";
-    line[14] = "";
+    line[3] = "I rest my hand on a wall and it touches a piece of";
+    line[4] = "haphazardly taped bondpaper.";
+    line[5] = "";
+    line[6] = "'This way to the CMSC Club, losers -->>'";
+    line[7] = "Well, isn't it awfully obvious who made these..";
+    line[8] = "";
+    line[9] = "The signs lead me to a room in Building C";
+    line[10] = "and the door is cracked wide open for visitors.";
+    line[11] = "";
+    line[12] = "I peek inside, and the only person there is Jeff.";
+    line[13] = "He's sitting in one of the desks, doing something";
+    line[14] = "on his laptop.";
+    line[15] = "   ";
+    line[16] = "Do I go in?";
 
     //Setting Options
     int options = 3;
@@ -705,15 +707,15 @@ gameInfo clubOneCont(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 502;
+            _eventInfo.nextEvent = 502; //clubOneContTwo
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 502;
+            _eventInfo.nextEvent = 502; //clubOneContTwo
             _eventInfo.end = 0;
             break;
         case 2:
-            _eventInfo.nextEvent = 502;
+            _eventInfo.nextEvent = 502; //clubOneContTwo
             _eventInfo.end = 0;
             break;
         default:
@@ -733,25 +735,25 @@ gameInfo clubOneContTwo(gameInfo _eventInfo) {
     line[0] = "Me: Knock, knock.";
     line[1] = "";
     line[2] = "Jeff looks up and his face immediately turns sour.";
-    line[3] = "Jeff: So you actually decide to show up.";
-    line[4] = "";
+    line[3] = "    ";
+    line[4] = "Jeff: So you actually decide to show up.";
 
     //Setting Options
     int options = 2;
     const char *option[options];
-    option[0] = "Why wouldn't I when you literally threatened our entire class..";
+    option[0] = "Why wouldn't I when you just threatened our entire class..";
     option[1] = "I wanna learn. Thought this was the place I could do that.";
 
     choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 503;
+            _eventInfo.nextEvent = 503; //clubOneContThree
             _eventInfo.interestPoints[0] += 25;
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 503;
+            _eventInfo.nextEvent = 503; //clubOneContThree
             _eventInfo.interestPoints[0] += 50;
             _eventInfo.end = 0;
             break;
@@ -765,17 +767,18 @@ gameInfo clubOneContTwo(gameInfo _eventInfo) {
 }
 
 gameInfo clubOneContThree(gameInfo _eventInfo) {
-    int lines = 7;
+    int lines = 8;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "Jeff hums to himself and smirks.";
-    line[1] = "Jeff: Seems you're not as dumb as you look.";
-    line[2] = "He turns his attention back to his laptop.";
-    line[3] = "";
-    line[4] = "I take this moment to look around me.";
-    line[5] = "The only people in the room are me and Jeff.";
-    line[6] = "";
+    line[1] = "   ";
+    line[2] = "Jeff: Seems you're not as dumb as you look.";
+    line[3] = "    "; 
+    line[4] = "He turns his attention back to his laptop.";
+    line[5] = "";
+    line[6] = "I take this moment to look around me.";
+    line[7] = "The only people in the room are me and Jeff.";
 
     //Setting Options
     int options = 2;
@@ -787,11 +790,11 @@ gameInfo clubOneContThree(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 504;
+            _eventInfo.nextEvent = 504; //clubOneContFour
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 504;
+            _eventInfo.nextEvent = 504; //clubOneContFour
             _eventInfo.end = 0;
             break;
         default:
@@ -804,40 +807,53 @@ gameInfo clubOneContThree(gameInfo _eventInfo) {
 }
 
 gameInfo clubOneContFour(gameInfo _eventInfo) {
-    int lines = 30;
+    int lines = 43;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "Jeff's right eye twitches.";
-    line[1] = "Jeff: Wow, thank you, Captain Obvious.";
-    line[2] = "But yeah, even though we're a major club,";
-    line[3] = "We've been having trouble bringing actual active members in.";
-    line[4] = "";
-    line[5] = "Me: *under my breath* I wonder why that is..";
-    line[6] = "Jeff: What was that?";
-    line[7] = "Me: Nothing. Anyway, that sucks.";
-    line[8] = "";
-    line[9] = "I peek at his laptop screen and -";
-    line[10] = "Me: Wait, is that TECKEN?!";
-    line[11] = "";
-    line[12] = "Jeff: Yeah, now scram.";
-    line[13] = "I ignore him.";
+    line[1] = "    ";
+    line[2] = "Jeff: Wow, thank you, Captain Obvious.";
+    line[3] = "      But yeah, even though we're a major club,";
+    line[4] = "      We've been having trouble bringing actual";
+    line[5] = "      active members in.";
+    line[6] = "";
+    line[7] = "Me: *under my breath* I wonder why that is..";
+    line[8] = "Jeff: What was that?";
+    line[9] = "Me: Nothing. Anyway, that sucks.";
+    line[10] = "";
+    line[11] = "I peek at his laptop screen and -";
+    line[12] = "   ";
+    line[13] = "Me: Wait, is that TECKEN?!";
     line[14] = "";
-    line[15] = "Me: Let's play! I have another controller..";
-    line[16] = "Jeff looks at you as if you grew another head.";
-    line[17] = "Jeff: What part about scram did you not understand?";
-    line[18] = "Me: Hey, I'm just another TECKEN lover here...";
-    line[19] = "";
-    line[20] = "Jeff looks thoughtful for a moment.";
-    line[21] = "Jeff: Okay, let's make a deal. If you beat me, I buy snacks";
-    line[22] = "for the meeting this afternoon. Right out of my own pocket.";
-    line[23] = "";
-    line[24] = "Me: Sweet! Let's go!";
-    line[25] = "Jeff: Ah! But if I win, you'll go on a date with me tomorrow evening.";
+    line[15] = "Jeff: Yeah, now scram.";
+    line[16] = "   ";
+    line[17] = "I ignore him.";
+    line[18] = "";
+    line[19] = "Me: Let's play! I have another controller..";
+    line[20] = "   ";
+    line[21] = "Jeff looks at you as if you grew another head.";
+    line[22] = "";
+    line[23] = "Jeff: What part about scram did you not understand?";
+    line[24] = "   ";
+    line[25] = "Me: Hey, if I see TECKEN, I just completely zero in.";
     line[26] = "";
-    line[27] = "WHAT?";
-    line[28] = "Me: What? What do you mean date-?";
-    line[29] = "Jeff: Too late! Here we go~!";
+    line[27] = "Jeff looks thoughtful for a moment.";
+    line[28] = "   ";
+    line[29] = "Jeff: Okay, let's make a deal. If you beat me,";
+    line[30] = "      I buy snacks for the meeting this afternoon.";
+    line[31] = "      Right out of my own pocket.";
+    line[32] = "   ";
+    line[33] = "Me: Sweet! Let's go!";
+    line[34] = "    ";
+    line[35] = "Jeff: AH! But if I win, you'll go on a date";
+    line[36] = "with me tomorrow evening.";
+    line[37] = "";
+    line[38] = "WHAT?";
+    line[39] = "  ";
+    line[40] = "Me: What? What do you mean date-?! I refuse!";
+    line[41] = "   ";
+    line[42] = "Jeff: Too late! Here we go~!";
 
     //Setting Options
     int options = 1;
@@ -848,7 +864,7 @@ gameInfo clubOneContFour(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 1003;
+            _eventInfo.nextEvent = 1003; //battleThree
             _eventInfo.end = 0;
             break;
         default:
@@ -861,21 +877,24 @@ gameInfo clubOneContFour(gameInfo _eventInfo) {
 }
 
 gameInfo clubOneContFive(gameInfo _eventInfo) {
-    int lines = 11;
+    int lines = 14;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "Me: NOOOO!";
-    line[1] = "Jeff: YES!";
-    line[2] = "";
-    line[3] = "Jeff pumps his fist into the air and laughs.";
-    line[3] = "The defeat wouldn't be as embarrassing as it is if Jeff didn't";
-    line[4] = "laugh so much. Then there's also the prospect of going on a date with him...";
-    line[5] = "";
-    line[6] = "Jeff: Here I thought you were some TECKEN genius.";
-    line[8] = "Me: I didn't say I was, I just said I loved the game.";
-    line[9] = "Jeff: Whatever. You owe me a date now.";
-    line[10] = "";
+    line[1] = "  ";
+    line[2] = "Jeff: YES!";
+    line[3] = "  ";
+    line[4] = "Jeff pumps his fist into the air and laughs.";
+    line[5] = "The defeat was embarrassing enough, Jeff's mocking laughing";
+    line[6] = "makes it much worse. There's also the prospect of having to";
+    line[7] = "go on a date with him...";
+    line[8] = "";
+    line[9] = "Jeff: Here I thought you were some TECKEN genius.";
+    line[10] = " ";
+    line[11] = "Me: I didn't say I was, I just said I loved the game.";
+    line[12] = " ";
+    line[13] = "Jeff: Whatever. You owe me a date now.";
 
     //Setting Options
     int options = 2;
@@ -888,17 +907,17 @@ gameInfo clubOneContFive(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 206;
+            _eventInfo.nextEvent = 206;         //clubPathOne
             _eventInfo.interestPoints[0] += 25;
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 207;
-            _eventInfo.interestPoints[0] += 25;
+            _eventInfo.nextEvent = 207;          //clubPathTwo
+            _eventInfo.interestPoints[0] += 25; 
             _eventInfo.end = 0;
             break;
         case 2:
-            _eventInfo.nextEvent = 208;
+            _eventInfo.nextEvent = 208;          //clubPathThree
             _eventInfo.interestPoints[0] += 50;
             _eventInfo.end = 0;
             break;
@@ -912,7 +931,7 @@ gameInfo clubOneContFive(gameInfo _eventInfo) {
 }
 
 gameInfo clubPathOne(gameInfo _eventInfo) {
-    int lines = 6;
+    int lines = 5;
     const char *line[lines];
     int choice = 0;
 
@@ -920,8 +939,7 @@ gameInfo clubPathOne(gameInfo _eventInfo) {
     line[1] = "Oof! If he looked like this all the time,";
     line[2] = "I probably wouldn't mind more than one date..";
     line[3] = "";
-    line[4] = "Jeff: Why not?";
-    line[5] = "";
+    line[4] = "Jeff: Why wouldn't I be serious?";
 
     //Setting Options
     int options = 1;
@@ -932,7 +950,7 @@ gameInfo clubPathOne(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 506;
+            _eventInfo.nextEvent = 506;     //clubOneContSix
             _eventInfo.end = 0;
             break;
         default:
@@ -945,25 +963,31 @@ gameInfo clubPathOne(gameInfo _eventInfo) {
 }
 
 gameInfo clubPathTwo(gameInfo _eventInfo) {
-    int lines = 15;
+    int lines = 21;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "Jeff regards me thoughtfully and shrugs.";
-    line[1] = "Jeff: Take all the time you need. But I did win fair and square though.";
-    line[2] = "";
-    line[3] = "The honor card. Typical.";
-    line[4] = "I shake my head and sigh. To hell with it.";
-    line[5] = "";
-    line[6] = "Me: Fine then. Just one date. What can it hurt?";
-    line[7] = "Jeff cracks a mischievous grin and I swear I felt my heart skip a beat.";
-    line[8] = "";
-    line[9] = "Jeff: That didn't take much convincing.";
-    line[10] = "I pull my tongue out at him.";
-    line[11] = "Me: Shut up. Win gracefully.";
+    line[1] = "  ";
+    line[2] = "Jeff: Take all the time you need.";
+    line[3] = "      But I did win fair and square though.";
+    line[4] = "";
+    line[5] = "The honor card. Typical.";
+    line[6] = "I shake my head and sigh. To hell with it.";
+    line[7] = "  ";
+    line[8] = "Me: Fine then. Just one date. What can it hurt?";
+    line[9] = "  ";
+    line[10] = "Jeff cracks a mischievous grin and I swear";
+    line[11] = "I felt my heart skip a beat.";
     line[12] = "";
-    line[13] = "Jeff booms in laughter and looks at me with fond eyes.";
-    line[14] = "So different from the patronizing looks he gave before.";
+    line[13] = "Jeff: That didn't take much convincing.";
+    line[14] = " ";
+    line[15] = "I pull my tongue out at him.";
+    line[16] = "  ";
+    line[17] = "Me: Shut up. Just win gracefully.";
+    line[18] = "";
+    line[19] = "Jeff booms in laughter and looks at me with fond eyes.";
+    line[20] = "So different from the patronizing looks he gave before.";
 
     //Setting Options
     int options = 1;
@@ -974,7 +998,7 @@ gameInfo clubPathTwo(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 506;
+            _eventInfo.nextEvent = 506;     //clubOneContSix
             _eventInfo.end = 0;
             break;
         default:
@@ -991,14 +1015,14 @@ gameInfo clubPathThree(gameInfo _eventInfo) {
     const char *line[lines];
     int choice = 0;
 
-    line[0] = "Jeff laughs and I swear I thought it was the prettiest sound.";
+    line[0] = "Jeff laughs and I swear it was the prettiest sound.";
     line[1] = "I think I must be going crazy.";
     line[2] = "";
     line[3] = "Jeff: I didn't think you'd agree that quickly.";
-    line[4] = "You: I honestly didn't think I would either.";
-    line[5] = "";
-    line[6] = "Jeff: You saying I'm undateable?";
-    line[7] = "";
+    line[4] = "  ";
+    line[5] = "You: I honestly didn't think I would either.";
+    line[6] = "  ";
+    line[7] = "Jeff: You saying I'm undateable?";
 
     //Setting Options
     int options = 2;
@@ -1029,30 +1053,35 @@ gameInfo clubPathThree(gameInfo _eventInfo) {
 }
 
 gameInfo clubPathBranchOne(gameInfo _eventInfo) {
-    int lines = 20;
+    int lines = 25;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "Me: This was all just very sudden, I mean I barely know you.";
-    line[1] = "Jeff chuckles, a sweet sound.";
-    line[2] = "Jeff: You got a point.";
-    line[3] = "";
-    line[4] = "He turns to me and sighs.";
-    line[5] = "Jeff: Just think of this as two strangers getting to know each other";
-    line[6] = "";
-    line[7] = "He smiles and extends his hand.";
-    line[8] = "I nod and take his hand in mine.";
-    line[9] = "His hold is firm and surprisingly kind of warm.";
-    line[10] = "Not the disgustingly sweaty warmth, but a comfortable warmth.";
-    line[11] = "";
-    line[12] = "It's almost like home.";
-    line[13] = "";
-    line[14] = "I let go quickly.";
-    line[15] = "Me: Okay, Jeff, but no funny business, you hear me?";
-    line[16] = "He laughs and nods.";
+    line[1] = "  ";
+    line[2] = "Jeff chuckles, a soft sound.";
+    line[3] = "   ";
+    line[4] = "Jeff: You got a point.";
+    line[5] = "";
+    line[6] = "He turns to me and sighs.";
+    line[7] = "  ";
+    line[8] = "Jeff: Just think of this as two strangers beginning";
+    line[9] = "      to get to know each other";
+    line[10] = "";
+    line[11] = "He smiles and extends his hand.";
+    line[12] = "I nod and take his hand in mine.";
+    line[13] = "His hold is firm and surprisingly kind of warm.";
+    line[14] = "A comfortable warmth.";
+    line[15] = "  ";
+    line[16] = "It's almost like home.";
     line[17] = "";
-    line[18] = "Jeff: Okay, whatever you say.";
-    line[19] = "";
+    line[18] = "I let go quickly.";
+    line[19] = "  ";
+    line[20] = "Me: Okay, Jeff, but no funny business, you hear me?";
+    line[21] = "";
+    line[22] = "He laughs and nods.";
+    line[23] = "  ";
+    line[24] = "Jeff: Okay, whatever you say.";
 
     //Setting Options
     int options = 1;
@@ -2045,7 +2074,7 @@ gameInfo resultTwo(gameInfo _eventInfo) {
 }
 
 //Assignment Battle Failure
-gameInfo resultThree(gameInfo _eventInfo) {
+gameInfo resultFour(gameInfo _eventInfo) {
     int lines = 4;
     const char *line[lines];
     int choice = 0;
