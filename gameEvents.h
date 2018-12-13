@@ -26,8 +26,10 @@ gameInfo clubOneContSix(gameInfo _eventInfo);
 gameInfo clubOneContSeven(gameInfo _eventInfo);
 gameInfo clubOneContEight(gameInfo _eventInfo);
 gameInfo clubOneContNine(gameInfo _eventInfo);
-//gameInfo dayTwo(gameInfo _eventInfo);
-//gameInfo dayTwoCont(gameInfo _eventInfo);
+gameInfo dayTwo(gameInfo _eventInfo);
+gameInfo dayTwoContOne(gameInfo _eventInfo);
+gameInfo dayTwoContTwo(gameInfo _eventInfo);
+gameInfo dayTwoContThree(gameInfo _eventInfo);
 gameInfo battleOne(gameInfo _eventInfo);
 gameInfo battleTwo(gameInfo _eventInfo);
 gameInfo battleThree(gameInfo _eventInfo);
@@ -39,7 +41,9 @@ gameInfo homeOne(gameInfo _eventInfo);
 gameInfo homeTwo(gameInfo _eventInfo);
 gameInfo homeThree(gameInfo _eventInfo);
 gameInfo homeFour(gameInfo _eventInfo);
+gameInfo homeFive(gameInfo _eventInfo);
 gameInfo homePathOne(gameInfo _eventInfo);
 gameInfo homePathTwo(gameInfo _eventInfo);
+gameInfo homePathThree(gameInfo _eventInfo);
 
 #endif
