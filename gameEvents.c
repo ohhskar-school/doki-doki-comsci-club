@@ -1524,18 +1524,73 @@ gameInfo dayTwoContTwo(gameInfo _eventInfo) {
     switch (choice) {
         case 0:
             _eventInfo.nextEvent = 106;  //dayTwoContThree
-            _eventInfo.interestPoints[1] += 25;
             _eventInfo.end = 0;
             break;
         case 1:
             _eventInfo.nextEvent = 106;  //dayTwoContThree
-            _eventInfo.interestPoints[1] += 25;
             _eventInfo.end = 0;
             break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
     }
+
+    return _eventInfo;
+}
+
+gameInfo dayTwoContThree(gameInfo _eventInfo){
+    int lines = 7;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "I sit opposite Mr. K and begin sipping at my coffee.";
+    line[1] = "He continues reading whatever book it is.";
+    line[2] = "Judging from the cover, it's probably a book";
+    line[3] = "of questionable material. I decide not to ask.";
+    line[4] = "";
+    line[5] = "We sit in relatively awkward silence before I can't take it anymore";
+    line[6] = "";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "Why the 'Mr. K'?";
+
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 209;  //twoPathOne
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
+
+    return _eventInfo;
+}
+
+gameInfo twoPathOne(gameInfo _eventInfo){
+    int lines = 15;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "Mr. K looks up at you and raises an eyebrow.";
+    line[1] = "Mr. K: Excuse me?";
+    line[2] = "";
+    line[3] = "I panic.";
+    line[4] = "Me: I-I mean! I'm not looking to offend you or anything but";
+    line[5] = "like isn't it weird for a teacher to not tell his students";
+    line[6] = "his real name? Like what if you're someone dangerous? What if";
+    line[7] = "your some sort of serial killer? And we'd never know because";
+    line[8] = "we DON'T KNOW YOUR NAME.";
+    line[9] = "";
+    line[10] = "At that, I finally shut my mouth.";
+    line[11] = "Mr. K is looking at me weirdly and I'm afraid I've just ruined";
+    line[12] = "my non-existent working relationship with my teacher.";
+    line[13] = "";
+    line[14] = "";
 
     return _eventInfo;
 }
@@ -1676,11 +1731,33 @@ gameInfo resultOne(gameInfo _eventInfo) {
 
 //Horde Battle Failure
 gameInfo resultTwo(gameInfo _eventInfo) {
-    int lines = 1;
+    int lines = 3;
     const char *line[lines];
     int choice = 0;
 
-    line[0] = "The horde ";
+    line[0] = "The horde has taken you away from the CMSC Club!";
+    line[1] = "      ";
+    line[2] = "Try again?";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "Continue";
+
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.end = 1002;
+            break;
+
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+            break;
+    }
+
+    return _eventInfo;
 }
 
 //Assignment Battle Failure
@@ -1697,7 +1774,7 @@ gameInfo resultThree(gameInfo _eventInfo) {
     //Setting Options
     int options = 1;
     const char *option[options];
-    option[0] = "Continue.";
+    option[0] = "Continue";
 
     createGameScreen(line, lines, option, options, _eventInfo);
 

@@ -31,6 +31,7 @@ gameInfo dayTwo(gameInfo _eventInfo);
 gameInfo dayTwoContOne(gameInfo _eventInfo);
 gameInfo dayTwoContTwo(gameInfo _eventInfo);
 gameInfo dayTwoContThree(gameInfo _eventInfo);
+gameInfo twoPathOne(gameInfo _eventInfo);
 gameInfo battleOne(gameInfo _eventInfo);
 gameInfo battleTwo(gameInfo _eventInfo);
 gameInfo battleThree(gameInfo _eventInfo);
