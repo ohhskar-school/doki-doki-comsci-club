@@ -1554,7 +1554,7 @@ gameInfo dayTwoContThree(gameInfo _eventInfo){
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 206;  //twoPathOne
+            _eventInfo.nextEvent = 209;  //twoPathOne
             _eventInfo.end = 0;
             break;
         default:

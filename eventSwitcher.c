@@ -46,9 +46,6 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
             _branchInfo = onePathFive(_branchInfo);
             break;
         case 206:
-            _branchInfo = twoPathOne(_branchInfo);
-            break;
-        case 206:
             _branchInfo = clubPathOne(_branchInfo);
             break;
         case 207:
@@ -56,6 +53,9 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
             break;
         case 208:
             _branchInfo = clubPathThree(_branchInfo);
+            break;
+        case 209:
+            _branchInfo = twoPathOne(_branchInfo);
             break;
         case 2208:
             _branchInfo = clubPathBranchOne(_branchInfo);
