@@ -19,9 +19,9 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     player.maxHealth = 100;
 
     //Selecting Boss Attributes
-    switch  (bossSelection) {
+    switch(bossSelection) {
         case 1:
-            boss.damage = 15;
+            boss.damage = 10;
             boss.health = 80;
             boss.maxHealth = 100;
             boss.skill = 30;
@@ -29,30 +29,30 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             break;
 
         case 2:
-            boss.damage = 15;
+            boss.damage = 10;
             boss.health = 100;
             boss.maxHealth = 100;
             boss.skill = 30;
             boss.name = "Club Recruiter Horde";
             break;
         case 3:
-            boss.damage = 30;
+            boss.damage = 40;
             boss.health = 800;
             boss.maxHealth = 1000;
             boss.skill = 5;
             boss.name = "Jeff's TECKEN Character";
             break;
         case 4:
-            boss.damage = 20;
-            boss.health = 175;
-            boss.maxHealth = 200;
+            boss.damage = 10;
+            boss.health = 100;
+            boss.maxHealth = 100;
             boss.skill = 30;
             boss.name = "CMSC 11 Assignment";
             break;
         case 5:
-            boss.damage = 20;
-            boss.health = 250;
-            boss.maxHealth = 300;
+            boss.damage = 10;
+            boss.health = 100;
+            boss.maxHealth = 100;
             boss.skill = 20;
             boss.name = "Mr. K's Pop Quiz";
             break;
@@ -172,7 +172,6 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         contentWindow = createContentHud(hudHeight, line, lines);
         playerHudWindow = createPlayerHud(player, hudHeight);
         optionWindow = createOptionHud(hudHeight, option, options);
-
 
         // If boss attacks
         if (boss.move == 0) {
@@ -361,9 +360,9 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your skill by 5";
                                 break;
                             case 4:
-                                line[0] = "You pray to God, hoping that you could answer the next question";
+                                line[0] = "You go on Google and do some research on your topic";
                                 line[1] = "";
-                                line[2] = "Restoring faith in yourself by 5";
+                                line[2] = "Increasing your knowledge by 5";
                                 break;
                             case 5:
                                 line[0] = "You pray to God, hoping that you could answer the next question";
@@ -901,11 +900,10 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         line[2] = "Decreasing your knowledge by 5";
                         break;
                     case 2:
-                        lines = 4;
-                        line[0] = "You start yelling:";
-                        line[1] = "\"Everyone! I have an announcement to make, stop bullying!\"";
-                        line[2] = "";
-                        line[3] = "Your ability to convince people has increased by 5";
+                        lines = 3;
+                        line[0] = "You start to doubt your loyalty for CMSC Club";
+                        line[1] = "";
+                        line[2] = "Decreasing your ability to convince by 5";
                         break;
                     case 3:
                         line[0] = "His words hurt your feelings";
@@ -940,7 +938,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[0] = "You still manage to guess the answer!";
                                 break;
                             case 2:
-                                line[0] = "You say a resounding NO! Hurting their feelings";
+                                line[0] = "You still manage to say a resounding NO! Hurting their feelings";
                                 break;
                             case 3:
                                 line[0] = "You button mash as hard as you can and manage to land some hits!";
