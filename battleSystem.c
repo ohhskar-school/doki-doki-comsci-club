@@ -85,7 +85,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     if (bossSelection == 6) {
         int lines = 1;
         char *line[lines];
-        line[0] = "You approach Mr. K";
+        line[0] = "Mr. K: What's the meaning of this Jeff?";
 
         int options = 1;
         char *option[options];
@@ -95,6 +95,37 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         contentWindow = createContentHud(hudHeight, line, lines);
         playerHudWindow = createPlayerHud(player, hudHeight);
         optionWindow = createOptionHud(hudHeight, option, options);
+
+        lines = 2;
+        line[0] = "Jeff: What I don't know what you mean, Mr. K.";
+        line[1] = "      Go away.";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        lines = 1;
+        line[0] = "Me: Why? Is something wrong?";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "Mr. K: Tell the truth, Jeff.";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "Jeff: There's nothing to tell.";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
 
         line[0] = "What do you want to do?";
         contentWindow = createContentHud(hudHeight, line, lines);
