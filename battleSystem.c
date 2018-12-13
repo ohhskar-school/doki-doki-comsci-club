@@ -15,50 +15,50 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     int success = 0;
 
     //Setting Player Info
-    player.damage = _battleInfo.interestPoints[2]/10;
+    player.damage = _battleInfo.interestPoints[2]/8;
     player.health = 100;
     player.maxHealth = 100;
 
     //Selecting Boss Attributes
     switch  (bossSelection) {
         case 1:
-            boss.damage = 10;
-            boss.health = 75;
+            boss.damage = 15;
+            boss.health = 80;
             boss.maxHealth = 100;
-            boss.skill = 50;
+            boss.skill = 30;
             boss.name = "Math Ghost";
             break;
 
         case 2:
-            boss.damage = 10;
-            boss.health = 75;
+            boss.damage = 15;
+            boss.health = 100;
             boss.maxHealth = 100;
-            boss.skill = 50;
+            boss.skill = 30;
             boss.name = "Club Recruiter Horde";
             break;
         case 3:
-            boss.damage = 20;
-            boss.health = 750;
+            boss.damage = 30;
+            boss.health = 800;
             boss.maxHealth = 1000;
-            boss.skill = 50;
+            boss.skill = 5;
             boss.name = "Jeff's TECKEN Character";
             break;
         case 4:
-            boss.damage = 10;
-            boss.health = 75;
-            boss.maxHealth = 100;
-            boss.skill = 50;
+            boss.damage = 20;
+            boss.health = 175;
+            boss.maxHealth = 200;
+            boss.skill = 30;
             boss.name = "CMSC 11 Assignment";
             break;
         case 5:
-            boss.damage = 10;
-            boss.health = 75;
-            boss.maxHealth = 100;
-            boss.skill = 50;
+            boss.damage = 20;
+            boss.health = 250;
+            boss.maxHealth = 300;
+            boss.skill = 20;
             boss.name = "Mr. K's Pop Quiz";
             break;
         case 6:
-            boss.damage = 1000000;
+            boss.damage = 10;
             boss.health = 75;
             boss.maxHealth = 100;
             boss.skill = 50;
@@ -71,13 +71,14 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     clear();
     refresh();
 
+    // Creating Windows
+    int hudHeight = 5;
+    WINDOW *enemyHudWindow;
+    WINDOW *playerHudWindow;
+    WINDOW *contentWindow;
+    optionReturn optionWindow;
+
     if (bossSelection == 6) {
-        //Creating Windows
-        int hudHeight = 5;
-        WINDOW *enemyHudWindow;
-        WINDOW *playerHudWindow;
-        WINDOW *contentWindow;
-        optionReturn optionWindow;
 
         int lines = 1;
         char *line[lines];
@@ -92,15 +93,19 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         playerHudWindow = createPlayerHud(player, hudHeight);
         optionWindow = createOptionHud(hudHeight, option, options);
 
-        line[0] = "You approach Mr. K";
+        line[0] = "What do you want to do?";
         contentWindow = createContentHud(hudHeight, line, lines);
 
+        options = 3;
         option[0] = "Ask Why";
+        option[1] = "Ask Why";
+        option[2] = "Ask Why";
         createOptionHud(hudHeight, option, options);
 
-        line[0] = "Me and Jeff are actually together";
+        line[0] = "Mr. K: Me and Jeff are actually together";
         contentWindow = createContentHud(hudHeight, line, lines);
 
+        options = 1;
         option[0] = "Next";
         createOptionHud(hudHeight, option, options);
 
@@ -109,18 +114,18 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         playerHudWindow = createPlayerHud(player, hudHeight);
         contentWindow = createContentHud(hudHeight, line, lines);
 
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "What do you want to do?";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
         option[0] = "Accept";
         createOptionHud(hudHeight, option, options);
     }
 
     //Main Battle Loop;
     while (boss.health > 0 && player.health > 0) {
-        //Creating Windows
-        int hudHeight = 5;
-        WINDOW *enemyHudWindow;
-        WINDOW *playerHudWindow;
-        WINDOW *contentWindow;
-        optionReturn optionWindow;
 
         // Generates random boss move
         boss.move = rand() % 3;
@@ -345,9 +350,11 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your knowledge by 5";
                                 break;
                             case 2:
-                                line[0] = "You start yelling: \"Everybody! I have an announcement to make, stop bullying!\"";
-                                line[1] = "";
-                                line[2] = "Your ability to convince people has increased by 5";
+                                lines = 4;
+                                line[0] = "You start yelling:";
+                                line[1] = "\"Everyone! I have an announcement to make, stop bullying!\"";
+                                line[2] = "";
+                                line[3] = "Your ability to convince people has increased by 5";
                                 break;
                             case 3:
                                 line[0] = "You talk trash to Jeff!";
@@ -512,9 +519,11 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your knowledge by 5";
                                 break;
                             case 2:
-                                line[0] = "You start yelling: \"Everybody! I have an announcement to make, stop bullying!\"";
-                                line[1] = "";
-                                line[2] = "Your ability to convince people has increased by 5";
+                                lines = 4;
+                                line[0] = "You start yelling:";
+                                line[1] = "\"Everyone! I have an announcement to make, stop bullying!\"";
+                                line[2] = "";
+                                line[3] = "Your ability to convince people has increased by 5";
                                 break;
                             case 3:
                                 line[0] = "You talk trash to Jeff!";
@@ -658,9 +667,11 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your knowledge by 5";
                                 break;
                             case 2:
-                                line[0] = "You start yelling: \"Everybody! I have an announcement to make, stop bullying!\"";
-                                line[1] = "";
-                                line[2] = "Increasing your ability to convince people by 5";
+                                lines = 4;
+                                line[0] = "You start yelling:";
+                                line[1] = "\"Everyone! I have an announcement to make, stop bullying!\"";
+                                line[2] = "";
+                                line[3] = "Your ability to convince people has increased by 5";
                                 break;
                             case 3:
                                 line[0] = "You talk trash to Jeff!";
@@ -801,9 +812,11 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your knowledge by 5";
                                 break;
                             case 2:
-                                line[0] = "You start yelling: \"Everybody! I have an announcement to make, stop bullying!\"";
-                                line[1] = "";
-                                line[2] = "Your ability to convince people has increased by 5";
+                                lines = 4;
+                                line[0] = "You start yelling:";
+                                line[1] = "\"Everyone! I have an announcement to make, stop bullying!\"";
+                                line[2] = "";
+                                line[3] = "Your ability to convince people has increased by 5";
                                 break;
                             case 3:
                                 line[0] = "You talk trash to Jeff";
@@ -889,9 +902,11 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         line[2] = "Decreasing your knowledge by 5";
                         break;
                     case 2:
-                        line[0] = "You're starting to have doubts about joining the CMSC Club";
-                        line[1] = "";
-                        line[2] = "Your ability to convice people has decreased by 5";
+                        lines = 4;
+                        line[0] = "You start yelling:";
+                        line[1] = "\"Everyone! I have an announcement to make, stop bullying!\"";
+                        line[2] = "";
+                        line[3] = "Your ability to convince people has increased by 5";
                         break;
                     case 3:
                         line[0] = "His words hurt your feelings";
@@ -1007,9 +1022,11 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your knowledge by 10";
                                 break;
                             case 2:
-                                line[0] = "You start yelling: \"Everybody! I have an announcement to make, stop bullying!\"";
-                                line[1] = "";
-                                line[2] = "Your ability to convince people has increased by 10";
+                                lines = 4;
+                                line[0] = "You start yelling:";
+                                line[1] = "\"Everyone! I have an announcement to make, stop bullying!\"";
+                                line[2] = "";
+                                line[3] = "Your ability to convince people has increased by 5";
                                 break;
                             case 3:
                                 line[0] = "You insult Jeff's mom";
@@ -1174,9 +1191,11 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 line[2] = "Increasing your knowledge by 5";
                                 break;
                             case 2:
-                                line[0] = "You start yelling: \"Everybody! I have an announcement to make, stop bullying!\"";
-                                line[1] = "";
-                                line[2] = "Your ability to convince people has increased by 5";
+                                lines = 4;
+                                line[0] = "You start yelling:";
+                                line[1] = "\"Everyone! I have an announcement to make, stop bullying!\"";
+                                line[2] = "";
+                                line[3] = "Your ability to convince people has increased by 5";
                                 break;
                             case 3:
                                 line[0] = "You tell Jeff that he sucks!";
