@@ -9,6 +9,7 @@ void getReadyScreen();
 void sizeScreen();
 void disclaimerScreen();
 void endScreen();
+void gameOverScreen();
 int createGameScreen(const char **line, int lines, const char **option, int options, gameInfo incomingInfo);
 WINDOW *createEnemyHud(bossStruct boss, int hudHeight);
 WINDOW *createPlayerHud(playerStruct player, int hudHeight);
