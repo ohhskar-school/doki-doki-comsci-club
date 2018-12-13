@@ -27,8 +27,18 @@ int main() {
     initializeNcurses();
     initializeColors();
 
+    //Get Terminal Size
+    int row, col;
+    getmaxyx(stdscr, row, col);
+
+    if (col < 80) {
+        sizeScreen();
+        clear();
+        refresh();
+        endwin();
+        return 0;
+    }
     //Present Splash Screen
-    presentsScreen();
     splashScreen();
 
     //Main Game Loop

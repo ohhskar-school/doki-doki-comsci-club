@@ -43,7 +43,7 @@ void fullScreenCentered(const char **line, int lineSize) {
     attroff(COLOR_PAIR(2));
 
     refresh();
-    sleep(1);
+    sleep(2);
 }
 
 void splashScreen() {
@@ -88,6 +88,26 @@ void getReadyScreen() {
     line[7] = " | \\| | __\\ \\/ /_   _| | _ ) /_\\_   _|_   _| |  | __|";
     line[8] = " | .` | _| >  <  | |   | _ \\/ _ \\| |   | | | |__| _| ";
     line[9] = " |_|\\_|___/_/\\_\\ |_|   |___/_/ \\_\\_|   |_| |____|___|";
+    fullScreenCentered(line, lineSize);
+}
+
+void sizeScreen() {
+    int lineSize = 3;
+    const char *line[lineSize];
+    line[0] = "This game is best played";
+    line[1] = "when the terminal width";
+    line[2] = "is greater than 80";
+    fullScreenCentered(line, lineSize);
+}
+
+void disclaimerScreen() {
+    int lineSize = 5;
+    const char *line[lineSize];
+    line[0] = "This is a work of fiction.";
+    line[1] = "Names, characters, businesses, places, events and incidents";
+    line[2] = "are either the products of the author's imagination";
+    line[3] = "or used in a fictitious manner. Any resemblance to actual persons,";
+    line[4] = "living or dead, or actual events is purely coincidental.";
     fullScreenCentered(line, lineSize);
 }
 

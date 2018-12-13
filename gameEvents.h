@@ -2,6 +2,7 @@
 #define GAMEEVENTS_H
 #include "gameInfo.h"
 
+gameInfo splashScreenEvent(gameInfo _eventInfo);
 gameInfo mainMenu(gameInfo _eventInfo);
 gameInfo dayOne(gameInfo _eventInfo);
 gameInfo onePathOne(gameInfo _eventInfo);

@@ -5,6 +5,15 @@
 #include "gameInfo.h"
 #include "hud.h"
 
+gameInfo splashScreenEvent(gameInfo _eventInfo) {
+    disclaimerScreen();
+    presentsScreen();
+    splashScreen();
+
+    _eventInfo.nextEvent = 1001;  //battleOne
+    return _eventInfo;
+}
+
 gameInfo mainMenu(gameInfo _eventInfo) {
     int lines = 6;
     const char *line[lines];
@@ -27,7 +36,7 @@ gameInfo mainMenu(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 1001;  //battleOne
+            _eventInfo.nextEvent = 2;  //SplashScreen
             _eventInfo.end = 0;
             break;
         case 1:
