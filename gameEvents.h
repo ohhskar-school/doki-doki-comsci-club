@@ -35,5 +35,11 @@ gameInfo battleFour(gameInfo _eventInfo);
 gameInfo resultOne(gameInfo _eventInfo);
 gameInfo resultTwo(gameInfo _eventInfo);
 gameInfo resultThree(gameInfo _eventInfo);
+gameInfo homeOne(gameInfo _eventInfo);
+gameInfo homeTwo(gameInfo _eventInfo);
+gameInfo homeThree(gameInfo _eventInfo);
+gameInfo homeFour(gameInfo _eventInfo);
+gameInfo homePathOne(gameInfo _eventInfo);
+gameInfo homePathTwo(gameInfo _eventInfo);
 
 #endif

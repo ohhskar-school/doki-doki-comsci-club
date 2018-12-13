@@ -47,6 +47,181 @@ gameInfo mainMenu(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
+//After battleOne
+gameInfo homeOne(gameInfo _eventInfo){
+    int lines = 5;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "Bzzzt...";
+    line[1] = ".......";
+    line[2] = "";
+    line[3] = "BZZZZZZZZZZZZZZZT";
+    line[4] = "";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "Wake up!";
+
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 302;
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+            break;
+    }
+
+    return _eventInfo;
+}
+
+gameInfo homeTwo(gameInfo _eventInfo){
+    int lines = 22;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "Me: WAAHH! Please don't give me a 5.0 in Math!!";
+    line[1] = "*heavy breathing*";
+    line[2] = "";
+    line[3] = "Bzzzt... Bzzzt....";
+    line[4] = "";
+    line[5] = "I turn off my alarm and look around me.";
+    line[6] = "I'm not in a battle against a math ghost.";
+    line[7] = "I'm in room and it's 7AM.";
+    line[8] = "";
+    line[9] = "Me: What a horrible dream...";
+    line[10] = "";
+    line[11] = "Why do I have a feeling that I'm supposed to be somewhere..";
+    line[12] = "I catch a glimpse of my alarm clock again."
+    line[13] = "It's 7AM...";
+    line[14] = "";
+    line[15] = "Me: Oh no! It's 7AM, I'm late for my first day!";
+    line[16] = "";
+    line[17] = "The next few minutes were a blur of taking a shower,";
+    line[18] = "breakfast with my mom, and running outside the house.";
+    line[19] = "";
+    line[20] = "How should I get to school?";
+    line[21] = "";
+
+    //Setting Options
+    int options = 2;
+    const char *option[options];
+    option[0] = "RUN";
+    option[1] = "Ride a jeepney";
+
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 311;
+            _eventInfo.interestPoints[1] += 25; //interestPoints[1] is Mr. K
+            _eventInfo.end = 0;
+            break;
+        case 1:
+            _eventInfo.nextEvent = 312
+            _eventInfo.interestPoints[0] += 25; //interestPoints[0] is Jeff
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+            break;
+    }
+
+    return _eventInfo;
+}
+
+gameInfo homePathOne(branchInfo _eventInfo);
+    int lines = 14;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "I think school's close enough and riding a jeepney";
+    line[1] = "would just be a waste of 7 pesos so I run.";
+    line[2] = "";
+    line[3] = "I run with all my might, dodging pedestrians";
+    line[4] = "and the occassional random bystander asking me,"
+    line[5] = "'Openminded ka ba?'";
+    line[6] = "";
+    line[7] = "A few blocks and I see it! I'm almost there!";
+    line[8] = "";
+    line[9] = "I accidentally bump into a young man with unkempt hair and lazy slouch";
+    line[10] = "I'm way too late to care and look back so I just keep running.";
+    line[11] = "";
+    line[12] = "And there it is! I'm finally here!";
+    line[13] = "";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "Go in!";
+
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 100;
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+            break;
+    }
+
+    return _eventInfo;
+}
+
+gameInfo homePathTwo(gameInfo _eventInfo){
+    int lines = 18;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "Running is way too much of a risk!";
+    line[1] = "I play it safe and ride a jeepney.";
+    line[2] = "";
+    line[3] = "Fortunately, I get on one immediately and it";
+    line[4] = "speeds away to the general direction of school.";
+    line[5] = "";
+    line[6] = "Unfortunately for me, I barely have any room to squeeze in.";
+    line[7] = "I'm literally sitting on air.";
+    line[8] = "";
+    line[9] = "My legs were about to give when finally, I'm here!";
+    line[10] = "I hurry to get down until a voice calls out to me.";
+    line[11] = "";
+    line[12] = "Conductor: Oy! Pliti nimo!";
+    line[13] = "Me: Ahh!! Sorry kaayo, kuya!";
+    line[14] = "";
+    line[15] = "How embarrassing!!";
+    line[16] = "I pay quickly and run off to the school gates.";
+    line[17] = "";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "I'm finally here!";
+
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 100;
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+            break;
+    }
+
+    return _eventInfo;
+}
+
 gameInfo dayOne(gameInfo _eventInfo) {
     int lines = 52;
     const char *line[lines];
@@ -54,7 +229,7 @@ gameInfo dayOne(gameInfo _eventInfo) {
 
     line[0] = "'Welcome to P University, the premier university in the country!'";
     line[1] = "That's what the huge banner greeted me when I walked into the university.";
-    line[2] = "It's my first day as a BS Computer Science major and wait, OH NO!";
+    line[2] = "It's my first day as a BS Computer Science major and OH NO!";
     line[3] = "I'M ALREADY LATE FOR MY FIRST CLASS! Where's my classroom?!";
     line[4] = "";
     line[5] = "There it is! I rush in and sit in a random seat near the back.";
@@ -1056,6 +1231,47 @@ gameInfo clubOneContEight(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
+gameInfo homeThree(gameInfo _eventInfo) {
+    int lines = 9;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "I get home and head straight for my room.";
+    line[1] = "My mom asks if I want dinner, I tell her maybe later.";
+    line[2] = "";
+    line[3] = "What a loooong first day.";
+    line[4] = "From the moment I woke up until now, it feels like";
+    line[5] = "I've been strung along on a series of events.";
+    line[6] = "";
+    line[7] = "Now that I think about it, I still have an assignment to do.";
+    line[8] = "";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "Make the assignment!";
+
+    createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 1004;
+            _eventInfo.end = 1;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+            break;
+    }
+
+    return _eventInfo;
+}
+
+gameInfo homeFour(gameInfo _eventInfo){
+
+}
+
+
 /*
 gameInfo dayTwo(gameInfo _eventInfo){
     int lines = 6;
@@ -1085,7 +1301,7 @@ gameInfo dayTwo(gameInfo _eventInfo){
         case 1:
             _eventInfo.nextEvent = 207;
             _eventInfo.end = 0;
-            break;
+          /  break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
@@ -1102,18 +1318,22 @@ gameInfo twoPathOne(gameInfo _eventInfo){
     line[] = 
 }*/
 
-//BATTLES
+// ---->>> BATTLES
 
+//Math Ghost Boss
 gameInfo battleOne(gameInfo _eventInfo) {
     int result = bossBattle(1, _eventInfo);
 
+//Switches between success and failure events
+//Failure = 0
+//Success = 1
     switch (result) {
         case 0:
             _eventInfo.nextEvent = 1201;
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 100;
+            _eventInfo.nextEvent = 301;
             _eventInfo.end = 0;
             break;
         default:
@@ -1125,9 +1345,13 @@ gameInfo battleOne(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
+//Horde Boss
 gameInfo battleTwo(gameInfo _eventInfo) {
     int result = bossBattle(2, _eventInfo);
 
+//Switches between success and failure events
+//Failure = 0
+//Success = 1
     switch (result) {
         case 0:
             _eventInfo.nextEvent = 1202;
@@ -1148,9 +1372,13 @@ gameInfo battleTwo(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
+//Jeff TECKEN Boss
 gameInfo battleThree(gameInfo _eventInfo) {
     int result = bossBattle(3, _eventInfo);
 
+//Switches between success and failure events
+//Failure = 0
+//Success = 1
     switch (result) {
         case 0:
             _eventInfo.nextEvent = 505;
@@ -1166,9 +1394,13 @@ gameInfo battleThree(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
+//Assignment Boss
 gameInfo battleFour(gameInfo _eventInfo) {
     int result = bossBattle(4, _eventInfo);
 
+//Switches between success and failure events
+//Failure = 0
+//Success = 1
     switch (result) {
         case 0:
             _eventInfo.nextEvent = 1204;
@@ -1176,7 +1408,7 @@ gameInfo battleFour(gameInfo _eventInfo) {
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 1000;
+            _eventInfo.nextEvent = 304;
             _eventInfo.interestPoints[1] += 75;
             _eventInfo.end = 1;
             break;
@@ -1189,6 +1421,9 @@ gameInfo battleFour(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
+// ----->> BATTLE RESULTS
+
+//Math Ghost Battle Failure
 gameInfo resultOne(gameInfo _eventInfo) {
     int lines = 1;
     const char *line[lines];
@@ -1217,6 +1452,7 @@ gameInfo resultOne(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
+//Horde Battle Failure
 gameInfo resultTwo(gameInfo _eventInfo) {
     int lines = 1;
     const char *line[lines];
@@ -1225,6 +1461,7 @@ gameInfo resultTwo(gameInfo _eventInfo) {
     line[0] = "Jeff";
 }
 
+//Assignment Battle Failure
 gameInfo resultThree(gameInfo _eventInfo) {
     int lines = 2;
     const char *line[lines];

@@ -99,6 +99,21 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
         case 1204:
             _branchInfo = resultThree(_branchInfo);
             break;
+        case 301:
+            _branchInfo = homeOne(_branchInfo);
+            break;
+        case 302:
+            _branchInfo = homeTwo(_branchInfo);
+            break;
+        case 303:
+            _branchInfo = homeThree(_branchInfo);
+            break;
+        case 311:
+            _branchInfo = homePathOne(_branchInfo);
+            break;
+        case 312:
+            _branchInfo = homePathTwo(_branchInfo);
+            break;
         case 100000:
             break;
         default:
