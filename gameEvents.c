@@ -1795,13 +1795,58 @@ gameInfo dayTwoContFive(gameInfo _eventInfo) {
     return _eventInfo;
 }
 
-// gameInfo dayTwoContSix(gameInfo _eventInfo){
-//     int lines =
-//     const char *line[lines];
-//     int choice = 0;
+gameInfo dayTwoContSix(gameInfo _eventInfo){
+    int lines = 23;
+    const char *line[lines];
+    int choice = 0;
 
-//     line[0] = "Mr. K: Okay, everyone pass your papers!"
-// }
+    line[0] = "Mr. K: Okay, everyone pass your papers!"
+    line[1] = "     ";
+    line[2] = "I pass my paper to the front, hoping to God I did well.";
+    line[3] = "     ";
+    line[4] = "";
+    line[5] = "Mr. K: Don't worry, guys. I'm sure you all did good.";
+    line[6] = "     ";
+    line[7] = "Curse this man. He cute but I feel so incredibly betrayed.";
+    line[8] = "";
+    line[9] = "Classes continue for the day until it's finally time to go.";
+    line[10] = "    ";
+    line[11] = "Mr. K: See you tomorrow, everyone!";
+    line[12] = "    ";
+    line[13] = "Everyone goes to leave. Chichi and I walk out the door together";
+    line[14] = "only to be greeted by a familiar smirking face.";
+    line[15] = "";
+    line[16] = "Me: Jeff!";
+    line[17] = "Jeff: Hello. I believe someone owes me a date.";
+    line[18] = "    ";
+    line[19] = "Chichi daintily covers her mouth with her hand.";
+    line[20] = "    ";
+    line[21] = "Chichi: Oooh a date? Wow, you guys!";
+    line[19] = "Me: Yeah, Chichi, it's kind of a long story. You see..";
+    line[20] = "Someone: A date?";
+    line[21] = "";
+    line[22] = "I look behind me to find Mr. K watching us with interest.";
+
+    //Setting options
+    int options = 1;
+    const char *option[options];
+    option[0] = ".......";
+
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 1006;  //battleFive
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
+
+    return _eventInfo;
+}
+
 
 // ---->>> BATTLES
 
@@ -1844,7 +1889,7 @@ gameInfo battleTwo(gameInfo _eventInfo) {
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 501;  //clubOneCont
+            _eventInfo.nextEvent = 501;  //clubOneContOne
             _eventInfo.interestPoints[0] += 50;
             _eventInfo.end = 0;
             break;
@@ -1866,7 +1911,7 @@ gameInfo battleThree(gameInfo _eventInfo) {
     //Success = 1
     switch (result) {
         case 0:
-            _eventInfo.nextEvent = 505;
+            _eventInfo.nextEvent = 505; //clubOneContFive
             _eventInfo.interestPoints[0] += 75;
             _eventInfo.end = 0;
             break;
@@ -1915,12 +1960,12 @@ gameInfo battleFive(gameInfo _eventInfo) {
     //Success = 1
     switch (result) {
         case 0:
-            _eventInfo.nextEvent = 104;  //dayTwoContSix
+            _eventInfo.nextEvent = 109;  //dayTwoContSix
             _eventInfo.interestPoints[1] -= 25;
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 104;  //dayTwoContSix
+            _eventInfo.nextEvent = 109;  //dayTwoContSix
             _eventInfo.interestPoints[1] += 50;
             _eventInfo.end = 0;
             break;
@@ -1932,6 +1977,27 @@ gameInfo battleFive(gameInfo _eventInfo) {
 
     return _eventInfo;
 }
+
+gameInfo battleSix(gameInfo _eventInfo){
+    int result = bossBattle(6, _eventInfo);
+
+    //Switches between success and failure events
+    //Failure = 0
+    //Success = 1
+    switch (result) {
+        case 0:
+            endScreen();            // displays the To Be Continued screen
+            _eventInfo.end = 1;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+            break;
+    }
+
+    return _eventInfo;
+}
+
 
 // ----->> BATTLE RESULTS
 
