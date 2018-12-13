@@ -1430,11 +1430,11 @@ gameInfo dayTwo(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 104;  //dayTwoCont
+            _eventInfo.nextEvent = 104;  //dayTwoContOne
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 104;  //dayTwoCont
+            _eventInfo.nextEvent = 104;  //dayTwoContOne
             _eventInfo.end = 0;
             break;
         default:
@@ -1685,7 +1685,7 @@ gameInfo twoPathTwo(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 104;  //dayTwoContFour
+            _eventInfo.nextEvent = 107;  //dayTwoContFour
             _eventInfo.end = 0;
             break;
         default:
@@ -1728,12 +1728,12 @@ gameInfo dayTwoContFour(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 105;  //dayTwoContFive
+            _eventInfo.nextEvent = 108;  //dayTwoContFive
             _eventInfo.interestPoints[1] += 25;
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 105;  //dayTwoContFive
+            _eventInfo.nextEvent = 108;  //dayTwoContFive
             _eventInfo.interestPoints[1] += 50;
             _eventInfo.end = 0;
             break;

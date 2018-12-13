@@ -33,13 +33,13 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
         case 106:
             _branchInfo = dayTwoContThree(_branchInfo);
              break;
-        case 104:
+        case 107:
             _branchInfo = dayTwoContFour(_branchInfo);
             break;
-        case 105:
+        case 108:
             _branchInfo = dayTwoContFive(_branchInfo);
             break;
-        // case 106:
+        // case 109:
         //     _branchInfo = dayTwoContSix(_branchInfo);
         //     break;
         case 201:
