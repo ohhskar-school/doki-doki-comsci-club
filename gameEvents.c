@@ -67,7 +67,7 @@ gameInfo homeOne(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "Wake up!";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -117,7 +117,7 @@ gameInfo homeTwo(gameInfo _eventInfo) {
     option[0] = "RUN";
     option[1] = "Ride a jeepney";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -164,7 +164,7 @@ gameInfo homePathOne(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "Go in!";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -209,7 +209,7 @@ gameInfo homePathTwo(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "I'm finally here!";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -341,7 +341,7 @@ gameInfo onePathOne(gameInfo _eventInfo) {
     option[0] = "Smile back to her";
     option[1] = ".......";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -382,7 +382,7 @@ gameInfo onePathTwo(gameInfo _eventInfo) {
     option[0] = "Ignore her.";
     option[1] = ".......";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -423,7 +423,7 @@ gameInfo onePathThree(gameInfo _eventInfo) {
     option[0] = "'Sorry, you did good.'";
     option[1] = ".......";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -527,7 +527,7 @@ gameInfo onePathFour(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "........";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -570,7 +570,7 @@ gameInfo onePathFive(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "........";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -639,7 +639,7 @@ gameInfo dayOneContTwo(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "Yes";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -669,7 +669,7 @@ gameInfo clubOne(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "AHHHH!!";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -713,7 +713,7 @@ gameInfo clubOneCont(gameInfo _eventInfo) {
     option[1] = "Why not?";
     option[2] = "Really though, do I have a choice?";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -754,7 +754,7 @@ gameInfo clubOneContTwo(gameInfo _eventInfo) {
     option[0] = "Why wouldn't I when you literally threatened our entire class..";
     option[1] = "I wanna learn. Thought this was the place I could do that.";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -795,7 +795,7 @@ gameInfo clubOneContThree(gameInfo _eventInfo) {
     option[0] = "There doesn't seem to be a lot of people..";
     option[1] = "Is this really the club? There aren't a lot of people.";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -856,7 +856,7 @@ gameInfo clubOneContFour(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "Oh no!";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -896,7 +896,7 @@ gameInfo clubOneContFive(gameInfo _eventInfo) {
     option[1] = "Could you give me some time to think?";
     option[2] = "Hmm, sure okay. Why not.";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -940,7 +940,7 @@ gameInfo clubPathOne(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "........";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -982,7 +982,7 @@ gameInfo clubPathTwo(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "........";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1018,7 +1018,7 @@ gameInfo clubPathThree(gameInfo _eventInfo) {
     option[0] = "That's not what I meant.";
     option[1] = "This was just a bit unexpected.";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1071,7 +1071,7 @@ gameInfo clubPathBranchOne(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "Press Enter to doubt.";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1088,7 +1088,7 @@ gameInfo clubPathBranchOne(gameInfo _eventInfo) {
 }
 
 gameInfo clubOneContSix(gameInfo _eventInfo) {
-    int lines = 26;
+    int lines = 25;
     const char *line[lines];
     int choice = 0;
 
@@ -1101,12 +1101,12 @@ gameInfo clubOneContSix(gameInfo _eventInfo) {
     line[6] = "";
     line[7] = "I clear my throat and stand from my seat beside him";
     line[8] = "He looks up at me and smirks that heart hammering smile again.";
-    line[9] = "";
+    line[9] = "     ";
     line[10] = "Jeff: I'll see you at 7PM sharp.";
     line[11] = "";
     line[12] = "Right at that moment, the few other members of the CMSC Club walked in.";
     line[13] = "Jeff turned to them and started chatting as if nothing happened.";
-    line[14] = "";
+    line[14] = "    ";
     line[15] = "I stare at him, dumbfounded, for a while.";
     line[16] = "What just happened? And what did I just get myself into?";
     line[17] = "";
@@ -1117,7 +1117,6 @@ gameInfo clubOneContSix(gameInfo _eventInfo) {
     line[22] = "Mr. K: Dog. I love cats but I can't have one.";
     line[23] = "";
     line[24] = "At that moment, Chichi Santiago walks through the door.";
-    line[25] = "";
 
     //Setting Options
     int options = 2;
@@ -1125,7 +1124,7 @@ gameInfo clubOneContSix(gameInfo _eventInfo) {
     option[0] = "Chichi! Over here";
     option[1] = ".....";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1151,9 +1150,9 @@ gameInfo clubOneContSeven(gameInfo _eventInfo) {
     int choice = 0;
 
     line[0] = "Chichi walks over meekly";
-    line[1] = "Chichi: Oh, it's you from class! Sorry about the";
-    line[2] = "introduction thing. I get really shy.";
-    line[3] = "";
+    line[1] = "    ";
+    line[2] = "Chichi: Oh, it's you from class! Sorry about the";
+    line[3] = "\tintroduction thing. I get really shy."
 
     //Setting Options
     int options = 2;
@@ -1161,7 +1160,7 @@ gameInfo clubOneContSeven(gameInfo _eventInfo) {
     option[0] = "No biggie.";
     option[1] = "It's fine. I completely understand.";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1189,7 +1188,7 @@ gameInfo clubOneContEight(gameInfo _eventInfo) {
     line[0] = "She sighs happily and clasps her hands together.";
     line[1] = "";
     line[2] = "Chichi: That's a relief! I was hoping we could be friends.";
-    line[3] = "I want to be friends with my first college seatmate.";
+    line[3] = "\tI want to be friends with my first college seatmate.";
     line[4] = "";
     line[5] = "She's so cute! How could I say no?";
     line[6] = "    ";
@@ -1202,9 +1201,9 @@ gameInfo clubOneContEight(gameInfo _eventInfo) {
     line[13] = "Jeff: Okay, losers, listen u-OW!";
     line[14] = "Jeff yelps and bends to grab at his foot,";
     line[15] = "while Mr. K beside him just smiles a bit too sweetly.";
-    line[16] = "";
+    line[16] = "    ";
     line[17] = "Mr. K: What our club president means to say is 'Welcome to the CMSC Club'!";
-    line[18] = "   ";
+    line[18] = "";
     line[19] = "The 3 other people in the room and me and Chichi clap our hands";
     line[20] = "in an earnest attempt at applause.";
     line[21] = "   ";
@@ -1220,7 +1219,7 @@ gameInfo clubOneContEight(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "Go home";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1237,7 +1236,7 @@ gameInfo clubOneContEight(gameInfo _eventInfo) {
 }
 
 gameInfo homeThree(gameInfo _eventInfo) {
-    int lines = 9;
+    int lines = 8;
     const char *line[lines];
     int choice = 0;
 
@@ -1249,14 +1248,13 @@ gameInfo homeThree(gameInfo _eventInfo) {
     line[5] = "I've been strung along on a series of events.";
     line[6] = "";
     line[7] = "Now that I think about it, I still have an assignment to do.";
-    line[8] = "";
 
     //Setting Options
     int options = 1;
     const char *option[options];
     option[0] = "Make the assignment!";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1292,7 +1290,7 @@ gameInfo homeFour(gameInfo _eventInfo) {
     option[0] = "Pick up.";
     option[1] = "Ignore it.";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1328,7 +1326,7 @@ gameInfo homePathThree(gameInfo _eventInfo) {
     option[0] = "Yeees";
     option[1] = "Make the ringing stooop";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1370,7 +1368,7 @@ gameInfo homeFive(gameInfo _eventInfo) {
     line[15] = "Me: OOF big mood.";
     line[16] = "";
     line[17] = "Chichi and I keep talking and before we know it, it's already late.";
-    line[18] = "";
+    line[18] = "      ";
     line[19] = "Though school is beginning to stress me out,";
     line[20] = "I'm glad I have a friend I can talk to.";
     line[21] = "";
@@ -1382,7 +1380,7 @@ gameInfo homeFive(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "Continue";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1409,14 +1407,14 @@ gameInfo dayTwo(gameInfo _eventInfo) {
     line[2] = "";
     line[3] = "I felt so nice that in a total reversal of yesterday's events, ";
     line[4] = "I actually got to school an hour early.";
-    line[5] = "";
+    line[5] = "    ";
     line[6] = "Me: I need coffee. This is ridiculous.";
     line[7] = "";
     line[8] = "I walk over to the nearby 8/12 Convenience Store.";
     line[9] = "The store is completely devoid of customers";
     line[10] = "except for one lone slouched back facing me with a head";
     line[11] = "of unkempt hair, sitting alone at one of the tables.";
-    line[12] = "";
+    line[12] = "    ";
     line[13] = "Is that Mr. K?";
 
     //Setting Options
@@ -1425,7 +1423,7 @@ gameInfo dayTwo(gameInfo _eventInfo) {
     option[0] = "Press Enter to doubt";
     option[1] = "Pretty sure it's him";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1450,14 +1448,15 @@ gameInfo dayTwoContOne(gameInfo _eventInfo) {
     int choice = 0;
 
     line[0] = "I pass by him quickly on my way to get coffee and peek.";
-    line[1] = "Wow, it really is him.";
-    line[2] = "";
-    line[3] = "I think it's probably best to avoid him so I try";
-    line[4] = "hurry past him after I pay for my coffee but he";
-    line[5] = "chooses that moment to look up from his book.";
-    line[6] = "";
-    line[7] = "Our eyes meet and I freeze. I do a smol little wave.";
-    line[8] = "";
+    line[1] = "     ";
+    line[2] = "Wow, it really is him.";
+    line[3] = "";
+    line[4] = "I think it's probably best to avoid him so I try";
+    line[5] = "hurry past him after I pay for my coffee but he";
+    line[6] = "chooses that moment to look up from his book.";
+    line[7] = "";
+    line[8] = "Our eyes meet and I freeze. I do a smol little wave.";
+
 
     //Setting Options
     int options = 2;
@@ -1465,7 +1464,7 @@ gameInfo dayTwoContOne(gameInfo _eventInfo) {
     option[0] = "Oh hi, Mr. K, didn't see you there ha-ha-ha";
     option[1] = "Mornin', Mr. K!";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1487,25 +1486,28 @@ gameInfo dayTwoContOne(gameInfo _eventInfo) {
 }
 
 gameInfo dayTwoContTwo(gameInfo _eventInfo) {
-    int lines = 24;
+    int lines = 18;
     const char *line[lines];
     int choice = 0;
 
     line[0] = "A vague expression of recognition passes his face.";
-    line[10] = "Mr. K: Oh it's one of my students. Good morning!";
-    line[11] = "";
-    line[12] = "Mr. K glances at the miserable sight of the table before him.";
-    line[13] = "He discreetly tries to tidy up his mess and discarded breakfast";
-    line[14] = "It's almost cute.";
-    line[15] = "";
-    line[16] = "Whoa, there self, this is your teacher. Reign in the hormones.";
-    line[17] = "";
-    line[18] = "I shift my feet awkwardly and smile.";
-    line[19] = "Me: It's okay, Mr. K. I'll.. sit somewhere else.";
-    line[20] = "";
-    line[21] = "He looks almost relieved but shakes his head.";
-    line[22] = "Mr. K: No, it's fine. Come sit.";
-    line[23] = "";
+    line[1] = "     ";
+    line[2] = "Mr. K: Oh! It's one of my students. Yo! Good morning!";
+    line[3] = "";
+    line[4] = "Mr. K glances at the miserable sight of the table before him.";
+    line[5] = "He discreetly tries to tidy up his mess and discarded breakfast";
+    line[6] = "    ";
+    line[7] = "It's almost cute.";
+    line[8] = "";
+    line[9] = "Whoa, there self, this is your teacher. Reign in the hormones.";
+    line[10] = "";
+    line[11] = "I shift my feet awkwardly and smile.";
+    line[12] = "     ";
+    line[13] = "Me: It's okay, Mr. K. I'll.. sit somewhere else.";
+    line[14] = "";
+    line[15] = "He looks almost relieved but shakes his head.";
+    line[16] = "    ";
+    line[17] = "Mr. K: No, it's fine. Come sit.";
 
     //Setting Options
     int options = 2;
@@ -1513,7 +1515,7 @@ gameInfo dayTwoContTwo(gameInfo _eventInfo) {
     option[0] = "Okay. If you say so.";
     option[1] = "Don't mind if I do hehe";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1533,7 +1535,7 @@ gameInfo dayTwoContTwo(gameInfo _eventInfo) {
 }
 
 gameInfo dayTwoContThree(gameInfo _eventInfo){
-    int lines = 7;
+    int lines = 6;
     const char *line[lines];
     int choice = 0;
 
@@ -1543,18 +1545,24 @@ gameInfo dayTwoContThree(gameInfo _eventInfo){
     line[3] = "of questionable material. I decide not to ask.";
     line[4] = "";
     line[5] = "We sit in relatively awkward silence before I can't take it anymore";
-    line[6] = "";
 
     //Setting Options
-    int options = 1;
+    int options = 2;
     const char *option[options];
-    option[0] = "Why the 'Mr. K'?";
+    option[0] = "What are you reading?";
+    option[1] = "Why the 'Mr. K'?";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
             _eventInfo.nextEvent = 209;  //twoPathOne
+            _eventInfo.interestPoints += 50
+            _eventInfo.end = 0;
+            break;
+        case 1:
+            _eventInfo.nextEvent = 210; //twoPathTwo
+            _eventInfo.interestPoints += 25
             _eventInfo.end = 0;
             break;
         default:
@@ -1565,29 +1573,235 @@ gameInfo dayTwoContThree(gameInfo _eventInfo){
     return _eventInfo;
 }
 
-gameInfo twoPathOne(gameInfo _eventInfo){
-    int lines = 15;
+gameInfo twoPathOne(gameIno _eventInfo){
+    int lines = 16;
     const char *line[lines];
     int choice = 0;
 
-    line[0] = "Mr. K looks up at you and raises an eyebrow.";
-    line[1] = "Mr. K: Excuse me?";
-    line[2] = "";
-    line[3] = "I panic.";
-    line[4] = "Me: I-I mean! I'm not looking to offend you or anything but";
-    line[5] = "like isn't it weird for a teacher to not tell his students";
-    line[6] = "his real name? Like what if you're someone dangerous? What if";
-    line[7] = "your some sort of serial killer? And we'd never know because";
-    line[8] = "we DON'T KNOW YOUR NAME.";
-    line[9] = "";
-    line[10] = "At that, I finally shut my mouth.";
-    line[11] = "Mr. K is looking at me weirdly and I'm afraid I've just ruined";
-    line[12] = "my non-existent working relationship with my teacher.";
-    line[13] = "";
-    line[14] = "";
+    line[0] = "Mr. K's head snaps up so fast I'm worried he'd get whiplash.";
+    line[1] = "Mr. K: What did you say?";
+    line[2] = "     ";
+    line[3] = "Me: What's that you're reading?";
+    line[4] = "    I saw you reading it in class yesterday too.";
+    line[5] = "";
+    line[6] = "Mr. K fidgets and laughs awkwardly.";
+    line[7] = "     ";
+    line[8] = "Mr. K: How old are you again?";
+    line[9] = "     ";
+    line[10] = "Me: 19.";
+    line[11] = "";
+    line[12] = "Mr. K rubs his chin thoughtfully as he studies me.";
+    line[13] = "    ";
+    line[14] = "Mr. K: I guess, it's fine to tell you but I'd rather keep my job.";
+    line[15] = "       Ask me something else.";
+    
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "Why the 'Mr. K'?";
+
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 210;  //twoPathTwo
+            _eventInfo.interestPoints += 50
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
 
     return _eventInfo;
 }
+
+gameInfo twoPathTwo(gameInfo _eventInfo){
+    int lines = 52;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "Mr. K looks at you quizzically and raises an eyebrow.";
+    line[1] = "     ";
+    line[2] = "Mr. K: Excuse me?";
+    line[3] = "";
+    line[4] = "I panic.";
+    line[5] = "     ";
+    line[6] = "Me: I-I mean! I'm not looking to offend you or anything but";
+    line[7] = "    like isn't it weird for a teacher to not tell his students";
+    line[8] = "    his real name? Like what if you're someone dangerous? What if";
+    line[9] = "    your some sort of serial killer? And we'd never know because";
+    line[10] = "   we DON'T KNOW YOUR NAME.";
+    line[11] = "";
+    line[12] = "At that, I finally shut my mouth.";
+    line[13] = "     ";
+    line[14] = "Mr. K is looking at me weirdly and I'm afraid I've just ruined";
+    line[15] = "my non-existent working relationship with my teacher.";
+    line[16] = "";
+    line[17] = "Me: I'm sorry, Mr. K. I'm just really curious.. sorry.";
+    line[18] = "     ";
+    line[19] = "Mr. K bursts out laughing and just shakes his head.";
+    line[20] = "     ";
+    line[21] = "Mr. K: It's okay. When I decided to go by just K, I already steeled";
+    line[22] = "       myself for the numerous questions.";
+    line[23] = "";
+    line[24] = "He fiddles with the corner of a page on his book and closes it.";
+    line[25] = "I just noticed but his hands look delicate yet strong. Like the hands";
+    line[26] = "of an aristocrat but also very much capable of the most compexly";
+    line[27] = "beautiful things.";
+    line[28] = "";
+    line[29] ="Mr. K: Honestly, I just wanna be mysterious.";
+    line[30] = "    ";
+    line[31] = "He waggles his fingers playfully at me. I gulp.";
+    line[32] = "THOSE BEAUTIFUL HANDS!";
+    line[33] = "";
+    line[34] = "Me: Not a proper answer, Mr. K.";
+    line[35] = "   ";
+    line[36] = "Mr. K: But I'm your superior so you're going to have to live";
+    line[37] = "       with that answer for now.";
+    line[38] = "";
+    line[39] = "With that, he starts to gather his things.";
+    line[40] = "   ";
+    line[41] = "Mr. K: I'm going to go on ahead, my inquisitive pupil.";
+    line[42] = "       See you in class.";
+    line[43] = "    ";
+    line[44] = "With a small smile and a little salute, he turns to leave";
+    line[45] = "and I watch him walk out the door.";
+    line[46] = "What a weird guy.";
+    line[47] = "    ";
+    line[48] = "I like him.";
+    line[49] = "";
+    line[50] = "I finish my coffee and head to class too with";
+    line[51] = "a bit more spring in my step.";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "Go to class";
+
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 104;  //dayTwoContFour
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
+
+    return _eventInfo;
+}
+
+gameInfo dayTwoContFour(gameInfo _eventInfo){
+    int lines = 16;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "When I get to the classroom, Mr. K is already there waiting for us.";
+    line[1] = "    ";
+    line[2] = "He sees me enter and raises his hand from the book his reading to";
+    line[3] = "greet me.";
+    line[4] = "    ";
+    line[5] = "Mr. K: Yo.";
+    line[6] = "";
+    line[7] = "He smiles a small smile and my heart skips a beat.";
+    line[8] = "For some reason, despite the dark circles under his eyes";
+    line[9] = "and the messy hair, he's handsome.";
+    line[10] = "";
+    line[11] = "Keep it together, self! He's your teacher!!";
+    line[12] = "I can't help it if he's cute though.";
+    line[13] = "     ";
+    line[14] = "'It's fine, it's just a little crush', I convince myself."
+    line[15] = "";
+
+    //Setting Options
+    int options = 2;
+    const char *option[options];
+    option[0] = "Bow and say 'Good morning'";
+    option[1] = "Smile and wave";
+
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 105;  //dayTwoContFive
+            _eventInfo.interestPoints[1] += 25
+            _eventInfo.end = 0;
+            break;
+        case 1:
+            _eventInfo.nextEvent = 105; //dayTwoContFive
+            _eventInfo.interestPoints[1] += 50
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
+
+    return _eventInfo;
+}
+
+gameInfo dayTwoContFive(gameInfo _eventInfo){
+    int lines = 24;
+    const char *line[lines];
+    int choice = 0;
+
+    line[0] = "I greet him back and he turns back to his book";
+    line[1] = "licking his finger before turning the page.";
+    line[2] = "     ";
+    line[3] = "Good sweet Lord almighty.";
+    line[4] = "";
+    line[5] = "I hurry to my seat before I embarrass myself.";
+    line[6] = "Chichi is already sitting in her seat.";
+    line[7] = "";
+    line[8] = "Chichi: Good morning!";
+    line[9] = "Me: Good morning, Chichi.";
+    line[10] = "Chichi: You look nervous. What's wrong?";
+    line[11] = "Me: It's nothing special, I think.";
+    line[12] = "Chichi: Okay.";
+    line[13] = "";
+    line[14] = "Mr. K closes his book with a snap.";
+    line[15] = "   ";
+    line[16] = "Mr. K: Okay, class, pop quiz time! If you answered the";
+    line[17] = "       homework I gave you. This will be relatively";
+    line[18] = "       easier for you.";
+    line[19] = "    ";
+    line[20] = "The look on everyone's faces is just pure horror.";
+    line[21] = "Mr. K, on the otherhand, is ever gleeful.";
+    line[22] = "    ";
+    line[23] = "Mr. K: OK! Let's start!";
+
+    //Setting Options
+    int options = 1;
+    const char *option[options];
+    option[0] = "Start!";
+
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
+
+    switch (choice) {
+        case 0:
+            _eventInfo.nextEvent = 1005;  //battleFive
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+    }
+
+    return _eventInfo;
+} 
+
+// gameInfo dayTwoContSix(gameInfo _eventInfo){
+//     int lines = 
+//     const char *line[lines];
+//     int choice = 0;
+
+//     line[0] = "Mr. K: Okay, everyone pass your papers!"
+// }
+
+
 
 // ---->>> BATTLES
 
@@ -1600,11 +1814,11 @@ gameInfo battleOne(gameInfo _eventInfo) {
     //Success = 1
     switch (result) {
         case 0:
-            _eventInfo.nextEvent = 1201;
+            _eventInfo.nextEvent = 1201; //resultOne
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 301;
+            _eventInfo.nextEvent = 301; //homeOne
             _eventInfo.end = 0;
             break;
         default:
@@ -1625,12 +1839,12 @@ gameInfo battleTwo(gameInfo _eventInfo) {
     //Success = 1
     switch (result) {
         case 0:
-            _eventInfo.nextEvent = 1202;
+            _eventInfo.nextEvent = 1202; //resultTwo
             _eventInfo.interestPoints[0] += 25;
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 501;
+            _eventInfo.nextEvent = 501; //clubOneCont
             _eventInfo.interestPoints[0] += 50;
             _eventInfo.end = 0;
             break;
@@ -1674,12 +1888,12 @@ gameInfo battleFour(gameInfo _eventInfo) {
     //Success = 1
     switch (result) {
         case 0:
-            _eventInfo.nextEvent = 1204;
+            _eventInfo.nextEvent = 1204; //resultFour
             _eventInfo.interestPoints[1] += 50;
             _eventInfo.end = 0;
             break;
         case 1:
-            _eventInfo.nextEvent = 304;
+            _eventInfo.nextEvent = 304; //homeFour
             _eventInfo.interestPoints[1] += 75;
             _eventInfo.end = 0;
             break;
@@ -1690,6 +1904,34 @@ gameInfo battleFour(gameInfo _eventInfo) {
     }
 
     return _eventInfo;
+}
+
+//Mr. K's test
+gameInfo battleFive(gameInfo _eventInfo){
+    int result = bossBattle(5, _eventInfo);
+
+    //Switches between success and failure events
+    //Failure = 0
+    //Success = 1
+    switch (result) {
+        case 0:
+            _eventInfo.nextEvent = 104; //dayTwoContSix
+            _eventInfo.interestPoints[1] -=25;
+            _eventInfo.end = 0;
+            break;
+        case 1:
+            _eventInfo.nextEvent = 104; //dayTwoContSix
+            _eventInfo.interestPoints[1] += 50;
+            _eventInfo.end = 0;
+            break;
+        default:
+            _eventInfo.errorCode = 2;
+            _eventInfo.end = 1;
+            break;
+    }
+
+    return _eventInfo;
+}
 }
 
 // ----->> BATTLE RESULTS
@@ -1707,7 +1949,7 @@ gameInfo resultOne(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "Quit";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
@@ -1738,11 +1980,11 @@ gameInfo resultTwo(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "Continue";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
-            _eventInfo.end = 1002;
+            _eventInfo.end = 1002; //back to battleTwo
             break;
 
         default:
@@ -1770,11 +2012,11 @@ gameInfo resultThree(gameInfo _eventInfo) {
     const char *option[options];
     option[0] = "Continue";
 
-    createGameScreen(line, lines, option, options, _eventInfo);
+    choice = createGameScreen(line, lines, option, options, _eventInfo);
 
     switch (choice) {
         case 0:
-            _eventInfo.end = 1004;
+            _eventInfo.end = 1004; //back to battleFour
             break;
 
         default:
