@@ -43,7 +43,7 @@ void fullScreenCentered(const char **line, int lineSize) {
     attroff(COLOR_PAIR(2));
 
     refresh();
-    sleep(2);
+    sleep(4);
 }
 
 void splashScreen() {
@@ -88,6 +88,36 @@ void getReadyScreen() {
     line[7] = " | \\| | __\\ \\/ /_   _| | _ ) /_\\_   _|_   _| |  | __|";
     line[8] = " | .` | _| >  <  | |   | _ \\/ _ \\| |   | | | |__| _| ";
     line[9] = " |_|\\_|___/_/\\_\\ |_|   |___/_/ \\_\\_|   |_| |____|___|";
+    fullScreenCentered(line, lineSize);
+}
+
+void gameOverScreen() {
+    int lineSize = 7;
+    const char *line[lineSize];
+    line[0] = "   ___   _   __  __ ___ ";
+    line[1] = "  / __| /_\\ |  \\/  | __|";
+    line[2] = " | (_ |/ _ \\| |\\/| | _| ";
+    line[3] = "  \\___/_/ \\_\\_|__|_|___|";
+    line[4] = "   / _ \\ \\ / / __| _ \\  ";
+    line[5] = "  | (_) \\ V /| _||   /  ";
+    line[6] = "   \\___/ \\_/ |___|_|_\\  ";
+    fullScreenCentered(line, lineSize);
+}
+
+void endScreen() {
+    int lineSize = 11;
+    const char *line[lineSize];
+    line[0] = "             _____ ___    ___ ___              ";
+    line[1] = "            |_   _/ _ \\  | _ ) __|             ";
+    line[2] = "              | || (_) | | _ \\ _|              ";
+    line[3] = "   ___ ___  _ |_|_\\___/__|___/___|  _ ___ ___  ";
+    line[4] = "  / __/ _ \\| \\| |_   _|_ _| \\| | | | | __|   \\ ";
+    line[5] = " | (_| (_) | .` | | |  | || .` | |_| | _|| |) |";
+    line[6] = "  \\___\\___/|_|\\_| |_| |___|_|\\_|\\___/|___|___/ ";
+    line[7] = "";
+    line[8] = "Support us on our kickstarter!";
+    line[9] = "You may also support us on our github!";
+    line[10] = "https://github.com/ohhskar/cmsc11-game";
     fullScreenCentered(line, lineSize);
 }
 
