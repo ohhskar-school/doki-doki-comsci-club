@@ -156,31 +156,37 @@ WINDOW *createHUD(int hudHeight, gameInfo incomingInfo) {
     //Creates the content for the HUD
     //Prints the Main Texts
     wattron(hudWindow, A_BOLD);
-    mvwprintw(hudWindow, 1, 2, "Doki Doki CMSC Club | Hearts: A: ");
+    mvwprintw(hudWindow, 1, 2, "Doki Doki CMSC Club | Hearts: Jeff: ");
 
     //Creates the Hearts for each person with colors
+    //Prints Active Hearts
     wattron(hudWindow, COLOR_PAIR(1));
     for (int i = 0; i < incomingInfo.hearts[0]; i++) {
         wprintw(hudWindow, "*");
     }
     wattroff(hudWindow, COLOR_PAIR(1));
 
-    wprintw(hudWindow, " B: ");
+    //Prints Inactive Hearts
+    wattroff(hudWindow, A_BOLD);
+    for (int i = 5; i > incomingInfo.hearts[0]; i--) {
+        wprintw(hudWindow, "*");
+    }
+    wattron(hudWindow, A_BOLD);
 
+    wprintw(hudWindow, " Mr. K: ");
+
+    //Prints Active Hearts
     wattron(hudWindow, COLOR_PAIR(1));
     for (int i = 0; i < incomingInfo.hearts[1]; i++) {
         wprintw(hudWindow, "*");
     }
     wattroff(hudWindow, COLOR_PAIR(1));
 
-    wprintw(hudWindow, " C: ");
-
-    wattron(hudWindow, COLOR_PAIR(1));
-    for (int i = 0; i < incomingInfo.hearts[2]; i++) {
+    //Prints Inactive Hearts
+    wattroff(hudWindow, A_BOLD);
+    for (int i = 5; i > incomingInfo.hearts[0]; i--) {
         wprintw(hudWindow, "*");
     }
-    wattroff(hudWindow, COLOR_PAIR(1));
-    wattroff(hudWindow, A_BOLD);
 
     wrefresh(hudWindow);
 
