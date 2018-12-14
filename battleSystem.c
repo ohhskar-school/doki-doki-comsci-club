@@ -20,7 +20,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     //Selecting Boss Attributes
     switch (bossSelection) {
         case 1:
-            player.damage = 20;
+            player.damage = 25;
             boss.damage = 10;
             boss.health = 100;
             boss.maxHealth = 100;
@@ -82,86 +82,10 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     WINDOW *contentWindow;
     optionReturn optionWindow;
 
-    if (bossSelection == 6) {
-        int lines = 1;
-        char *line[lines];
-        line[0] = "Mr. K: What's the meaning of this Jeff?";
-
-        int options = 1;
-        char *option[options];
-        option[0] = "Next";
-
-        enemyHudWindow = createEnemyHud(boss, hudHeight);
-        contentWindow = createContentHud(hudHeight, line, lines);
-        playerHudWindow = createPlayerHud(player, hudHeight);
-        optionWindow = createOptionHud(hudHeight, option, options);
-
-        lines = 2;
-        line[0] = "Jeff: What I don't know what you mean, Mr. K.";
-        line[1] = "      Go away.";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 1;
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        lines = 1;
-        line[0] = "Me: Why? Is something wrong?";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 1;
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "Mr. K: Tell the truth, Jeff.";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 1;
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "Jeff: There's nothing to tell.";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 1;
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "What do you want to do?";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 3;
-        option[0] = "Ask Why";
-        option[1] = "Ask Why";
-        option[2] = "Ask Why";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "Mr. K: Me and Jeff are actually together";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 1;
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "It's a critical hit!";
-        player.health = 0;
-        playerHudWindow = createPlayerHud(player, hudHeight);
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "What do you want to do?";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        option[0] = "Accept";
-        createOptionHud(hudHeight, option, options);
-    }
-
-    //Main Battle Loop;
+    //Main Battle Loop
     while (boss.health > 0 && player.health > 0) {
         // Generates random boss move
-        boss.move = rand() % 3;
+        boss.move = rand() % 100;
 
         // Calculates success rate
         bossSuccess = rand() % 100;
@@ -208,7 +132,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         optionWindow = createOptionHud(hudHeight, option, options);
 
         // If boss attacks
-        if (boss.move == 0) {
+        if (boss.move <= 45) {
             lines = 1;
             switch (bossSelection) {
                 case 1:
@@ -297,6 +221,8 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         }
                         enemyHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
+
+                    // If player attack fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -347,6 +273,8 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                                 break;
                         }
                         contentWindow = createContentHud(hudHeight, line, lines);
+                    
+                    // If player evade fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -447,6 +375,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         player.damage += 5;
                         contentWindow = createContentHud(hudHeight, line, lines);
 
+                    // If player taunt fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -474,7 +403,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     createOptionHud(hudHeight, option, options);
                 }
 
-                // If boss attack fails
+            // If boss attack fails
             } else {
                 lines = 1;
                 switch (bossSelection) {
@@ -531,6 +460,8 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         }
                         enemyHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
+
+                    // If player attack fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -622,6 +553,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         player.damage += 5;
                         contentWindow = createContentHud(hudHeight, line, lines);
 
+                    // If player taunt fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -652,7 +584,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         }
 
         // If boss evades
-        if (boss.move == 1) {
+        else if (boss.move > 45 && boss.move <= 75) {
             lines = 1;
             switch (bossSelection) {
                 case 1:
@@ -770,6 +702,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         player.damage += 5;
                         contentWindow = createContentHud(hudHeight, line, lines);
 
+                    // If player taunt fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -797,7 +730,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     createOptionHud(hudHeight, option, options);
                 }
 
-                // If boss evade fails
+            // If boss evade fails
             } else {
                 // If player chose to attack
                 if (optionWindow.choice == 0) {
@@ -828,6 +761,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         }
                         enemyHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
+                    // If player attack fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -918,7 +852,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         }
                         player.damage += 5;
                         contentWindow = createContentHud(hudHeight, line, lines);
-
+                    // If player taunt fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -949,7 +883,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         }
 
         // If boss taunts
-        if (boss.move == 2) {
+        else if (boss.move > 75) {
             lines = 1;
             switch (bossSelection) {
                 case 1:
@@ -1005,6 +939,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         line[2] = "Losing faith in yourself by 5";
                         break;
                 }
+                // Guarantees that the player's damage will never go below 10
                 if (player.damage > 10) {
                     player.damage -= 5;
                 } else {
@@ -1045,6 +980,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         }
                         enemyHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
+                    // If player attack fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -1135,7 +1071,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         }
                         player.damage += 10;
                         contentWindow = createContentHud(hudHeight, line, lines);
-
+                    // If player taunt fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -1163,7 +1099,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                     createOptionHud(hudHeight, option, options);
                 }
 
-                // If boss taunt fails
+            // If boss taunt fails
             } else {
                 lines = 1;
                 switch (bossSelection) {
@@ -1218,6 +1154,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         }
                         enemyHudWindow = createEnemyHud(boss, hudHeight);
                         contentWindow = createContentHud(hudHeight, line, lines);
+                    // If player attack fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -1308,7 +1245,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                         }
                         player.damage += 5;
                         contentWindow = createContentHud(hudHeight, line, lines);
-
+                    // If player taunt fails
                     } else {
                         lines = 1;
                         switch (bossSelection) {
@@ -1339,6 +1276,84 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         }
     }
 
+    // Final Screen
+    if (bossSelection == 6) {
+        int lines = 1;
+        char *line[lines];
+        line[0] = "Mr. K: What's the meaning of this Jeff?";
+
+        int options = 1;
+        char *option[options];
+        option[0] = "Next";
+
+        enemyHudWindow = createEnemyHud(boss, hudHeight);
+        contentWindow = createContentHud(hudHeight, line, lines);
+        playerHudWindow = createPlayerHud(player, hudHeight);
+        optionWindow = createOptionHud(hudHeight, option, options);
+
+        lines = 2;
+        line[0] = "Jeff: What I don't know what you mean, Mr. K.";
+        line[1] = "      Go away.";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        lines = 1;
+        line[0] = "Me: Why? Is something wrong?";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "Mr. K: Tell the truth, Jeff.";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "Jeff: There's nothing to tell.";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "What do you want to do?";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 3;
+        option[0] = "Ask Why";
+        option[1] = "Ask Why";
+        option[2] = "Ask Why";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "Mr. K: Me and Jeff are actually together";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "It's a critical hit!";
+        player.health = 0;
+        playerHudWindow = createPlayerHud(player, hudHeight);
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "What do you want to do?";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        option[0] = "Accept";
+        createOptionHud(hudHeight, option, options);
+    }
+
+    // If boss dies
     if (boss.health <= 0) {
         success = 1;
     }
