@@ -3,7 +3,7 @@
 #include "gameInfo.h"
 #include "hud.h"
 
-//Switches between different events and quests depending on the given number
+//Switches between different events depending on the given number
 gameInfo eventSwitcher(gameInfo _branchInfo) {
     switch (_branchInfo.nextEvent) {
         case 0:
