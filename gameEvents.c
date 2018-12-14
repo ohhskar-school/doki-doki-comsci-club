@@ -1217,7 +1217,7 @@ gameInfo clubOneContEight(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.nextEvent = 1004;
+            _eventInfo.nextEvent = 303;
             _eventInfo.end = 0;
             break;
         default:
