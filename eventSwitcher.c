@@ -150,9 +150,9 @@ gameInfo eventSwitcher(gameInfo _branchInfo) {
         case 1202:
             _branchInfo = resultTwo(_branchInfo);
             break;
-        // case 1204:
-        //     _branchInfo = resultFour(_branchInfo);
-        //     break;
+        case 1204:
+            _branchInfo = resultFour(_branchInfo);
+            break;
         case 100000:
             break;
         default:
