@@ -2029,6 +2029,9 @@ gameInfo resultOne(gameInfo _eventInfo) {
     int choice = 0;
 
     line[0] = "You never woke up from your nightmare.";
+    line[1] = " ";
+    line[2] = "No doki doki for you. College life avoided.";
+    line[3] = "Thank you for taking an interest in DOKI DOKI CMSC CLUB!";
 
     //Setting Options
     int options = 1;
@@ -2053,13 +2056,14 @@ gameInfo resultOne(gameInfo _eventInfo) {
 
 //Horde Battle Failure
 gameInfo resultTwo(gameInfo _eventInfo) {
-    int lines = 3;
+    int lines = 4;
     const char *line[lines];
     int choice = 0;
 
-    line[0] = "The horde has taken you away from the CMSC Club!";
-    line[1] = "      ";
-    line[2] = "Try again?";
+    line[0] = "Your will to resist has crumbled and the horde";
+    line[1] = "of club recruiters take you away from the CMSC Club.";
+    line[2] = "  ";
+    line[3] = "Try again?";
 
     //Setting Options
     int options = 1;
@@ -2070,7 +2074,8 @@ gameInfo resultTwo(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.end = 1002;  //back to battleTwo
+            _eventInfo.nextEvent = 1002;  //back to battleTwo
+            _eventInfo.end = 0;
             break;
 
         default:
@@ -2102,7 +2107,8 @@ gameInfo resultFour(gameInfo _eventInfo) {
 
     switch (choice) {
         case 0:
-            _eventInfo.end = 1004;  //back to battleFour
+            _eventInfo.nextEvent = 1004;  //back to battleFour
+            _eventInfo.end = 0;
             break;
 
         default:
