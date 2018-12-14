@@ -2051,7 +2051,7 @@ gameInfo resultTwo(gameInfo _eventInfo) {
 }
 
 //Assignment Battle Failure
-gameInfo resultThree(gameInfo _eventInfo) {
+gameInfo resultFour(gameInfo _eventInfo) {
     int lines = 4;
     const char *line[lines];
     int choice = 0;
