@@ -245,7 +245,7 @@ gameInfo dayOne(gameInfo _eventInfo) {
     line[15] = "Maybe she's a little shy...";
     line[16] = "";
     line[17] = "The door bursts open and a young man -";
-    line[18] = "probably still in his early twenties - trudges in."
+    line[18] = "probably still in his early twenties - trudges in.";
     line[19] = "His hair is unkempt and sticking up at weird places.";
     line[20] = "Like he just rolled out of bed before coming in.";
     line[21] = "";
@@ -1232,7 +1232,7 @@ gameInfo clubOneContEight(gameInfo _eventInfo) {
     line[25] = "   ";
     line[26] = "Mr. K: Thank you, thank you. ";
     line[27] = "";
-    line[28] = "The club meeting goes on pretty uneventfully."
+    line[28] = "The club meeting goes on pretty uneventfully.";
     line[29] = "They talk about plans for the club for the school year.";
     line[30] = "After that, Mr. K dismisses us.";
     line[31] = "";
