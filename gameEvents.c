@@ -1324,6 +1324,7 @@ gameInfo homeFour(gameInfo _eventInfo) {
         case 1:
             _eventInfo.nextEvent = 313;  //homePathThree
             _eventInfo.end = 0;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
