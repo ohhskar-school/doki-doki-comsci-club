@@ -60,7 +60,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             boss.name = "Mr. K's Pop Quiz";
             break;
         case 6:
-            player.damage = _battleInfo.interestPoints[1] * 0.85;
+            player.damage = _battleInfo.interestPoints[1] * 0.80;
             boss.damage = 10;
             boss.health = 100;
             boss.maxHealth = 100;
