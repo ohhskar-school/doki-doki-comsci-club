@@ -27,7 +27,6 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             boss.skill = 30;
             boss.name = "Math Ghost";
             break;
-
         case 2:
             player.damage = 20;
             boss.damage = 10;
@@ -45,7 +44,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             boss.name = "Jeff's TECKEN Character";
             break;
         case 4:
-            player.damage = _battleInfo.interestPoints[1] * 0.85;
+            player.damage = _battleInfo.interestPoints[1] * 0.90;
             boss.damage = 10;
             boss.health = 750;
             boss.maxHealth = 750;
@@ -53,7 +52,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
             boss.name = "CMSC 11 Assignment";
             break;
         case 5:
-            player.damage = _battleInfo.interestPoints[1] * 0.85;
+            player.damage = _battleInfo.interestPoints[1] * 0.80;
             boss.damage = 10;
             boss.health = 1000;
             boss.maxHealth = 1000;
@@ -63,7 +62,7 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
         case 6:
             player.damage = _battleInfo.interestPoints[1] * 0.85;
             boss.damage = 10;
-            boss.health = 75;
+            boss.health = 100;
             boss.maxHealth = 100;
             boss.skill = 50;
             boss.name = "Mr. K";
@@ -81,6 +80,84 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
     WINDOW *playerHudWindow;
     WINDOW *contentWindow;
     optionReturn optionWindow;
+
+    // Final Screen
+    if (bossSelection == 6) {
+        int lines = 1;
+        char *line[lines];
+        line[0] = "Mr. K: What's the meaning of this Jeff?";
+
+        int options = 1;
+        char *option[options];
+        option[0] = "Next";
+
+        enemyHudWindow = createEnemyHud(boss, hudHeight);
+        contentWindow = createContentHud(hudHeight, line, lines);
+        playerHudWindow = createPlayerHud(player, hudHeight);
+        optionWindow = createOptionHud(hudHeight, option, options);
+
+        lines = 2;
+        line[0] = "Jeff: What I don't know what you mean, Mr. K.";
+        line[1] = "      Go away.";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        lines = 1;
+        line[0] = "Me: Why? Is something wrong?";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "Mr. K: Tell the truth, Jeff.";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "Jeff: There's nothing to tell.";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "What do you want to do?";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 3;
+        option[0] = "Ask Why";
+        option[1] = "Ask Why";
+        option[2] = "Ask Why";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "Mr. K: Me and Jeff are actually together";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        options = 1;
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "It's a critical hit!";
+        player.health = 0;
+        playerHudWindow = createPlayerHud(player, hudHeight);
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        option[0] = "Next";
+        createOptionHud(hudHeight, option, options);
+
+        line[0] = "What do you want to do?";
+        contentWindow = createContentHud(hudHeight, line, lines);
+
+        option[0] = "Accept";
+        createOptionHud(hudHeight, option, options);
+    }
+
 
     //Main Battle Loop
     while (boss.health > 0 && player.health > 0) {
@@ -1274,83 +1351,6 @@ int bossBattle(int bossSelection, gameInfo _battleInfo) {
                 }
             }
         }
-    }
-
-    // Final Screen
-    if (bossSelection == 6) {
-        int lines = 1;
-        char *line[lines];
-        line[0] = "Mr. K: What's the meaning of this Jeff?";
-
-        int options = 1;
-        char *option[options];
-        option[0] = "Next";
-
-        enemyHudWindow = createEnemyHud(boss, hudHeight);
-        contentWindow = createContentHud(hudHeight, line, lines);
-        playerHudWindow = createPlayerHud(player, hudHeight);
-        optionWindow = createOptionHud(hudHeight, option, options);
-
-        lines = 2;
-        line[0] = "Jeff: What I don't know what you mean, Mr. K.";
-        line[1] = "      Go away.";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 1;
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        lines = 1;
-        line[0] = "Me: Why? Is something wrong?";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 1;
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "Mr. K: Tell the truth, Jeff.";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 1;
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "Jeff: There's nothing to tell.";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 1;
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "What do you want to do?";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 3;
-        option[0] = "Ask Why";
-        option[1] = "Ask Why";
-        option[2] = "Ask Why";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "Mr. K: Me and Jeff are actually together";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        options = 1;
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "It's a critical hit!";
-        player.health = 0;
-        playerHudWindow = createPlayerHud(player, hudHeight);
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        option[0] = "Next";
-        createOptionHud(hudHeight, option, options);
-
-        line[0] = "What do you want to do?";
-        contentWindow = createContentHud(hudHeight, line, lines);
-
-        option[0] = "Accept";
-        createOptionHud(hudHeight, option, options);
     }
 
     // If boss dies
