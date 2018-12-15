@@ -1324,6 +1324,7 @@ gameInfo homeFour(gameInfo _eventInfo) {
         case 1:
             _eventInfo.nextEvent = 313;  //homePathThree
             _eventInfo.end = 0;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
@@ -1360,6 +1361,7 @@ gameInfo homePathThree(gameInfo _eventInfo) {
         case 1:
             _eventInfo.nextEvent = 305;  //homeFive
             _eventInfo.end = 0;
+            break;
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
@@ -1461,6 +1463,7 @@ gameInfo dayTwo(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -1503,6 +1506,7 @@ gameInfo dayTwoContOne(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -1552,6 +1556,7 @@ gameInfo dayTwoContTwo(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -1592,6 +1597,7 @@ gameInfo dayTwoContThree(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -1635,6 +1641,7 @@ gameInfo twoPathOne(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -1713,6 +1720,7 @@ gameInfo twoPathTwo(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -1763,6 +1771,7 @@ gameInfo dayTwoContFour(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -1813,6 +1822,7 @@ gameInfo dayTwoContFive(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
@@ -1865,6 +1875,7 @@ gameInfo dayTwoContSix(gameInfo _eventInfo) {
         default:
             _eventInfo.errorCode = 2;
             _eventInfo.end = 1;
+            break;
     }
 
     return _eventInfo;
