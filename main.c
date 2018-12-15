@@ -8,6 +8,11 @@
  * Just run make to compile the files. The makefile compiles the file with 
  * the flags -lncurses and -lm to compile with ncurses and math support.
  * Tested to work on Manjaro Linux. Kernel no. 4.19.6-1-MANJARO
+ * 
+ * The link to our github with all of our commits can be found here:
+ * https://github.com/ohhskar/cmsc11-game
+ * 
+ * For more info please read the README
 */
 
 int main() {
@@ -32,13 +37,16 @@ int main() {
     getmaxyx(stdscr, row, col);
 
     if (col < 80) {
+        //Presents the splashscreen showing that the width of the terminal is less
+        //Than the minimum requirements of the game
         sizeScreen();
+        //Cleanup
         clear();
         refresh();
         endwin();
         return 0;
     }
-    //Present Splash Screen
+    //Present Splash Screen before starting the game
     splashScreen();
     //Main Game Loop
     while (mainInfo.end == 0 && mainInfo.errorCode == 0) {

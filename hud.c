@@ -6,6 +6,7 @@
 #include "gameInfo.h"
 
 gameInfo computeHearts(gameInfo incomingInfo) {
+    //Computes the heart by dividing each interestPoints by 100
     for (int i = 0; i < 3; i++) {
         incomingInfo.hearts[i] = floor(incomingInfo.interestPoints[i] / 100);
     }
@@ -13,8 +14,7 @@ gameInfo computeHearts(gameInfo incomingInfo) {
 }
 
 void initializeNcurses() {
-    initscr();  //Initialize ncurses
-    box(stdscr, 0, 0);
+    initscr();             //Initialize ncurses
     cbreak();              //Enable Line Buffering
     noecho();              //Disable Echoing
     curs_set(0);           //Disable Cursor
@@ -36,6 +36,9 @@ void fullScreenCentered(const char **line, int lineSize) {
     getmaxyx(stdscr, row, col);
 
     //Prints line
+    //row / 2 - floor(lineSize / 2) calculates the gap needed at the top of the splashscreen before it starts printing
+    //(col - strlen(line[i])) / 2 calculates whre the line should start printing so that it will be centered
+
     attron(COLOR_PAIR(2));
     for (int i = 0; i < lineSize; i++) {
         mvprintw(((row / 2) - floor(lineSize / 2)) + i, (col - strlen(line[i])) / 2, "%s", line[i]);
@@ -43,7 +46,7 @@ void fullScreenCentered(const char **line, int lineSize) {
     attroff(COLOR_PAIR(2));
 
     refresh();
-    sleep(1);
+    sleep(3);
 }
 
 void splashScreen() {
@@ -200,26 +203,30 @@ WINDOW *createContentScreen(int contentHeight, int starty, const char **line, in
     int row, col;
     getmaxyx(stdscr, row, col);
 
+    //Creates the window for the content screen
     WINDOW *contentWindow = newwin(contentHeight, col, starty, 0);
+
+    //Sets the variables for the loop
     int contentRow = 1, counter = 0;
     int contentRowHolder = 0;
     while (counter < lines) {
+        //If the line is empty, that means it is signal to start pausing the dialogue screen
         if (!(strcmp(line[counter], ""))) {
             mvwprintw(contentWindow, contentRow + 1, 0, "Press ENTER to continue");
             wrefresh(contentWindow);
-            wgetch(contentWindow);
-            wmove(contentWindow, contentRow + 1, 0);
-            wclrtoeol(contentWindow);
-            contentRow = 1;
-        } else {
+            wgetch(contentWindow);                    //Waits for the user to press a key before continuing
+            wmove(contentWindow, contentRow + 1, 0);  //Moves the cursor to the start of the line
+            wclrtoeol(contentWindow);                 //So that wclrtoeol can start clearing the press Enter to continue line
+            contentRow = 1;                           //This is so that if it will be the last line, there will be no line that states
+        } else {                                      //Press enter to continue when in the options window is shown
             if (contentRow == 1) {
-                wclear(contentWindow);
-            }
-            mvwprintw(contentWindow, contentRow, 0, "%s", line[counter]);
+                wclear(contentWindow);                                     //Cleares the window if the row is already 1, which is when the window is created
+            }                                                              //Or when Enter has been pressed
+            mvwprintw(contentWindow, contentRow, 0, "%s", line[counter]);  //Prints the lines
 
-            if (strlen(line[counter]) > col) {
-                contentRowHolder = (strlen(line[counter]) / col) + 1;
-            } else {
+            if (strlen(line[counter]) > col) {                         //If the line is longer than the width of the terminal,
+                contentRowHolder = (strlen(line[counter]) / col) + 1;  //ContentRowHolder is added depending on the number of lines
+            } else {                                                   //That the printed line has overflowed to.
                 contentRowHolder = 1;
             }
             contentRow += contentRowHolder;
@@ -249,7 +256,7 @@ optionReturn createOptions(int optionHeight, int starty, const char **option, in
     while (1) {
         for (int i = 0; i < options; i++) {
             if (i == returnValues.choice) {
-                wattron(returnValues.optionWindow, A_REVERSE);
+                wattron(returnValues.optionWindow, A_REVERSE);  //Enables highlighting the option if the line to be printed is the same as the selected choice
             }
             mvwprintw(returnValues.optionWindow, i + 3, 0, " %s ", option[i]);
             wattroff(returnValues.optionWindow, A_REVERSE);
@@ -259,14 +266,14 @@ optionReturn createOptions(int optionHeight, int starty, const char **option, in
         switch (choice) {
             case KEY_UP:
                 if (returnValues.choice == 0) {
-                    returnValues.choice = options - 1;
-                } else {
+                    returnValues.choice = options - 1;  //If returnValues.choice is equal to 1, the value wraps around to the last
+                } else {                                //of the options.
                     returnValues.choice--;
                 }
                 break;
             case KEY_DOWN:
                 if (returnValues.choice == options - 1) {
-                    returnValues.choice = 0;
+                    returnValues.choice = 0;  //Same logic is also applied here
                 } else {
                     returnValues.choice++;
                 }
@@ -326,13 +333,23 @@ WINDOW *createEnemyHud(bossStruct boss, int hudHeight) {
 
     int nameLen = strlen(boss.name);
     wattron(enemyHud, A_BOLD);
+    //Prints the boss name and the healMath Ghostth label
     mvwprintw(enemyHud, 2, 3, "%s", boss.name);
     mvwprintw(enemyHud, 2, nameLen + 4, "| HEALTH: ");
+
+    //Calculates the remaining space. 10 is the number of characters in health + 3
+    //each side which are gaps. +1 for the space between the health and the boss name.
+    //Which is equal to 17
     int remainingSpace = col - (nameLen + 17);
+
+    //Calculates the percentage of the health of the boss, which is then multiplied by
+    // the remaining space. This is then implicitly converted to int.
     int healthPercentage = ((float)boss.health / (float)boss.maxHealth) * remainingSpace;
 
     wattron(enemyHud, COLOR_PAIR(1));
     for (int i = healthPercentage, space = 0; i > 0; i--, space++) {
+        //10 is the number of characters in health, 3 is the gap at the side and 1 is the space
+        //between the boss name and the health
         mvwprintw(enemyHud, 2, space + nameLen + 14, "#");
     }
     wattroff(enemyHud, COLOR_PAIR(1));
@@ -350,6 +367,7 @@ WINDOW *createPlayerHud(playerStruct player, int hudHeight) {
 
     WINDOW *playerHud = newwin(hudHeight, col / 2, row - hudHeight, 0);
 
+    //Same logic as above
     wattron(playerHud, A_BOLD);
     mvwprintw(playerHud, 2, 3, "HEALTH: ");
     int remainingSpace = (col / 2) - 15;
@@ -380,6 +398,7 @@ optionReturn createOptionHud(int hudHeight, char **option, int options) {
     box(returnInfo.optionWindow, 0, 0);
     wrefresh(returnInfo.optionWindow);
 
+    //Same logic as createOptions but the change is in the cases of the switch.
     while (1) {
         int gap = 3;
         for (int i = 0; i < options; i++) {
@@ -387,6 +406,8 @@ optionReturn createOptionHud(int hudHeight, char **option, int options) {
                 wattron(returnInfo.optionWindow, A_REVERSE);
             }
             mvwprintw(returnInfo.optionWindow, 2, gap, " %s ", option[i]);
+            //Gap is calculated from the length of the string and the spaces around it. This is added
+            //to the preceding gap to calculate where the option is being printed.
             gap += strlen(option[i]) + 2;
             wattroff(returnInfo.optionWindow, A_REVERSE);
         }

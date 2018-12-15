@@ -44,7 +44,7 @@ gameInfo battleFive(gameInfo _eventInfo);
 gameInfo battleSix(gameInfo _eventInfo);
 gameInfo resultOne(gameInfo _eventInfo);
 gameInfo resultTwo(gameInfo _eventInfo);
-gameInfo resultThree(gameInfo _eventInfo);
+gameInfo resultFour(gameInfo _eventInfo);
 gameInfo homeOne(gameInfo _eventInfo);
 gameInfo homeTwo(gameInfo _eventInfo);
 gameInfo homeThree(gameInfo _eventInfo);
